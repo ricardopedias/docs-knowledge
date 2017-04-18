@@ -1,0 +1,12 @@
+{
+    "name": "plexi/foundation",
+    "description": "Base da aplicação Plexi",
+    "authors": [
+        {
+            "name": "Ricardo Pereira",
+            "email": "rpdesignerfly@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
