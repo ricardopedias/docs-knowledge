@@ -1,14 +1,14 @@
-# Knowloedge
+# Knowledge Base
 
 Este repositório é uma base de conhecimento sobre desenvolvimento, configurações e dicas de softwares.
 
 # Ubuntu
 
-* [Instalação do Ubuntu 18.04 - Pós Intalação](docs/ubuntu-18.04.md)
+* [Instalação do Ubuntu 18.04 - Pós Instalação](docs/ubuntu-18.04.md)
 * [Instalação do Ubuntu 18.04 - Desenvolvimento](docs/ubuntu-18.04-devel.md)
-* [Instalação do Ubuntu 17.10 - Pós Intalação](docs/ubuntu-17.10.md)
+* [Instalação do Ubuntu 17.10 - Pós Instalação](docs/ubuntu-17.10.md)
 * [Instalação do Ubuntu 17.10 - Desenvolvimento](docs/ubuntu-17.10-devel.md)
-* [Instalação do Ubuntu 17.04 - Pós Intalação](docs/ubuntu-17.04.md)
+* [Instalação do Ubuntu 17.04 - Pós Instalação](docs/ubuntu-17.04.md)
 * [Instalação do Ubuntu 17.04 - Desenvolvimento](docs/ubuntu-17.04-devel.md)
 
 # Laravel
@@ -41,6 +41,7 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 ## Editores e IDEs
 
+* [Atom](docs/softwares-atom.md)
 * [SublimeText](docs/softwares-sublime-text.md)
 
 ## Outros

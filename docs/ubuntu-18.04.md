@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](readme.md)
 
 # 1. Desktop e Produtividade
 
@@ -124,4 +124,4 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 $ sudo apt-get purge apport
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](readme.md)
