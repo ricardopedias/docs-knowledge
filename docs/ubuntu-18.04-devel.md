@@ -1,25 +1,23 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
+
+# Ubuntu 18.04 para Desenvolvedor Web
+
+----------
+## 1. Servidores HTTP e Banco de Dados
 
 
-# 1. Servidor de Banco de Dados
-
-```
-$ sudo apt install mysql-server mysql-client
-```
-
-# 2. Servidor HTTP 
-
-### Apache2
+### HTTP
 
 ```
-$ sudo apt install apache2
-
+$ sudo apt install -y apache2 mysql-client mysql-server
 ```
-# 3. As versões do PHP
 
-## 3.1. Preparando o terreno
+----------
+## 2. As versões do PHP
 
-As versões distintas do php podem ser instaladas através de um repositório especial criado por [Ondrej Sury](https://github.com/oerdnj).
+### 2.1. Preparando o terreno
+
+As versões distintas do php podem ser instaladas facilmente, usando um repositório especial criado por [Ondrej Sury](https://github.com/oerdnj).
 Para disponibilizá-lo para o sistema, basta executar o seguinte comando:
 
 ```
@@ -29,23 +27,28 @@ $ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php; sudo apt update
 Caso o comando "add-apt-repository" não esteja disponível, será preciso instalá-lo:
 
 ```
-$ sudo apt-get install software-properties-common python-software-properties
+$ sudo apt install -y software-properties-common python-software-properties
 ```
 
-# 3.2. Instalando várias versões do PHP
+### 2.2. Instalando múltiplas versões do PHP
 
 Para instalar as versões 5.6, 7.0, 7.1 e 7.2 do PHP:
 
 ```
-$ sudo apt-get install php5.6-fpm php5.6 php5.6-dev php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-gd php5.6-curl php5.6-xml php5.6-mysql php5.6-zip
-$ sudo apt-get install php7.0-fpm php7.0 php7.0-dev php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-gd php7.0-curl php7.0-xml php7.0-mysql php7.0-zip
-$ sudo apt-get install php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstring php7.1-mcrypt php7.1-gd php7.1-curl php7.1-xml php7.1-mysql php7.1-zip
-$ sudo apt-get install php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-zip
+$ sudo apt-get install -y php5.6-fpm php5.6 php5.6-dev php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-gd php5.6-curl php5.6-xml php5.6-mysql php5.6-zip
+$ sudo apt-get install -y php7.0-fpm php7.0 php7.0-dev php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-gd php7.0-curl php7.0-xml php7.0-mysql php7.0-zip
+$ sudo apt-get install -y php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstring php7.1-mcrypt php7.1-gd php7.1-curl php7.1-xml php7.1-mysql php7.1-zip
+$ sudo apt-get install -y php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-zip
 ```
 Nota: A partir do php 7.2, a extensão mcrypt foi removida. 
 Para mains informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
 
-# 4. Ativação dos módulos necessários
+
+----------
+## 3. Configurando o Apache
+
+
+### 3.1. Ativando módulos
 
 Alguns módulos do Apache precisam ser ativados:
 
@@ -53,8 +56,21 @@ Alguns módulos do Apache precisam ser ativados:
 $ sudo a2enmod rewrite actions proxy_fcgi setenvif; 
 ```
 
----------------------------------
-# 5. Configurando o PHP padrão
+### 3.2. Recarregando configurações do Apache
+
+Sempre que alguma configuração do Apache for editada, será necessário recarregar as novas configurações no serviço em execução. Isso pode ser feito através do comando service :
+
+```
+$ sudo service apache2 restart
+```
+
+As opções disponiveis são start|stop|graceful-stop|restart|reload|force-reload
+
+----------
+## 4. Configurando o PHP
+
+
+### 4.1. Determinando o PHP padrão do servidor HTTP
 
 Para setar a versão padrão do PHP a ser usada pelo servidor, use os seguintes comandos:
 
@@ -79,6 +95,7 @@ ou
 ```
 $ sudo a2enconf php7.2-fpm
 ```
+
 Para aplicar a nova versão padrão, é necessário recarregar as configurações o Apache:
 
 ```
@@ -90,7 +107,39 @@ ou
 $ systemctl reload apache2
 ```
 
-Para setar a versão padrão do PHP a ser usada pelo sistema, use os seguintes comandos:
+Para conferir a versão padrão do PHP em execução, basta criar um arquivo "info.php" na raiz do servidor e acessá-lo pelo navegador.
+
+Nota: o comando abaixo deve ser executado como root, pois o ubuntu possui um sistema de segurança que impede a criação como usuário comum, mesmo sendo via sudo.
+
+```
+# echo '<?php phpinfo(); ?>' > /var/www/html/info.php
+```
+Agora basta entrar na url http://localhost/info.php.
+
+
+----------
+### 4.2. Determinando a versão do PHP de um virtualhost
+
+Dentro de um virtualhost, basta adicionar o handler do php. Lembrando de trocar
+a notação "php7.2" pela versão desejada (php5.6, php7.1, etc...):
+
+```
+<VirtualHost *:80>
+
+	...
+
+	<FilesMatch ".+\.ph(ar|p|tml)$">
+        SetHandler "proxy:unix:/run/php/php7.2-fpm.sock|fcgi://localhost"
+	</FilesMatch>
+
+</VirtualHost>
+```
+
+
+----------
+### 4.3. Determinando o PHP padrão do sistema (cli)
+
+Para setar a versão padrão do PHP a ser usada pelo sistema, ou seja, pelos scripts executados via terminal, use os seguintes comandos:
 
 ```
 $ sudo update-alternatives --set php /usr/bin/php5.6
@@ -114,71 +163,46 @@ ou
 $ sudo update-alternatives --set php /usr/bin/php7.2
 ```
 
-Para conferir a versão padrão do PHP em execução, basta criar um arquivo "info.php" na raiz do servidor e acessá-lo pelo navegador.
+----------
+### 4.4. Recarregando configurações do PHP
 
-Nota: o comando abaixo deve ser executado como root, pois o ubuntu possui um sistema de segurança que impede a criação como usuário comum, mesmo sendo via sudo.
 
-```
-# echo '<?php phpinfo(); ?>' > /var/www/html/info.php
-```
-Agora basta entrar na url http://localhost/info.php.
-
----------------------------------
-# 6. Ativar a versão do PHP via configuração do virtualhost
-
-Dentro de um virtualhost, basta adicionar o handler do php. Lembrando de trocar
-a notação "php7.2" pela versão desejada:
+Assim como o servidor Apache, sempre que alguma configuração do PHP for editada, como por exemplo alguma diretiva no arquivo php.ini, será necessário recarregar as novas configurações no serviço em execução. Isso pode ser feito através do comando service:
 
 ```
-<VirtualHost *:80>
-
-	...
-
-	<FilesMatch ".+\.ph(ar|p|tml)$">
-        SetHandler "proxy:unix:/run/php/php7.2-fpm.sock|fcgi://localhost"
-	</FilesMatch>
-
-</VirtualHost>
-```
-
-# 7. Reiniciando o Apache e o PHP
-
-```
-$ sudo service apache2 restart
-```
-
-Todas as vezes que for editada alguma diretiva no arquivo php.ini, será necessário reiniciar o serviço do php-fpm através de um dos comandos abaixo (de acordo com a versão em execução). 
-
-```
-$ sudo service php5.6-fpm restart # start|stop|status|restart|reload|force-reload
+$ sudo service php5.6-fpm restart
 ```
 
 ou
 
 ```
-$ sudo service php7.0-fpm restart # start|stop|status|restart|reload|force-reload
+$ sudo service php7.0-fpm restart
 ```
 
 ou
 
 ```
-$ sudo service php7.1-fpm restart # start|stop|status|restart|reload|force-reload
+$ sudo service php7.1-fpm restart
 ```
 
 ou
 
 ```
-$ sudo service php7.2-fpm restart # start|stop|status|restart|reload|force-reload
+$ sudo service php7.2-fpm restart
 ```
 
-# 8. Gerenciadores de pacotes
+As opções disponiveis são start|stop|status|restart|reload|force-reload.
 
-## 8.1. Composer (PHP)
+
+## 5. Gerenciadores de pacotes
+
+### 5.1. Composer (PHP)
 
 ```
-$ sudo apt install composer
+$ sudo apt install -y composer
 ```
-No Ubuntu 17.04, o sistema vem com o ipv6 habilitado, ocasionando uma falha no download de pacotes com o composer. Para verificar se isto esta acontecendo, basta usar o seguinte comando:
+
+Pra verificar se tudo está funcionando:
 
 ```
 $ sudo composer diagnose
@@ -210,7 +234,7 @@ $ sudo service procps reload
 ```
 
 
-## 8.2. Npm (Javascript e CSS)
+### 5.2. Npm (Javascript e CSS)
 
 Para instalar a última versão do node no Ubuntu, é preciso usar um repositório PPA. 
 Para isso será preciso instalar o "curl", que fará as requições ao repositório:
@@ -248,7 +272,7 @@ $ node -v
 $ npm -v
 ```
 
-# 9. Controle de Versão
+## 6. Controle de Versão
 
 ### Git
 
@@ -256,9 +280,12 @@ $ npm -v
 $ sudo apt install git
 ```
 
-# 10. Preparação do Ambiente para Desenvolver
+## 7. Preparação do Ambiente para Desenvolver
 
-## 10.1. Configurando as permissões do servidor HTTP:
+## 7.1. Configurando as permissões do servidor HTTP
+
+O diretório /var/www deve ser liberado para o usuário que vai desenvolver.
+Nos comandos abaixo, troque o "ricardo" pelo seu nome de usuário do ubuntu:
 
 ```
 $ sudo adduser ricardo www-data
@@ -266,7 +293,7 @@ $ sudo chown ricardo:www-data -R /var/www
 $ sudo chmod 755 -R /var/www
 ```
 
-## 10.2. Criando um VirtualHost (Método Manual)
+## 7.2. Criando um VirtualHost (Método Manual)
 
 Os VirtualHosts possibilitam desenvolver e servir um projeto como se estivesse na hospedagem, usando um domínio (como http://www.meuprojeto.dev.br). Para criar um VirtualHost, basta adicionar um arquivo com sua configuração no diretório "/etc/apache2/sites-available", onde o Apache verifica para disponibilizar.
 
@@ -315,7 +342,7 @@ Basta reiniciar o servidor e o host estará acessível.
 $ sudo service apache2 restart
 ```
 
-## 10.3. Criando um VirtualHost (Método Automatizado)
+## 7.3. Criando um VirtualHost (Método Automatizado)
 
 Para criar VirtualHosts de forma automática, é preciso instalar um script no sistema. Para isso basta rodar o comando abaixo:
 
@@ -352,23 +379,25 @@ $ sudo virtualhost delete meuprojeto.dev.br meuprojeto
 ```
 
 
-# 11. Ferramentas de programação
+# 8. Ferramentas de programação
 
-## 11.1. Vim
+## 8.1. Vim
+
+O Vim é um poderoso editor para terminal, capaz de abrir arquivos imensos que outros editpres não conseguem:
 
 ```
 $ sudo apt install vim
 ```
 
-## 11.2. MySQL Workbench
+## 8.2. MySQL Workbench
 
-Para gerenciar bancos de dados MySQL.
+Para gerenciar bancos MySQL, nada como um gerenciador desenvolvido pela própria equipe do famoso Banco de Dados.
 
 ```
 $ sudo apt install mysql-workbench
 ```
 
-## 11.3. ReText
+## 8.3. ReText
 
 Leitor e editor de textos em MarkDown (readme.md, por exemplo). 
 Dica: Para uma visualização melhor, acesse o menu "Editar" e ative a opção "Utilizar renderizador Webkit"
@@ -376,103 +405,19 @@ Dica: Para uma visualização melhor, acesse o menu "Editar" e ative a opção "
 ```
 $ sudo apt install retext
 ```
-## 11.4. Atom
+## 8.4. Atom
 
-É preciso baixar manualmente o Atom no site https://atom.io/
-Em Edit > Preferences > Install, busque e instale os pacotes na seguinte sequência:
-
-- atom-ide-ui 
-- ide-php
-- ide-html
-- ide-css
-- ide-json
-- emmet
-- atom-alignment
-- project-plus
-- docblockr
-- platformio-ide-terminal
-
-Configurando a aparência da sintaxe.
-
-Em Edit > Preferences > Editor, mude os parâmetros:
-
-- Font Size: 12px;
-- Line Height: 2.5
-- Tab Length: 4
-
-Em Edit > Preferences > Install, busque e instale o tema:
-
-- atom-oceanic-next-italic
-
-Após instalar, em Edit > Preferences > Themes, selecione "Atom Oceanic Next Italic" no seletor "Syntax Theme".
-
-Por fim, vá para em Edit > Stylesheet e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte:
+O editor Atom, desenvolvido pela equipe do github.com é uma ótima opção para desenvolvimento:
 
 ```
-atom-workspace,
-atom-text-editor {
-    font-family: "Operator Mono Book";
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 2.5;
-}
-
-atom-panel.tool-panel {
-    font-size: 0.88em;
-}
-
-.editor .comment,
-atom-text-editor.editor .syntax-comment {
-    font-family: "Operator Mono Book Italic";
-    font-style: normal;
-}
-
-.github-HunkView-line.github-HunkView-line {
-    font-size: 0.9em;
-}
-
-/*
-O código abaixo ativa as "ligaduras"
-para melhorar os sinais (matemáticos, lógicos, etc) 
-especiais no código.
-*/
-
-atom-workspace,
-atom-text-editor {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-}
-
-atom-text-editor.editor {
-  .syntax--storage.syntax--type.syntax--function.syntax--arrow,
-  .syntax--keyword.syntax--operator:not(.accessor),
-  .syntax--punctuation.syntax--definition {
-    font-family: "Fira Code";
-  }
-
-  .syntax--string.syntax--quoted,
-  .syntax--string.syntax--regexp {
-    -webkit-font-feature-settings: "liga" off, "calt" off;
-  }
-}
-
+$ sudo wget -q -O - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -;
+$ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list';
+$ sudo apt-get update && sudo apt-get install -y atom;
 ```
 
-NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
-
-#### Dica sobre os comentários
-
-Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
-
-Em Edit > Preferences > Install, busque e instale o pacote:
-
-- quick-comment
-
-Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
-
-
+[Veja configurações e mais informações sobre o Atom](softwares-atom.md)
 
 
 [Diversos scripts para configuração do Ubuntu](https://github.com/erikdubois/Ultimate-Ubuntu-17.04)
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
