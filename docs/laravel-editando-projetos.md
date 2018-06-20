@@ -1,6 +1,8 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# 1. Preparação do sistema
+# Laravel: Editando Projetos Existentes
+
+## 1. Preparação do sistema
 
 Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para tanto, basta seguir os procedimentos a seguir:
 
@@ -8,9 +10,9 @@ Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para
 * [Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
 * [Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
 
-# 2. Usando projetos Laravel existentes
+## 2. Usando projetos Laravel existentes
 
-# 2.1. Clonando
+### 2.1. Clonando
 
 Vamos levar em consideração que o projeto local se encontrará em /var/www/project/. Basta entrar no diretório onde o projeto será instalado e cloná-lo:
 
@@ -19,7 +21,7 @@ $ cd /var/www/project/
 $ git clone https://xxxxxxxx/repositorio.git .
 ```
 
-## 2.2. Dependências do projeto
+### 2.2. Dependências do projeto
 
 Após clonar um projeto existente, as dependências não estarão presentes e precisarão ser instaladas:
 
@@ -28,7 +30,7 @@ $ composer update    # Os pacotes serão atualizados e colocados no diretório "
 $ npm install        # Os pacotes serão atualizados e colocados no diretório "/node_modules"
 ```
 
-## 2.3. Arquivo de configuração
+### 2.3. Arquivo de configuração
 
 O arquivo *".env"* deverá ser criado e configurado manualmente. No diretório do projeto, basta copiar o arquivo *".env.example"* para *".env"*. **Importante**: nunca exclua o arquivo *".env.example"*.
 
@@ -39,7 +41,7 @@ $ cd /var/www/project/
 $ cp .env.example .env
 ```
 
-## 2.4. A Chave Criptográfica da Aplicação
+### 2.4. A Chave Criptográfica da Aplicação
 
 Agora que o arquivo *".env"* já existe, podemos gerar a chave criptográfica que a aplicação utiliza para a criação das Senhas e os Hashes temporários de comunicação:
 
@@ -48,11 +50,11 @@ $ cd /var/www/project/
 $ php artisan key:generate # gera a chave da aplicação
 ```
 
-## 2.5. Banco de Dados
+## 3. Banco de Dados
 
 Caso a aplicação utilize banco de dados, será necessário adicionar as informações corretas para a conexão no arquivo *".env"*.
 
-### 2.5.1. Criando o Banco de dados
+### 3.1. Criando o Banco de dados
 
 Mas antes disso, o banco de dados deve existir. No terminal, acesse o prompt de comandos do MySQL:
 
@@ -95,7 +97,7 @@ Com o banco criado, configure as informações do arquivo *".env"*.
     DB_PASSWORD=ricardo
 ```
 
-### 2.5.1. Criando o as Tabelas (Migrations)
+### 3.2. Criando o as Tabelas (Migrations)
 
 Agora que o banco de dados existe e a aplicação está conectando com sucesso, podemos rodar as migrações da aplicação para popular o banco de dados com as tabelas:
 
@@ -105,7 +107,7 @@ $ php artisan migrate
 ```
 
 
-## 2.6. Permissões Linux para desenvolvimento
+## 4. Permissões Linux para desenvolvimento
 
 Quando em desenvolvimento, de maneira a facilitar a edição dos arquivos, o usuário local deverá ser configurado nos arquivos do projeto. Levaremos em consideração que o usuário local seja *"ricardo"*. Neste caso, em modo de desenvolvimento, o usuário deverá ser o do desenvolvedor *"ricardo"* e o grupo *"www-data"*. O grupo *"www-data"* é o grupo do servidor http e deve estar presente para que o Apache possa ter acesso aos arquivos:
 

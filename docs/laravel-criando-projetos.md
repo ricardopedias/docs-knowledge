@@ -1,6 +1,8 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# 1. Preparação do sistema
+# Laravel: Criando Novos Projetos
+
+## 1. Preparação do sistema
 
 Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para tanto, basta seguir os procedimentos a seguir:
 
@@ -8,7 +10,7 @@ Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para
 * [Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
 * [Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
 
-# 2. Novo projeto Laravel (Modo Desenvolvimento)
+## 2. Novo projeto Laravel (Modo Desenvolvimento)
 
 Os comandos abaixo são usados para novas instalações do Laravel. Note que as permissões são destinadas para ambiente de desenvolvimento. Em modo de produção os arquivos devem pertencer ao usuário do apache "www-data" com permissões seguras, como será explicado mais adiante.
 
@@ -36,7 +38,7 @@ $ composer update    # Os pacotes serão atualizados e colocados no diretório "
 $ npm install        # Os pacotes serão atualizados e colocados no diretório "/node_modules"
 ```
 
-### 2.2. Arquivos de configuração
+### 2.4. Arquivos de configuração
 
 O arquivo de configuração ".env" foi gerado automaticamente no processo de instalação do novo projeto.
 Nele é necessário adicionar as informações corretas para a conexão com banco de dados e para a url da aplicação:
