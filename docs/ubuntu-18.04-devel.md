@@ -282,7 +282,7 @@ $ sudo apt install git
 ----------
 ## 7. Preparação do Ambiente para Desenvolver
 
-## 7.1. Configurando as permissões do servidor HTTP
+### 7.1. Configurando as permissões do servidor HTTP
 
 O diretório /var/www deve ser liberado para o usuário que vai desenvolver.
 Nos comandos abaixo, troque o "ricardo" pelo seu nome de usuário do ubuntu:
@@ -293,7 +293,7 @@ $ sudo chown ricardo:www-data -R /var/www
 $ sudo chmod 755 -R /var/www
 ```
 
-## 7.2. Criando um VirtualHost (Método Manual)
+### 7.2. Criando um VirtualHost (Método Manual)
 
 Os VirtualHosts possibilitam desenvolver e servir um projeto como se estivesse na hospedagem, usando um domínio (como http://www.meuprojeto.dev.br). Para criar um VirtualHost, basta adicionar um arquivo com sua configuração no diretório "/etc/apache2/sites-available", onde o Apache verifica para disponibilizar.
 
@@ -342,7 +342,7 @@ Basta reiniciar o servidor e o host estará acessível.
 $ sudo service apache2 restart
 ```
 
-## 7.3. Criando um VirtualHost (Método Automatizado)
+### 7.3. Criando um VirtualHost (Método Automatizado)
 
 Para criar VirtualHosts de forma automática, é preciso instalar um script no sistema. Para isso basta rodar o comando abaixo:
 
