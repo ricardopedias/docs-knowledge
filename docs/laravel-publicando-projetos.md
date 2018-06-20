@@ -4,9 +4,9 @@
 
 Para executar um projeto desenvolvido com Laravel é preciso que o servidor possua os requisitos necessários. Mais informações podem ser encontradas a seguir:
 
-[Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
-[Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
-[Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
+* [Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
+* [Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
+* [Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
 
 # 2. Publicando arquivos via FTP
 

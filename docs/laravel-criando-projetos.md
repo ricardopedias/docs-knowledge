@@ -4,9 +4,9 @@
 
 Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para tanto, basta seguir os procedimentos a seguir:
 
-[Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
-[Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
-[Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
+* [Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
+* [Ubuntu 17.10 para Desenvolvedor Web](ubuntu-17.10-devel.md)
+* [Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
 
 # 2. Novo projeto Laravel (Modo Desenvolvimento)
 
