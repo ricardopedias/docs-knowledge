@@ -1,6 +1,9 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# 1. Desktop e Produtividade
+# Guia de Instalação para Ubuntu 17.10
+
+----------
+## 1. Desktop e Produtividade
 
 A primeira ação a ser feita é atualizar todos os pacotes do sistema para permanecer com as últimas atualizações:
 
@@ -71,6 +74,8 @@ $ echo deb http://linux.dropbox.com/ubuntu xenial main | sudo tee /etc/apt/sourc
 $ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 $ sudo apt update && sudo apt install dropbox
 ```
+
+----------
 # 2. Aparência
 
 ### 2.1. Gnome Tweak Tool
@@ -114,6 +119,7 @@ Baixar o tema de icones em https://github.com/snwh/paper-icon-theme. Após extra
 
 No Gnome Tweak Tool, acesse "Aparência" e na seção Temas > Ícones, ative o tema Paper.
 
+----------
 ## 3. Apport
 
 O System Error Apport é um mecanismo que a Canonical instituiu nas últimas versões do Ubuntu para que os usuários possam reportar os erros do sistema facilmente. Se você não tem interesse em reportar estes erros (o que muitas vezes não reflete em nada no funcionamento), basta remover o Apport:
@@ -121,5 +127,8 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 ```
 $ sudo apt-get purge apport
 ```
+
+Veja também: [Ubuntu 17.10 para Desenvolvedor Web](ubuntu-10.10-devel.md)
+
 
 [Voltar para Lista de Opções](../readme.md)

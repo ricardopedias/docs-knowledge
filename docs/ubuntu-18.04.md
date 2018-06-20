@@ -2,6 +2,7 @@
 
 # Guia de Instalação para Ubuntu 18.04
 
+----------
 ## 1. Preparação
 
 A primeira ação a ser feita é atualizar todos os pacotes do sistema para permanecer com as últimas atualizações:
@@ -11,6 +12,7 @@ A primeira ação a ser feita é atualizar todos os pacotes do sistema para perm
 $ sudo apt update && sudo apt upgrade
 ```
 
+----------
 ## 2. Multimidia
 
 Drivers e fontes do Windows:
@@ -32,6 +34,7 @@ $ sudo apt-add-repository ppa:teejee2008/ppa -y
 $ sudo apt-get update && apt install -y selene
 ```
 
+----------
 ## 3. Internet Navegadores
 
 ### Repositórios Adicionais
@@ -64,6 +67,7 @@ $ sudo apt update && sudo apt install -y google-chrome-stable chromium-browser v
 ```
 
 
+----------
 ## 4. Outras Ferramentas para Desktop
 
 ### Dropbox
@@ -73,6 +77,8 @@ $ echo deb http://linux.dropbox.com/ubuntu xenial main | sudo tee /etc/apt/sourc
 $ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 $ sudo apt update && sudo apt install dropbox
 ```
+
+----------
 ## 5. Aparência
 
 ### 5.1. Gnome Tweak Tool
@@ -117,6 +123,7 @@ Baixar o tema de icones em https://github.com/snwh/paper-icon-theme. Após extra
 
 No Gnome Tweak Tool, acesse "Aparência" e na seção Temas > Ícones, ative o tema Paper.
 
+----------
 # 6. Apport
 
 O System Error Apport é um mecanismo que a Canonical instituiu nas últimas versões do Ubuntu para que os usuários possam reportar os erros do sistema facilmente. Se você não tem interesse em reportar estes erros (o que muitas vezes não reflete em nada no funcionamento), basta remover o Apport:

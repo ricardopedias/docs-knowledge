@@ -117,7 +117,6 @@ Nota: o comando abaixo deve ser executado como root, pois o ubuntu possui um sis
 Agora basta entrar na url http://localhost/info.php.
 
 
-----------
 ### 4.2. Determinando a versão do PHP de um virtualhost
 
 Dentro de um virtualhost, basta adicionar o handler do php. Lembrando de trocar
@@ -136,7 +135,6 @@ a notação "php7.2" pela versão desejada (php5.6, php7.1, etc...):
 ```
 
 
-----------
 ### 4.3. Determinando o PHP padrão do sistema (cli)
 
 Para setar a versão padrão do PHP a ser usada pelo sistema, ou seja, pelos scripts executados via terminal, use os seguintes comandos:
@@ -163,7 +161,6 @@ ou
 $ sudo update-alternatives --set php /usr/bin/php7.2
 ```
 
-----------
 ### 4.4. Recarregando configurações do PHP
 
 
@@ -194,6 +191,7 @@ $ sudo service php7.2-fpm restart
 As opções disponiveis são start|stop|status|restart|reload|force-reload.
 
 
+----------
 ## 5. Gerenciadores de pacotes
 
 ### 5.1. Composer (PHP)
@@ -272,6 +270,7 @@ $ node -v
 $ npm -v
 ```
 
+----------
 ## 6. Controle de Versão
 
 ### Git
@@ -280,6 +279,7 @@ $ npm -v
 $ sudo apt install git
 ```
 
+----------
 ## 7. Preparação do Ambiente para Desenvolver
 
 ## 7.1. Configurando as permissões do servidor HTTP
@@ -378,10 +378,10 @@ Para remover também o diretório, especifique-o no final do comando:
 $ sudo virtualhost delete meuprojeto.dev.br meuprojeto
 ```
 
+----------
+## 8. Ferramentas de programação
 
-# 8. Ferramentas de programação
-
-## 8.1. Vim
+### 8.1. Vim
 
 O Vim é um poderoso editor para terminal, capaz de abrir arquivos imensos que outros editpres não conseguem:
 
@@ -389,7 +389,7 @@ O Vim é um poderoso editor para terminal, capaz de abrir arquivos imensos que o
 $ sudo apt install vim
 ```
 
-## 8.2. MySQL Workbench
+### 8.2. MySQL Workbench
 
 Para gerenciar bancos MySQL, nada como um gerenciador desenvolvido pela própria equipe do famoso Banco de Dados.
 
@@ -397,7 +397,7 @@ Para gerenciar bancos MySQL, nada como um gerenciador desenvolvido pela própria
 $ sudo apt install mysql-workbench
 ```
 
-## 8.3. ReText
+### 8.3. ReText
 
 Leitor e editor de textos em MarkDown (readme.md, por exemplo). 
 Dica: Para uma visualização melhor, acesse o menu "Editar" e ative a opção "Utilizar renderizador Webkit"
@@ -405,7 +405,7 @@ Dica: Para uma visualização melhor, acesse o menu "Editar" e ative a opção "
 ```
 $ sudo apt install retext
 ```
-## 8.4. Atom
+### 8.4. Atom
 
 O editor Atom, desenvolvido pela equipe do github.com é uma ótima opção para desenvolvimento:
 

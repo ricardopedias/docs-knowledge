@@ -1,6 +1,9 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# 1. Preparando o terreno
+# Ubuntu 17.04 para Desenvolvedor Web
+
+----------
+## 1. Preparando o terreno
 
 As versões distintas do php podem ser instaladas através de um repositório especial criado por [Ondrej Sury](https://github.com/oerdnj).
 Para disponibilizá-lo para o sistema, basta executar o seguinte comando:
@@ -15,7 +18,8 @@ Caso o comando "add-apt-repository" não esteja disponível, será preciso insta
 $ sudo apt-get install software-properties-common python-software-properties
 ```
 
-# 2. Servidor HTTP 
+----------
+## 2. Servidor HTTP 
 
 ### Apache2
 
@@ -23,7 +27,9 @@ $ sudo apt-get install software-properties-common python-software-properties
 $ sudo apt install apache2
 
 ```
-# 3. As versões do PHP
+
+----------
+## 3. As versões do PHP
 
 Para instalar as versões 5.6, 7.0, 7.1 e 7.2 do PHP:
 
@@ -36,7 +42,8 @@ $ sudo apt-get install php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring p
 Nota: A partir do php 7.2, a extensão mcrypt foi removida. 
 Para mains informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
 
-# 4. Ativação dos módulos necessários
+----------
+## 4. Ativação dos módulos necessários
 
 Alguns módulos do Apache precisam ser ativados:
 
@@ -44,8 +51,8 @@ Alguns módulos do Apache precisam ser ativados:
 $ sudo a2enmod rewrite actions proxy_fcgi setenvif; 
 ```
 
----------------------------------
-# 5. Configurando o PHP padrão
+----------
+## 5. Configurando o PHP padrão
 
 Para setar a versão padrão do PHP a ser usada pelo servidor, use os seguintes comandos:
 
@@ -114,8 +121,8 @@ Nota: o comando abaixo deve ser executado como root, pois o ubuntu possui um sis
 ```
 Agora basta entrar na url http://localhost/info.php.
 
----------------------------------
-# 6. Ativar a versão do PHP via configuração do virtualhost
+----------
+## 6. Ativar a versão do PHP via configuração do virtualhost
 
 Dentro de um virtualhost, basta adicionar o handler do php. Lembrando de trocar
 a notação "php7.2" pela versão desejada:
@@ -132,7 +139,8 @@ a notação "php7.2" pela versão desejada:
 </VirtualHost>
 ```
 
-# 7. Reiniciando o Apache e o PHP
+----------
+## 7. Reiniciando o Apache e o PHP
 
 ```
 $ sudo service apache2 restart
@@ -162,13 +170,15 @@ ou
 $ sudo service php7.2-fpm restart # start|stop|status|restart|reload|force-reload
 ```
 
-# 8. Servidor de Banco de Dados
+----------
+## 8. Servidor de Banco de Dados
 
 ```
 $ sudo apt install mysql-server mysql-client
 ```
 
-# 9. Gerenciadores de pacotes
+----------
+## 9. Gerenciadores de pacotes
 
 ### Composer (PHP)
 
@@ -245,7 +255,8 @@ $ node -v
 $ npm -v
 ```
 
-# 10. Controle de Versão
+----------
+## 10. Controle de Versão
 
 ### Git
 
@@ -253,7 +264,8 @@ $ npm -v
 $ sudo apt install git
 ```
 
-# 11. Preparação do Ambiente para Desenvolver
+----------
+## 11. Preparação do Ambiente para Desenvolver
 
 ### Configurando as permissões do servidor HTTP:
 
@@ -349,7 +361,8 @@ $ sudo virtualhost delete meuprojeto.dev.br meuprojeto
 ```
 
 
-# 12. Ferramentas de programação
+----------
+## 12. Ferramentas de programação
 
 ```
 $ sudo apt install vim

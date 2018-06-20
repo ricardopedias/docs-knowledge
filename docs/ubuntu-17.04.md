@@ -1,9 +1,12 @@
 [Voltar para Lista de Opções](../readme.md)
 
+# Guia de Instalação para Ubuntu 17.04
+
 NOTA: Existe um bug gerado pela atualização do release de longo suporte (LTS) do Ubuntu. 
 Para corrigir acesse [Correção do Release](http://wimantis.ninja/fixing-ubuntu-17-04-apt-get-update-release-file-not-found/).
 
-# 1. Desktop e Produtividade
+----------
+## 1. Desktop e Produtividade
 
 A primeira ação a ser feita é atualizar todos os pacotes do sistema para permanecer com as últimas atualizações:
 
@@ -66,6 +69,8 @@ $ echo deb http://linux.dropbox.com/ubuntu xenial main | sudo tee /etc/apt/sourc
 $ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 $ sudo apt update && sudo apt install dropbox
 ```
+
+----------
 # 2. Aparência
 
 ### 2.1. Extensoes do Gnome
@@ -109,6 +114,7 @@ $ sudo apt install kde-runtime breeze
 
 Baixar o tema de icones em https://github.com/snwh/paper-icon-theme. Após extrair os arquivos, copie os diretórios 'Paper' e 'Paper-Mono-Dark' na pasta '.icons' na home do usuário.
 
+----------
 ## 3. Apport
 
 O System Error Apport é um mecanismo que a Canonical instituiu nas últimas versões do Ubuntu para que os usuários possam reportar os erros do sistema facilmente. Se você não tem interesse em reportar estes erros (o que muitas vezes não reflete em nada no funcionamento), basta remover o Apport:
@@ -116,5 +122,7 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 ```
 $ sudo apt-get purge apport
 ```
+
+Veja também: [Ubuntu 17.04 para Desenvolvedor Web](ubuntu-17.04-devel.md)
 
 [Voltar para Lista de Opções](../readme.md)
