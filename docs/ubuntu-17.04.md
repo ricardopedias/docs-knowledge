@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 NOTA: Existe um bug gerado pela atualização do release de longo suporte (LTS) do Ubuntu. 
 Para corrigir acesse [Correção do Release](http://wimantis.ninja/fixing-ubuntu-17-04-apt-get-update-release-file-not-found/).
@@ -117,4 +117,4 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 $ sudo apt-get purge apport
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

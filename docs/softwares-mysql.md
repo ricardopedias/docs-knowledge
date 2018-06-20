@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # MySQL - Canivete Suíço
 
@@ -135,4 +135,4 @@ $ mysqldump --skip-comments --skip-extended-insert -u root -p dbName2>file2.sql
 $ diff file1.sql file2.sql
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

@@ -1,10 +1,10 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # 1. Preparação do sistema
 
 Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para tanto, basta seguir os procedimentos a seguir:
 
-[Ubuntu 17.04 Programaçao WEB](https://bitbucket.org/rpdesignerfly/sofia/wiki/OS%20Ubuntu%2017.04%20Programação%20WEB)
+[Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
 
 # 2. Usando projetos Laravel
 
@@ -31,12 +31,12 @@ $ npm install        # Os pacotes serão atualizados e colocados no diretório "
 
 No projeto em produção o diretório "/var/www/project/vendor" deverá estar presente, pois o sistema depende das bibliotecas armazenadas nele. Todavia, o diretório "/var/www/project/node_modules" não deverá estar presente no modo produção, ou seja, deve ser excluído ao publicar o projeto definitivamente. O "node_modules" é útil apenas para desenvolvimento, haja visto que o Laravel Mix usa estes módulos apenas no momento em que ele compila os arquivos "js" e "css" a serem publicados no site (no diretório /var/www/project/public).
 
-Mais informações sobre o "node_modules" em [Laravel 5.5 - Laravel Mix](https://bitbucket.org/rpdesignerfly/sofia/wiki/Laravel%205.5%20-%2004%20Laravel%20Mix)
+Mais informações sobre o "node_modules" em [Laravel Mix](laravel-mix.md)
 
 
 ## 2.4. Arquivos de configuração
 
-O arquivo de configuração ".env" é gerado automaticamente no processo de instalação do novo projeto (veja o documento [Criando Projetos Laravel](https://bitbucket.org/rpdesignerfly/sofia/wiki/Laravel%205.5%20-%2001%20Criando%20Novos%20Projetos)). Mas, no processo de publicação, o arquivo ".env" deverá ser configurado manualmente. No diretório do projeto, basta copiar o arquivo ".env.example", gerando o novo arquivo ".env":
+O arquivo de configuração ".env" é gerado automaticamente no processo de instalação do novo projeto (veja o documento [Criando Projetos Laravel](laravel-criando-projetos.md)). Mas, no processo de publicação, o arquivo ".env" deverá ser configurado manualmente. No diretório do projeto, basta copiar o arquivo ".env.example", gerando o novo arquivo ".env":
 
 ```
 $ cd /var/www/project/
@@ -132,4 +132,4 @@ sudo chmod -R ug+rwx /var/www/project/bootstrap/cache
 [Mais informações na documentação oficial do Laravel]
 (https://laravel.com/docs/5.5/installation)
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 NOTA: Existe um bug gerado pela atualização do release de longo suporte (LTS) do Ubuntu. 
 Para corrigir acesse [Correção do Release](http://wimantis.ninja/fixing-ubuntu-17-04-apt-get-update-release-file-not-found/).
@@ -374,4 +374,4 @@ $ sudo apt-get install retext
 
 [Diversos scripts para configuração do Ubuntu](https://github.com/erikdubois/Ultimate-Ubuntu-17.04)
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

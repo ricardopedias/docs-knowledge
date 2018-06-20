@@ -1,4 +1,7 @@
+[Voltar para Lista de Opções](../readme.md)
+
 # Instalando o Tema
+
 
 
 https://github.com/chrisburton/Jeffrey-Way-Theme
@@ -88,3 +91,5 @@ http://sweetme.at/2014/04/07/glue-a-terminal-for-sublime-text/
     "tab_size": 4
 }
 ```
+
+[Voltar para Lista de Opções](../readme.md)

@@ -1,3 +1,5 @@
+[Voltar para Lista de Opções](../readme.md)
+
 # Software Mame/Mess
 
 As versões mais recentes do Mame incluem o código do Mess em seu interior. Portanto, o Mame agora é responsável pela emulação, além das máquinas de Arcade, também pelos consoles domésticos como Super Nintendo, Mega Drive, etc.
@@ -116,3 +118,5 @@ $ mame a2600 -cart /caminho/para/o/jogo.zip
 ```
 $ mame a5200 -cart /caminho/para/o/jogo.zip
 ```
+
+[Voltar para Lista de Opções](../readme.md)

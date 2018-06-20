@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # 1. Instalação do "npm" e do "nodejs"
 
@@ -111,7 +111,7 @@ mix.sass('resources/assets/sass/theme.scss', 'public/css');
 mix.stylus('resources/assets/sass/theme.styl', 'public/css'); 
 ```
 
-> **IMPORTANTE SOBRE A EXTENÇÃO .SASS E .SCSS:** Casa extenção se refere a duas sintaxes diferentes do SASS com as mesmas funcionalidades. A extenção '.sass' deve conter a sintaxe original do SASS que era um pouco diferente da sintaxe do CSS, sem chaves e pontos e virgulas. A extenção '.scss' (esta agora é a oficial) deve conter a nova sintaxe, que é mais parecida com a sintaxe do CSS. Na prática a escolha entre as duas é uma questão de gosto. Olhe abaixo um exemplo da sintaxe SASS e outro da sintaxe SCSS:
+> **IMPORTANTE SOBRE A EXTENÇÃO .SASS E .SCSS:** Cada extenção se refere a duas sintaxes diferentes do SASS com as mesmas funcionalidades. A extenção '.sass' deve conter a sintaxe original do SASS que era um pouco diferente da sintaxe do CSS, sem chaves e pontos e virgulas. A extenção '.scss' (esta agora é a oficial) deve conter a nova sintaxe, que é mais parecida com a sintaxe do CSS. Na prática a escolha entre as duas é uma questão de gosto. Olhe abaixo um exemplo da sintaxe SASS e outro da sintaxe SCSS:
 
 ```
 /* SASS */
@@ -206,4 +206,4 @@ $ npm run watch             # modo de auto-compilação quando um arquivo fonte 
 
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

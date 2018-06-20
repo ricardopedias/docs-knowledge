@@ -125,4 +125,8 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 $ sudo apt-get remove -y --purge apport && apt-get autoremove
 ```
 
+Veja também: [Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
+
+
+
 [Voltar para Lista de Opções](../readme.md)

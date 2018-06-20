@@ -1,3 +1,5 @@
+[Voltar para Lista de Opções](../readme.md)
+
 # Atom
 
 
@@ -104,3 +106,5 @@ Em Edit > Preferences > Install, busque e instale o pacote:
 - quick-comment
 
 Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
+
+[Voltar para Lista de Opções](../readme.md)

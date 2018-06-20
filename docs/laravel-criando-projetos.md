@@ -1,10 +1,10 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # 1. Preparação do sistema
 
 Para desenvolver usando o Laravel é preciso que o servidor seja instalado. Para tanto, basta seguir os procedimentos a seguir:
 
-[Ubuntu 17.04 Programaçao WEB](https://bitbucket.org/rpdesignerfly/sofia/wiki/OS%20Ubuntu%2017.04%20Programação%20WEB)
+[Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
 
 # 2. Novo projeto Laravel (Modo Desenvolvimento)
 
@@ -47,4 +47,4 @@ Nele é necessário adicionar as informações corretas para a conexão com banc
     DB_PASSWORD=ricardo
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

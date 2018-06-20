@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # Localização das mensagens para português
 
@@ -69,4 +69,4 @@ O resultado será: "quinta, 06 de abril de 2017"
 [Mais informações na documentação oficial do Laravel]
 (https://laravel.com/docs/5.5/installation)
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

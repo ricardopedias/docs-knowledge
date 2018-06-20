@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # 1. Preparação do sistema
 
@@ -92,4 +92,4 @@ sudo chmod -R ug+rwx /var/www/project/bootstrap/cache
 [Mais informações na documentação oficial do Laravel]
 (https://laravel.com/docs/5.5/installation)
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

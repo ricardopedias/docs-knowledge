@@ -1,3 +1,5 @@
+[Voltar para Lista de Opções](../readme.md)
+
 # Software Git
 
 ## 1 Submetendo alterações
@@ -55,3 +57,5 @@ Para ver os arquivos a serem removidos, sem removê-los:
 ```
 git clean -n -f
 ```
+
+[Voltar para Lista de Opções](../readme.md)

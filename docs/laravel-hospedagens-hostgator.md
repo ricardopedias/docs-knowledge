@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # Laravel 5.xx - Hostgator
 
@@ -179,4 +179,4 @@ RewriteRule (.*) public/$1 [L]
 
 Neste ponto a aplicação já deve estar funcionando, ai é só tratar os possíveis erros como por exemplo conexão com banco de dados caso eles aconteçam.
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

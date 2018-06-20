@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # Laravel 5.xx - Locaweb
 
@@ -67,4 +67,4 @@ Neste ponto a aplicação já deve estar funcionando, ai é só tratar os possí
 # phpXX -c ~/php.ini artisan migrate
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)

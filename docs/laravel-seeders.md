@@ -1,4 +1,4 @@
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
 
 # Laravel 5.5 - Factories e Seeders
 
@@ -63,4 +63,4 @@ $ php artisan db:seed      # popula as tabelas com todos os seeders
 $ php artisan db:seed --class=UsersTableSeeder # popula as tabelas com o seeder especificado
 ```
 
-[Voltar para Lista de Opções](https://bitbucket.org/rpdesignerfly/sofia/wiki/browse/)
+[Voltar para Lista de Opções](../readme.md)
