@@ -5,8 +5,8 @@
 ### Ubuntu
 
 As dependências do sistema devem ser instaladas antes. Verifique em:
-[Laravel 5.5 - Novos Projetos](https://bitbucket.org/rpdesignerfly/sofia/wiki/Laravel%205.5%20-%2001%20Criando%20Novos%20Projetos) e 
-[Ubuntu 17.04 Programação WEB](https://bitbucket.org/rpdesignerfly/sofia/wiki/OS%20Ubuntu%2017.04%20Programação%20WEB)
+[Criando Projetos](docs/laravel-criando-projetos.md) e
+[Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
 
 # 2 Instalação do Laravel Mix
 
