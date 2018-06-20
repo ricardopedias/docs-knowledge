@@ -220,7 +220,7 @@ $ npm run watch-poll        # modo de auto-compilação "forçada"
 
 ```
 
-> **Nota:** o modo de autoicompilação fica esperando alterações nos arquivos. Quando um arquivo scss é editado, por exemplo, a compilação acontece automaticamente. 
+> **Nota:** o modo de auto-compilação fica esperando alterações nos arquivos. Quando um arquivo scss é editado, por exemplo, a compilação acontece automaticamente. 
 
 > **O Comando Watch:** Em alguns sistemas o comando *watch* pode não funcionar, neste caso, considere usar o comando *watch-poll* que faz uma compilação forçada.
 
