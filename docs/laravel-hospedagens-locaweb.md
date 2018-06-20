@@ -61,7 +61,7 @@ RewriteRule (.*) public/$1 [L]
 ```
 Neste ponto a aplicação já deve estar funcionando, ai é só tratar os possíveis erros como por exemplo conexão com banco de dados caso eles aconteçam.
 
-## Rodando as migrations
+## 6. Rodando as migrations
 
 ```
 # phpXX -c ~/php.ini artisan migrate

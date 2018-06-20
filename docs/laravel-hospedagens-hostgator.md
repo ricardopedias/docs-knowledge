@@ -4,25 +4,25 @@
 
 ## 1. Acesso SSH
 
-### Usando um par de chaves pública e privada 
+### 1.1. Usando um par de chaves pública e privada 
 
 Estas chaves são apenas dois fragmentos de texto que contém uma combinação de caracteres em par, utilizada para descriptografar dados. O funcionamento é parecido com o de uma fechadura: somente quem possui a chave certa consegue abrir a fechadura correspondente.
 
 A chave pública deve ser armazenada no servidor e a chave privada no computador do usuário. A chave privada não deve ser compartilhada com ninguém. Ao solicitar acesso a um servidor, ele fará um teste de criptografia usando as duas chaves. Se o resultado do teste for positivo, ou seja, se a mensagem for descriptografada com o uso das duas chaves, você poderá acessar o servidor sem precisar de um login e senha. Este método é mais seguro do que o primeiro, porque somente você possui a chave privada. Outro detalhe interessante é que a sua chave pública pode ser inserida em outros servidores. Assim, você poderá acessar diversos servidores sem precisar gerar uma nova chave. Basta, para isso, que a sua chave pública seja inserida no servidor que você deseja acessar.
 
-### Gerando um par de chaves pública e privada 
+### 1.2. Gerando um par de chaves pública e privada 
 
 Você pode gerar as chaves SSH de diversas maneiras. Um método é usar o comando `ssh-keygen` diretamente no terminal. Ao digitar este comando, você será questionado sobre o nome do arquivo que deseja inserir em sua chave privada. Geralmente o nome é id_rsa e ele será salvo automaticamente em um diretório oculto, de nome .ssh, localizado na raiz do diretório do usuário. Você pode apenas teclar “Enter” para manter esta configuração padrão.
 
 Você também será questionado se deseja criar uma senha de criptografia para sua chave privada. Assim, mesmo que alguém consiga roubá-la de seu computador, ela não terá utilidade, pois precisará de uma senha para uso. Se não desejar deixar sua chave privada sem senha, basta deixar em branco e teclar “Enter”. O terminal então vai gerar o par de chaves e mostrar na tela sua localização. Uma imagem randômica também será exibida. Essa imagem é uma representação gráfica do padrão aleatório que gerou a sua chave. Em teoria, ela serve para oferecer a possbilidade de comparação visual de sua chave. Na prática você pode ignorar isso. 
 
-### Inserindo a chave pública no servidor 
+### 1.3. Inserindo a chave pública no servidor 
 
 Depois de gerar o par de chaves, você precisa inserir sua chave pública no servidor. A hospedagem da Hostgator usa o painel de controle cPanel, onde há uma área para gerenciamento de chaves SSH. Para importar sua chave via cPanel, acesse o painel e localize a área para gerenciamento do SSH, em seguida, escolha a opção “Gerenciar chaves do SSH”.
 
 Na tela de gerenciamento, clique na opção “Importar chave”. Na tela seguinte, preencha o campo nome usando o padrão, que é id_rsa. Em seguida, abra o arquivo id_rsa.pub, que está salvo em seu computador, na pasta ~/.ssh/id_rsa.pub. Use o bloco de notas ou um editor de códigos para abrir este arquivo. Copie o conteúdo do arquivo no campo “chave pública”. Você pode deixar o campo chave privada e o campo senha em branco. Ao final, conclua a importação da chave.
 
-### Solicitar acesso SSH
+### 1.4. Solicitar acesso SSH
 
 Por padrão, as contas da Hostgator possuem o acesso SSH desabilitado. Para continuar, será preciso solicitar a liberação do acesso SSH (JailShell). Para isso existem três formas:
 
@@ -149,7 +149,7 @@ Para criar uma instalação limpa do Laravel execute:
 
 ## 5. Versão do PHP
 
-### Ativando os arquivos PHP 5.6
+### 5.1. Ativando os arquivos PHP 5.6
 
 Com o seu projeto laravel criado, é preciso criar um arquivo chamado '.htaccess' no diretório da instalação do laravel com o parâmetro que ativa o php 5.6 para todos os arquivos contidos neste diretório:
 
@@ -158,13 +158,15 @@ Com o seu projeto laravel criado, é preciso criar um arquivo chamado '.htaccess
 AddHandler application/x-httpd-php56 .php
 ```
 
-### Ativando os arquivos PHP 7.0
+### 5.2. Ativando os arquivos PHP 7.0
 
+```
 # Habilitar o PHP 7.0
 AddHandler application/x-httpd-php70 .php
 <IfModule mod_suphp.c>
 suPHP_ConfigPath /opt/php70/lib
 </IfModule>
+```
 
 ## 6. Configurando o diretório 'public' do laravel
 
