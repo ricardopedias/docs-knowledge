@@ -1,6 +1,6 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# Ubuntu 18.04 para Desenvolvedor Web
+# Ubuntu 18.04 - Tomcat + Java + Banco de Dados
 
 ----------
 ## 1. As versões do Tomcat
@@ -14,7 +14,7 @@ Tomcat | Java
 8.x.x  | 7 e anteriores
 7.x.x  | 6 e anteriores
 
-Portanto, instalar sempre a última versão disponivel já resolve o problema.
+Portanto, instalar sempre a última versão disponível já resolve o problema.
 
 
 ----------
@@ -22,15 +22,16 @@ Portanto, instalar sempre a última versão disponivel já resolve o problema.
 
 
 ```
-$ sudo apt install unzip wget
 $ sudo apt install -y openjdk-8-jdk  mysql-client mysql-server
 ```
 
-Caso já existisse uma versão do java, você pode determinar a padrão com o seguinte comando:
+Caso já existam outras versões do java, você pode determinar a padrão com o seguinte comando:
 
 ```
 sudo update-alternatives --config java
 ```
+
+Na lista de versões disponíveis, digite o número correto e pressione enter.
 
 
 ----------
@@ -41,6 +42,7 @@ sudo update-alternatives --config java
 Antes de instalá-lo, é preciso criar o usuário do tomcat e dizer qual será o seu diretório:
 
 ```
+$ sudo mkdir /opt/tomcat
 $ sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
 ```
 
@@ -52,7 +54,7 @@ $ sudo apt install unzip wget
 
 ### 3.2. Instalando a última versão do Tomcat
 
-Até o momento, a última varsão é o Tomcat 9.
+Até o momento, a última versão do Tomcat é a 9.
 A página do Tomcat9 pode ser encontrada em [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi)
 
 

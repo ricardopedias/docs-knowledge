@@ -6,8 +6,8 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 * [Instalação do Ubuntu 18.04 - Pós Instalação](docs/ubuntu-18.04.md)
 * [Instalação do Ubuntu 18.04 - Desenvolvimento](docs/ubuntu-18.04-devel.md)
-* [Instalação do Ubuntu 18.04 - PHP + Apache2 + MySQL](docs/ubuntu-18.04-apache-php.md)
-* [Instalação do Ubuntu 18.04 - Java + Tomcat9 + MySQL](docs/ubuntu-18.04-tomcat-java.md)
+* [Instalação do Ubuntu 18.04 - Apache + PHP + MySQL](docs/ubuntu-18.04-apache-php.md)
+* [Instalação do Ubuntu 18.04 - Tomcat + Java + MySQL](docs/ubuntu-18.04-tomcat-java.md)
 
 # Ubuntu Outras versões
 * [Instalação do Ubuntu 17.10 - Pós Instalação](docs/ubuntu-17.10.md)
