@@ -10,9 +10,9 @@ Cada versão do Tomcat dá suporte a novas versões do Java. Observe na tabela a
 
 Tomcat | Java
 -------|----------
-9.x.x  | 8 e anteriores
-8.x.x  | 7 e anteriores
-7.x.x  | 6 e anteriores
+9.x.x  | 8 e posteriores
+8.x.x  | 7 e posteriores
+7.x.x  | 6 e posteriores
 
 Portanto, instalar sempre a última versão disponível já resolve o problema.
 
