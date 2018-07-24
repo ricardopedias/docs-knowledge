@@ -97,7 +97,7 @@ atom-text-editor.editor {
 
 NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
 
-#### Dica sobre os comentários
+## Dica sobre os comentários
 
 Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
 
@@ -106,5 +106,59 @@ Em Edit > Preferences > Install, busque e instale o pacote:
 - quick-comment
 
 Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
+
+## Dica sobre o pacote Project Plus
+
+Pressionando Ctrl + Shift e escolhendo a opção "Project Plus: Edit Projects", o arquivo "projects.cson" será aberto. Nele os projetos podem ser adicionados com a seguinte sintaxe:
+
+```
+[
+    {
+        title: "Knowledge",
+        paths: [
+            "/var/www/knowledge"
+        ]
+    }
+    {
+        title: "Coding Style",
+        paths: [
+            "/var/www/coding-style"
+        ]
+    }
+    {
+        title: "SortableGRID",
+        paths: [
+            "/var/www/laravel56/packages/plexi/sortable-grid"
+        ]
+    }
+    {
+        title: "Access Control",
+        paths: [
+            "/var/www/laravel56/packages/plexi/access-control"
+        ]
+    }
+
+    {
+        title: "Report Collection"
+        paths: [
+            "/var/www/laravel56/packages/plexi/report-collection"
+        ]
+    }
+    {
+        title: "OLDExtended",
+        paths: [
+            "/var/www/laravel56/packages/plexi/old-extended"
+        ]
+    }
+    {
+        title: "Laravel56"
+        paths: [
+            "/var/www/laravel56"
+        ]
+    }
+]
+```
+
+
 
 [Voltar para Lista de Opções](../readme.md)
