@@ -2,48 +2,57 @@
 
 # Atom
 
-
 O editor Atom, desenvolvido pela equipe do github.com é uma ótima opção para desenvolvimento:
+
+## 1. Instalando
+
+### 1.1. Para instalar com apt
 
 ```
 $ sudo wget -q -O - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -;
 $ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list';
 $ sudo apt-get update && sudo apt-get install -y atom;
+```
 
-# Atom
-# https://flight-manual.atom.io/getting-started/sections/installing-atom/
-# curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -;
+### 1.2. Para instalar manualmente
 
+É preciso baixar manualmente o Atom no site https://atom.io/.
+Mais informaçes em [Instalando o Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/).
 
-É preciso baixar manualmente o Atom no site https://atom.io/
-Em Edit > Preferences > Install, busque e instale os pacotes na seguinte sequência:
+## 2. Configurando
 
-- atom-ide-ui 
-- ide-php
-- ide-html
-- ide-css
-- ide-json
-- emmet
-- atom-alignment
-- project-plus
-- docblockr
-- platformio-ide-terminal
+### 2.1. Pacotes e Plugins
+
+Em **Edit > Preferences > Install**, busque e instale os pacotes na seguinte sequência:
+
+* atom-ide-ui 
+* ide-php
+* ide-html
+* ide-css
+* ide-json
+* emmet
+* atom-alignment
+* project-plus
+* docblockr
+* platformio-ide-terminal
+
+### 2.2. Aparência da Sintaxe
 
 Configurando a aparência da sintaxe.
 
-Em Edit > Preferences > Editor, mude os parâmetros:
+Em **Edit > Preferences > Editor**, mude os parâmetros:
 
-- Font Size: 12px;
-- Line Height: 2.5
-- Tab Length: 4
+* Font Size: 12px;
+* Line Height: 2.5
+* Tab Length: 4
 
-Em Edit > Preferences > Install, busque e instale o tema:
+Em **Edit > Preferences > Install**, busque e instale o tema:
 
-- atom-oceanic-next-italic
+* atom-oceanic-next-italic
 
-Após instalar, em Edit > Preferences > Themes, selecione "Atom Oceanic Next Italic" no seletor "Syntax Theme".
+Após instalar, em **Edit > Preferences > Themes**, selecione "Atom Oceanic Next Italic" no seletor "Syntax Theme".
 
-Por fim, vá para em Edit > Stylesheet e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte:
+Por fim, vá para em **Edit > Stylesheet** e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte:
 
 ```
 atom-workspace,
@@ -97,17 +106,17 @@ atom-text-editor.editor {
 
 NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
 
-## Dica sobre os comentários
+### 2.3. Comentários em Notebooks
 
 Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
 
-Em Edit > Preferences > Install, busque e instale o pacote:
+Em **Edit > Preferences > Install**, busque e instale o pacote:
 
-- quick-comment
+* quick-comment
 
 Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
 
-## Dica sobre o pacote Project Plus
+### 2.4. Lista de Projetos com Project Plus
 
 Pressionando Ctrl + Shift e escolhendo a opção "Project Plus: Edit Projects", o arquivo "projects.cson" será aberto. Nele os projetos podem ser adicionados com a seguinte sintaxe:
 
