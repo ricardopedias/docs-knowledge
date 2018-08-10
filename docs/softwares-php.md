@@ -38,6 +38,13 @@ Um comando legal para ficar "observando" os logs em tempo real é o tail:
 ```
 $ tail -f /var/log/fpm-php.www.log
 ```
+Os erros logados se parecerão como a seguir:
+
+```
+[09-Aug-2018 23:14:31 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'define' (T_STRING) in /var/www/laravel56/public/index.php on line 10
+[09-Aug-2018 23:14:31 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'define' (T_STRING) in /var/www/laravel56/public/index.php on line 10
+```
+
 
 
 
