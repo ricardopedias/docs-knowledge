@@ -30,6 +30,7 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Localização e Idiomas](docs/laravel-localizacao.md)
 * [Usando Laravel Mix](docs/laravel-mix.md)
 * [Factories e Seeders](docs/laravel-seeders.md)
+* [Resolução de Problemas](docs/laravel-problems.md)
 
 
 # Softwares
