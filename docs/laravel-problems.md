@@ -1,6 +1,6 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# Laravel: Resoluço de Problemas
+# Laravel: Resolução de Problemas
 
 ## 1. Specified key was too long
 
