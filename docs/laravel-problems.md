@@ -10,10 +10,10 @@ Mas esta mudança pode afetar o comportamento do MySQL. Para versões do MySQL i
 
 ```
 [Illuminate \ Database \ QueryException]
-SQLSTATE [42000]: Erro de sintaxe ou violação de acesso: 1071 A chave especificada era muito longa; O tamanho máximo da chave é de 767 bytes (SQL: alter table users adicionam unique_user_email_unique (email))
+SQLSTATE [42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table users add unique users_email_unique (email))
 
 [PDOException]
-SQLSTATE [42000]: Erro de sintaxe ou violação de acesso: 1071 A chave especificada era muito longa; o tamanho máximo da chave é de 767 bytes
+SQLSTATE [42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes
 ```
 
 Para corrigir isso, conforme descrito no [guia de migrações](https://laravel.com/docs/master/migrations#creating-indexes), basta editar o arquivo **AppServiceProvider.php** e, dentro do método **boot()**, definir o tamanho padrão da string:
@@ -21,9 +21,9 @@ Para corrigir isso, conforme descrito no [guia de migrações](https://laravel.c
 ```
 use Illuminate \ Support \ Facades \ Schema;
 
-inicialização de função pública ()
+public function boot ()
 {
-Esquema :: defaultStringLength (191);
+    Schema :: defaultStringLength (191);
 }
 ```
 
