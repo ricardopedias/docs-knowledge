@@ -105,12 +105,24 @@ Mais informações em http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html
 
 ### 3.2. Importar Bancos
 
+Para importar pelo terminal:
+
 ```
 $ mysql -u username -p -h localhost DATA-BASE-NAME < data.sql
 $ mysql -u sat -p -h localhost blog < data.sql
 $ mysql -u username -p -h 202.54.1.10 databasename < data.sql
 $ mysql -u username -p -h mysql.cyberciti.biz database-name < data.sql
 $ mysql -u username -p -h 202.54.1.10 < data.sql
+```
+
+Para importar de dentro do prompt do mysql-client, usando `source`:
+
+```
+$ mysql -u root -p
+
+mysql> create database mydb;
+mysql> use mydb;
+mysql> source db_backup.dump; 
 ```
 
 ### 3.3. Gerando a diferença entre bancos
