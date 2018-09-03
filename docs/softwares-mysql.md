@@ -94,11 +94,11 @@ DROP USER ‘ricardo’@‘localhost’;
 ### 3.1. Exportar Bancos
 
 ```
-$ mysqldump -u [uname] -p[pass] db_name > db_backup.sql
-$ mysqldump -u [uname] -p[pass] --all-databases > all_db_backup.sql
-$ mysqldump -u [uname] -p[pass] db_name table1 table2 > table_backup.sql
-$ mysqldump -u [uname] -p[pass] db_name | gzip > db_backup.sql.gz
-$ mysqldump -P 3306 -h [ip_address] -u [uname] -p[pass] db_name > db_backup.sql
+$ mysqldump -u [uname] -p[pass] --routines -v db_name > db_backup.sql
+$ mysqldump -u [uname] -p[pass] --routines -v --all-databases > all_db_backup.sql
+$ mysqldump -u [uname] -p[pass] --routines -v db_name table1 table2 > table_backup.sql
+$ mysqldump -u [uname] -p[pass] --routines -v db_name | gzip > db_backup.sql.gz
+$ mysqldump -P 3306 -h [ip_address] -u [uname] -p[pass]  --routines -v db_name > db_backup.sql
 ```
 
 Mais informações em http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html
