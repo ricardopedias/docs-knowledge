@@ -51,4 +51,5 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 ## Outros
 
+* [Comandos Linux](docs/comandos-linux.md)
 * [Mame-Mess](docs/softwares-mame.md)
