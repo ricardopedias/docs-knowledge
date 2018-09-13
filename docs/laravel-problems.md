@@ -75,7 +75,7 @@ Abaixo, um exemplo com todos os modos setados por padrão na conexão do Laravel
 
 ## 3. Logando todas as queries executadas pelo Eloquent
 
-Para logar todas as queries que o Eloquent envia para o servidor de Banco de Dados, basta o \DB::listen no AppServiceProvider. Após esta configuração, as queries passarão a ser adicionadas no arquivo de log do Laravel em /storage/laravel.log. Observe no exemplo abaixo:
+Para logar todas as queries que o Eloquent envia para o servidor de Banco de Dados, basta o \DB::listen no AppServiceProvider como no exemplo abaixo:
 
 ```
 class AppServiceProvider extends ServiceProvider
@@ -100,6 +100,14 @@ class AppServiceProvider extends ServiceProvider
     
     // ...
 }
+```
+
+Após esta configuração, as queries passarão a ser adicionadas no arquivo de log do Laravel em /storage/laravel.log, possuindo o seguinte formato:
+
+```
+[2018-01-10 18:57:33] local.INFO: select * from `users`  
+[2018-01-10 18:57:33] local.INFO: select * from `screenings` limit 50 offset 150  
+[2018-01-10 18:57:33] local.INFO: select count(*) as aggregate from `categories`  
 ```
 
 [Voltar para Lista de Opções](../readme.md)
