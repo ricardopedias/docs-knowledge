@@ -147,4 +147,21 @@ $ mysqldump --skip-comments --skip-extended-insert -u root -p dbName2>file2.sql
 $ diff file1.sql file2.sql
 ```
 
+# 4. Queries
+
+Formatar CPF:
+
+```
+SELECT 
+  INSERT( INSERT( INSERT( users.cpf, 10, 0, '-' ), 7, 0, '.' ), 4, 0, '.' ) as cpf
+FROM users
+```
+Formatar CNPJ:
+
+```
+SELECT
+  INSERT(INSERT(INSERT(INSERT(users.cnpj, 13, 0, '-' ), 9, 0, '/' ), 6, 0, '.' ), 3, 0, '.' ) as cnpj
+from users
+```
+
 [Voltar para Lista de Opções](../readme.md)
