@@ -168,6 +168,14 @@ Pressionando Ctrl + Shift e escolhendo a opção "Project Plus: Edit Projects", 
 ]
 ```
 
+## 3. Resolvendo Problemas
 
+Após atualização no Ubuntu 18.04 LTS, a mensagem aparece e o push não é executado:
+
+**/usr/share/atom/resources/app.asar.unpacked/node_modules/dugite/git/libexec/git-core/git-remote-http: /usr/lib/x86_64-linux-gnu/libcurl.so.4: version CURL_OPENSSL_3' not found (required by /usr/share/atom/resources/app.asar.unpacked/node_modules/dugite/git/libexec/git-core/git-remote-http)**
+
+```
+apt install libcurl3 libcurl-openssl1.0-dev
+```
 
 [Voltar para Lista de Opções](../readme.md)
