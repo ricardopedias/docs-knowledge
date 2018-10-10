@@ -100,6 +100,27 @@ O comando anterior vai solicitar a senha, você deve informar a senha que você 
 
 ## 2. Trabalhando com usuários
 
+
+Atenção: Execute estes comando no terminal do servidor.
+
+abra um terminal e digite
+sudo vi /etc/mysql/my.cnf
+comente as linhas
+bind-address = 127.0.0.1
+skip-external-locking
+reinicie o servidor com o comando
+/etc/init.d/mysql restart
+sudo service mysql restart
+entre no prompt do mysql com o comando:
+mysql –u root –p
+Será solicitado a senha do usuário root para servidor MySQL
+no prompt do MySQL digite:
+GRANT ALL ON *.* TO root@’%’ IDENTIFIED By ‘senhadoroot’;
+FLUSH PRIVILEGES;
+O comando acima irá permitir acesso a todos os bancos de dados de qualquer máquina remota ao usuário root.
+OBS.: Os comandos acima foram testados no Ubuntu 10.04 Server rodando o servidor MySQL 5.1.41
+
+
 ### 2.1. Mudar a senha de root
 
 
