@@ -45,7 +45,13 @@ $ sudo service procps reload
 
 ### 1.2. Npm (Javascript e CSS)
 
-Para instalar a última versão do node no Ubuntu, é preciso usar um repositório PPA. 
+Para instalar a versãoq ue acompanha o ubuntu (nodejs 8.11), basta exeutar o seguinte comando:
+
+```
+$ sudo apt install -y nodejs
+```
+
+Para instalar manualmente a última versão do node, será preciso usar um repositório PPA. 
 Para isso será preciso instalar o "curl", que fará as requições ao repositório:
 
 ```
@@ -106,17 +112,18 @@ $ sudo apt install vim
 Para gerenciar bancos MySQL, nada como um gerenciador desenvolvido pela própria equipe do famoso Banco de Dados.
 
 ```
-$ sudo apt install mysql-workbench
+$ sudo apt install -y mysql-workbench
 ```
 
-### 3.3. ReText
+### 3.3. Ghostwriter
 
 Leitor e editor de textos em MarkDown (readme.md, por exemplo). 
-Dica: Para uma visualização melhor, acesse o menu "Editar" e ative a opção "Utilizar renderizador Webkit"
 
 ```
-$ sudo apt install retext
+$ sudo add-apt-repository ppa:wereturtle/ppa
+$ sudo apt-get install -y ghostwriter
 ```
+
 ### 3.4. Atom
 
 O editor Atom, desenvolvido pela equipe do github.com é uma ótima opção para desenvolvimento:
