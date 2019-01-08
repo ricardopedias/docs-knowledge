@@ -12,6 +12,32 @@
 $ sudo apt install -y apache2 mysql-client mysql-server
 ```
 
+Nas versões anteriores, após a inatalação do mysql, uma janela pedia para o usuaŕio digitar a senha de root do mysql.
+A partir desta nova versão, isso não acontece mais. Isso porque o mysql agora usa um plugun chamado 'auth_socket' para que o usuário do sistema possa se conectar. Para conectar ao mysql, basta usar o seguinte comando:
+
+```
+$ sudo mysql
+```
+O prompty do mysql se abrirá:
+
+```
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.24-0ubuntu0.18.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
+
+Para mudar isso e deixar o mysql com uma senha própria, acesse [MySQL - Canivete Suíço](softwares-mysql.md).
+
 ----------
 ## 2. As versões do PHP
 
