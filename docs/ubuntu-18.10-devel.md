@@ -45,7 +45,7 @@ $ sudo service procps reload
 
 ### 1.2. Npm (Javascript e CSS)
 
-Para instalar a versãoq ue acompanha o ubuntu (nodejs 8.11), basta exeutar o seguinte comando:
+Para instalar a versão que acompanha o ubuntu (nodejs 8.11), basta exeutar o seguinte comando:
 
 ```
 $ sudo apt install -y nodejs
