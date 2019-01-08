@@ -106,8 +106,17 @@ atom-text-editor.editor {
 
 NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
 
+A Fira Code é gratuíta e se encontra nos repositórios do Ubuntu, podendo ser instalado com o comando:
+
 ```
 sudo apt install fonts-firacode
+```
+
+Já a Operator Mono é uma fonte proprietária e custa $100,00 e pode ser encontrada em [https://www.typography.com/fonts/operator/styles](https://www.typography.com/fonts/operator/styles). As fonts otf da familia Operation Mono devem ser agrupadas em um diretório chamado 'operation-mono' e copiadas para '/usr/share/fonts/opentype'. Após a cópia, é necessário atualizar o cache de fontes:
+
+```
+sudo cp -r operator-mono /usr/share/fonts/opentype/
+sudo fc-cache -f -v
 ```
 
 ### 2.3. Comentários em Notebooks
