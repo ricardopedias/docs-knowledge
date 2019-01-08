@@ -106,6 +106,10 @@ atom-text-editor.editor {
 
 NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
 
+```
+sudo apt install fonts-firacode
+```
+
 ### 2.3. Comentários em Notebooks
 
 Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
