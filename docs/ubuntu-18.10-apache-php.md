@@ -5,9 +5,6 @@
 ----------
 ## 1. Servidores HTTP e Banco de Dados
 
-
-### HTTP
-
 ```
 $ sudo apt install -y apache2 mysql-client mysql-server
 ```
