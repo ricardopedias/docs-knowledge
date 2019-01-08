@@ -67,7 +67,7 @@ $ sudo apt-get install -y php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstrin
 $ sudo apt-get install -y php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-zip php7.2-xdebug
 ```
 Nota: A partir do php 7.2, a extensão mcrypt foi removida. 
-Para mains informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
+Para mais informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
 
 
 ----------
@@ -79,7 +79,7 @@ Para mains informações veja a [Notificação Oficial do PHP](https://wiki.php.
 Alguns módulos do Apache precisam ser ativados:
 
 ```
-$ sudo a2enmod rewrite actions proxy_fcgi setenvif; 
+$ sudo a2enmod proxy_fcgi setenvif rewrite actions
 ```
 
 ### 3.2. Recarregando configurações do Apache
