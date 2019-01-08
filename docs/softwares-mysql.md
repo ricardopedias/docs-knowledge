@@ -2,11 +2,53 @@
 
 # MySQL - Canivete Suíço
 
-## 1. Conectar ao MySQL
+## 1. Abrir o prompt do MySQL
 
 ```
 $ mysql -u username -p 
 ```
+
+### Acesso root no Ubuntu <= 18.04
+
+```
+$ mysql -u root -p 
+```
+
+### Acesso root no Ubuntu >= 18.10
+
+```
+$ sudo mysql
+```
+
+Nas versões anteriores, após a instalação do mysql, uma janela pedia para o usuário digitar a senha de root do mysql. A partir desta nova versão, isso não acontece mais. Isso porque o mysql passou a usar um plugin chamado 'auth_socket' para que o usuário do sistema possa se conectar diretamente. Isso pode ser conferido na tabela mysql.user do sevidor:
+
+```
+$ sudo mysql
+$ mysql> SELECT user, authentication_string, plugin, host FROM mysql.user;
++------------------+-------------------------------------------+-----------------------+-----------+
+| user             | authentication_string                     | plugin                | host      |
++------------------+-------------------------------------------+-----------------------+-----------+
+| root             |                                           | auth_socket           | localhost |
+| mysql.session    | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
+| mysql.sys        | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
+| debian-sys-maint | *CC744277A401A7D25BE1CA89AFF17BF607F876FF | mysql_native_password | localhost |
++------------------+-------------------------------------------+-----------------------+-----------+
+4 rows in set (0.00 sec)
+```
+
+Para abrir o prompt root do mysql no Ubuntu 18.10 (ou superiores) como nas versões anteriores, será necessário configurar, usando o comando abaixo:
+
+```
+$ sudo mysql
+$ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'senha_nova';
+```
+
+Agora será possivel entrar no servidor sem o sudo.
+
+```
+$ mysql -u root -p 
+```
+
 
 
 1 – Identificar a versão do bando de dados
