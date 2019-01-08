@@ -32,7 +32,8 @@ Conversor de formatos:
 
 ```
 $ sudo apt-add-repository ppa:teejee2008/ppa -y
-$ sudo apt-get update && apt install -y selene
+$ sudo apt-get update 
+$ sudo apt install -y selene
 ```
 
 ----------
@@ -95,16 +96,7 @@ Dentro do gnome tweak, acessar a aba Extensões e ativar:
 * Ubuntu appindicators
 * Ubuntu dock
 
-### 5.3. Botões da janela
-
-Abra o dconf editor e encontre o registro '/org/gnome/desktop/wm/preferences/button-layout'.
-No campo "Valor Personalizado" basta inverter a ordem dos elementos, separados por virgula:
-
-```
-close,minimize,maximize:appmenu
-```
-
-### 5.4. Tema das Janelas
+### 5.3. Tema das Janelas (Opcional)
 
 ```
 $ sudo apt install -y arc-theme
@@ -118,7 +110,7 @@ $ sudo apt install -y kde-runtime breeze
 
 No Gnome Tweak Tool, acesse "Aparência" e na seção Temas > Aplicativos, ative o tema Arc.
 
-### 5.5. Tema de ícones
+### 5.4. Tema de ícones (Opcional)
 
 Baixar o tema de icones em https://github.com/snwh/paper-icon-theme. Após extrair os arquivos, copie os diretórios 'Paper' e 'Paper-Mono-Dark' na pasta '.icons' na home do usuário.
 
@@ -133,7 +125,7 @@ O System Error Apport é um mecanismo que a Canonical instituiu nas últimas ver
 $ sudo apt-get remove -y --purge apport && apt-get autoremove
 ```
 
-Veja também: [Ubuntu 18.04 para Desenvolvedor Web](ubuntu-18.04-devel.md)
+Veja também: [Ubuntu 18.10 para Desenvolvedor Web](ubuntu-18.10-devel.md)
 
 
 
