@@ -12,8 +12,8 @@
 $ sudo apt install -y apache2 mysql-client mysql-server
 ```
 
-Nas versões anteriores, após a inatalação do mysql, uma janela pedia para o usuaŕio digitar a senha de root do mysql.
-A partir desta nova versão, isso não acontece mais. Isso porque o mysql agora usa um plugun chamado 'auth_socket' para que o usuário do sistema possa se conectar. Para conectar ao mysql, basta usar o seguinte comando:
+Nas versões anteriores, após a instalação do mysql, uma janela pedia para o usuaŕio digitar a senha de root do mysql.
+A partir desta nova versão, isso não acontece mais. Isso porque o mysql agora usa um plugin chamado 'auth_socket' para que o usuário do sistema possa se conectar. Para conectar ao mysql, basta usar o seguinte comando:
 
 ```
 $ sudo mysql
