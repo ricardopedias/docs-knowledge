@@ -36,6 +36,14 @@ Em **Edit > Preferences > Install**, busque e instale os pacotes na seguinte seq
 * docblockr
 * platformio-ide-terminal
 
+Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
+
+Em **Edit > Preferences > Install**, busque e instale o pacote:
+
+* quick-comment
+
+Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
+
 ### 2.2. Aparência da Sintaxe
 
 Configurando a aparência da sintaxe.
@@ -52,7 +60,26 @@ Em **Edit > Preferences > Install**, busque e instale o tema:
 
 Após instalar, em **Edit > Preferences > Themes**, selecione "Atom Oceanic Next Italic" no seletor "Syntax Theme".
 
-Por fim, vá para em **Edit > Stylesheet** e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte:
+Por fim, vá para em **Edit > Stylesheet** e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte.
+
+#### Novas fontes
+
+NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
+
+A Fira Code é gratuíta e se encontra nos repositórios do Ubuntu, podendo ser instalado com o comando:
+
+```
+sudo apt install fonts-firacode
+```
+
+Já a Operator Mono é uma fonte proprietária e custa $100,00 e pode ser encontrada em [https://www.typography.com/fonts/operator/styles](https://www.typography.com/fonts/operator/styles). As fonts otf da familia Operation Mono devem ser agrupadas em um diretório chamado 'operation-mono' e copiadas para '/usr/share/fonts/opentype'. Após a cópia, é necessário atualizar o cache de fontes:
+
+```
+sudo cp -r operator-mono /usr/share/fonts/opentype/
+sudo fc-cache -f -v
+```
+
+#### Personalizando os estivos do Atom
 
 ```
 atom-workspace,
@@ -104,32 +131,7 @@ atom-text-editor.editor {
 
 ```
 
-NOTA: As fontes "Operator Mono Book" e a fonte especial "Fira Code" devem estar instaladas no sistema para o Atom identificá-las. :)
-
-A Fira Code é gratuíta e se encontra nos repositórios do Ubuntu, podendo ser instalado com o comando:
-
-```
-sudo apt install fonts-firacode
-```
-
-Já a Operator Mono é uma fonte proprietária e custa $100,00 e pode ser encontrada em [https://www.typography.com/fonts/operator/styles](https://www.typography.com/fonts/operator/styles). As fonts otf da familia Operation Mono devem ser agrupadas em um diretório chamado 'operation-mono' e copiadas para '/usr/share/fonts/opentype'. Após a cópia, é necessário atualizar o cache de fontes:
-
-```
-sudo cp -r operator-mono /usr/share/fonts/opentype/
-sudo fc-cache -f -v
-```
-
-### 2.3. Comentários em Notebooks
-
-Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
-
-Em **Edit > Preferences > Install**, busque e instale o pacote:
-
-* quick-comment
-
-Após instalar este pacote, basta usar o novo atalho (Shift + Alt + c) para comentar/descomentar seu código.
-
-### 2.4. Lista de Projetos com Project Plus
+### 2.3. Lista de Projetos com Project Plus
 
 Pressionando Ctrl + Shift e escolhendo a opção "Project Plus: Edit Projects", o arquivo "projects.cson" será aberto. Nele os projetos podem ser adicionados com a seguinte sintaxe:
 
@@ -186,6 +188,8 @@ Pressionando Ctrl + Shift e escolhendo a opção "Project Plus: Edit Projects", 
 Após atualização no Ubuntu 18.04 LTS, a mensagem aparece e o push não é executado:
 
 **/usr/share/atom/resources/app.asar.unpacked/node_modules/dugite/git/libexec/git-core/git-remote-http: /usr/lib/x86_64-linux-gnu/libcurl.so.4: version CURL_OPENSSL_3' not found (required by /usr/share/atom/resources/app.asar.unpacked/node_modules/dugite/git/libexec/git-core/git-remote-http)**
+
+Para resolver isso, é preciso instalar a versão 3 da biblioteca curl:
 
 ```
 apt install libcurl3 libcurl-openssl1.0-dev
