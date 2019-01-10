@@ -50,6 +50,84 @@ $ mysql -u root -p
 ```
 
 
+## 2. Ubuntu 18.10: Conectando como usuário root
+
+No ubuntu 18.04 e anteriores, o usuário root possui vários hosts diferentes por padrão:
+
+```
+mysql> SELECT Host, User FROM mysql.user;
++-----------+------------------+
+| Host      | User             |
++-----------+------------------+
+| %         | root             |
+| localhost | root             |
+| 127.0.0.1 | root             |
+| ::1       | root             |
+| localhost | debian-sys-maint |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
++-----------+------------------+
+5 rows in set (0.00 sec)
+```
+
+A partir do ubuntu 18.10, o usuário root possui apenas um host:
+
+```
+mysql> SELECT Host, User FROM mysql.user;
++-----------+------------------+
+| Host      | User             |
++-----------+------------------+
+| localhost | root             |
+| localhost | debian-sys-maint |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
++-----------+------------------+
+5 rows in set (0.00 sec)
+```
+
+Isso será um problema para os sistemas que executem pelo usuário root com Triggers, Procedures ou Functions atreladas a um determinado host, como por exemplo, o root@'%'.
+
+Por exemplo, se o sistema tentar executar uma Procedure atrelada ao usuário 'root'@'%' (que não existe no ubuntu 18.10), a seguinte mensagem de erro será emitida:
+
+>> The user specified as a definer (‘root’@’%’) does not exist
+
+Embora não seja aconselhável a utilização do usuário root para conexões sistemicas, se for realemnet necessário utilizá-lo, será preciso criar o host especifico para ele:
+
+```
+mysql> CREATE USER 'root'@'%';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+mysql> FLUSH PRIVILEGES;
+```
+
+## 3. Mudando a senha de usuários
+
+
+shell> mysql -u root -p
+mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpwd');
+mysql> SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('newpwd');
+mysql> SET PASSWORD FOR 'root'@'::1' = PASSWORD('newpwd');
+mysql> SET PASSWORD FOR 'root'@'host_name' = PASSWORD('newpwd');
+
+If you wanted to update them all at once you can use UPDATE
+
+shell> mysql -u root -p
+mysql> UPDATE mysql.user SET Password = PASSWORD('newpwd')
+    ->     WHERE User = 'root';
+mysql> FLUSH PRIVILEGES;
+
+The third way if to use the mysqladmin tool
+
+shell> mysqladmin -u root password "newpwd"
+shell> mysqladmin -u root -h host_name password "newpwd"
+
+If using this method, you need to make note:
+
+The mysqladmin method of setting the root account passwords does not work for the 'root'@'127.0.0.1' or 'root'@'::1' account. Use the SET PASSWORD method shown earlier.
+
+
+
+
+
 
 1 – Identificar a versão do bando de dados
 A maioria das distribuições GNU/Linux está vindo com MariaDB, que é um fork do MySQL. Dependendo do banco de dados que você está usado e sua versão, você precisará usar comandos diferentes para recuperar a senha de root.
