@@ -96,6 +96,24 @@ $ npm -v
 $ sudo apt install git
 ```
 
+Para definir o usuaŕio que fará os commits, existem duas opções:
+
+**Opção 1:** para a configuração do repositório especifico:
+
+```
+$ cd /caminho/do/meu/projeto
+$ git config user.name "Ricardo Pereira"
+$ git config user.email "email@example.com"
+```
+
+**Opção 2:** para a configuração global do git
+
+```
+$ git config --global user.name "Ricardo Pereira"
+$ git config --global user.email "email@example.com"
+```
+
+
 ### GitKraken 
 
 ```
