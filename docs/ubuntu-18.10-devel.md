@@ -160,6 +160,37 @@ $ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any
 $ sudo apt-get update && sudo apt-get install -y atom;
 ```
 
+No Ubuntu 18.10, um bug impede que os menus do Atom apareçam, pois ficam da mesma cor do tema. Para corrigir isso, é recido editar o atalho do atom:
+
+```
+$ sudo vim /usr/share/applications/atom.desktop
+```
+
+No item Exec, adicione a variável de ambiente para forçar o tema dark. No arquivo atom.desktop, mude:
+
+```
+[Desktop Entry]
+Name=Atom
+Comment=A hackable text editor for the 21st Century.
+GenericName=Text Editor
+Exec=/usr/bin/atom %F
+Icon=atom
+```
+
+para:
+
+```
+[Desktop Entry]
+Name=Atom
+Comment=A hackable text editor for the 21st Century.
+GenericName=Text Editor
+Exec=env GTK_THEME=Adwaita:dark /usr/bin/atom %F
+Icon=atom
+```
+
+
+
+
 [Veja configurações e mais informações sobre o Atom](softwares-atom.md)
 
 
