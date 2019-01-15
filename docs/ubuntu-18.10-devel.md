@@ -160,7 +160,7 @@ $ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any
 $ sudo apt-get update && sudo apt-get install -y atom;
 ```
 
-No Ubuntu 18.10, um bug impede que os menus do Atom apareçam, pois ficam da mesma cor do tema. Para corrigir isso, é recido editar o atalho do atom:
+No Ubuntu 18.10, um bug impede que os menus do Atom apareçam, pois ficam da mesma cor do tema. Para corrigir isso, é preciso editar o atalho do atom:
 
 ```
 $ sudo vim /usr/share/applications/atom.desktop
