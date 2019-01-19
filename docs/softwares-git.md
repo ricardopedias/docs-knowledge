@@ -1,8 +1,79 @@
 [Voltar para Lista de Opções](../readme.md)
 
 # Software Git
+---------------------------------------------------
 
-# 1 Submetendo alterações
+# 1. Instalando
+
+## 1.1. Instalando no Windows
+
+Acesse a seguinte URL, faça o download e instale a última versão disponível: http://msysgit.github.io/
+
+Após a instalação, acesse o Git Bash e será aberto um terminal, com o prompt de comando:
+
+## 1.2. Instalando no Mac
+
+Acesse a seguinte URL, faça o download e instale a última versão disponível: https://code.google.com/p/git-osx-installer/downloads
+
+Após a instalação, abra um terminal e o git estará disponível!
+
+## 1.3. Instalando no Linux
+
+Para instalar o Git no Ubuntu, ou em uma outra distribuição baseada em Debian, execute em um terminal:
+
+```
+$ sudo apt-get install git
+```
+
+Para as demais distribuições do Linux, veja o comando em: http://git-scm.com/download/linux
+
+# 2. Configurando
+
+## 2.1. Configurando o usuário 
+
+Para que seja possível enviar (commit) arquivos para um repositório, é preciso configurar o usuário no git.
+As informações deste usuário aparecerão no histórico de commits e servem para identificar que foi o autor de determinada funcionalidade ou correção submetida ao repositório.
+
+Isso pode ser feito de duas maneiras:
+
+### 2.1.1. Globalmente
+
+Configurar um usuário global significa que este estará disponível para todos os repositórios criados com git. Ou seja, sempre que qualquer envio for efetuado, este usuário será utilizado como padrão.
+
+Para configurar as informações de um usuário globalmente:
+
+```
+$ git config --global user.name "Nome do Usuário Padrão"
+$ git config --global user.email usuario.padrao@gmail.com
+```
+
+### 2.1.2. Localmente
+
+Configurar um usuário local significa que este estará disponível apenas para um repositório específico. Ao configurar um usuário local para um repositório, esta informação irá ser utilizada no lugar do usuário padrão.
+
+Para que seja possível configurar um usuário local, é preciso que o diretório '/caminho/ate/meu/repositorio' seja um repositório do git.
+
+Para configurar as informações de um usuário localmente:
+
+```
+$ cd /caminho/ate/meu/repositorio
+$ git config user.name "Nome do Usuário"
+$ git config user.email usuario@gmail.com
+```
+
+Acessando o arquivo /caminho/ate/meu/repositorio/.git/config, perceba que as informações configuradas estarão presentes da seguinte forma: 
+
+```
+[user]
+	email = usuario@gmail.com
+	name = Nome do Usuário
+```
+
+
+
+
+
+# 1. Repositório Local
 
 Para submeter todas as alterações ao Repositório online:
 
