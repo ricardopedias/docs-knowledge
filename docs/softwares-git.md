@@ -51,12 +51,12 @@ $ git config --global user.email usuario.padrao@gmail.com
 
 Configurar um usuário local significa que este estará disponível apenas para um repositório específico. Ao configurar um usuário local para um repositório, esta informação irá ser utilizada no lugar do usuário padrão.
 
-Para que seja possível configurar um usuário local, é preciso que o diretório '/caminho/ate/meu/repositorio' seja um repositório do git.
+Para que seja possível configurar um usuário local, é preciso que o diretório '/home/ricardo/projeto' seja um repositório do git.
 
 Para configurar as informações de um usuário localmente:
 
 ```
-$ cd /caminho/ate/meu/repositorio
+$ cd /home/ricardo/projeto
 $ git config user.name "Nome do Usuário"
 $ git config user.email usuario@gmail.com
 ```
@@ -69,13 +69,65 @@ Acessando o arquivo /caminho/ate/meu/repositorio/.git/config, perceba que as inf
 	name = Nome do Usuário
 ```
 
+# 3. Repositório Local
+
+## 3.1. Criando
+
+Para transformar um diretório qualquer em um repositório do Git, basta exe-
+cutar o comando git init :
+
+```
+$ cd /home/ricardo/projeto
+$ git init
+```
+
+Deverá aparecer uma mensagem semelhante à seguinte:
+
+```
+Initialized empty Git repository in /home/ricardo/projeto/.git/
+```
+
+Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome .git.
+
+## 3.2. Verificando mudanças
+
+### 3.2.1. Status
+
+Podemos ver a situação dos arquivos no repositório Git com o comando `git status`. Este comando vai exibir várias informações importantes como:
+
+* Lista de arquivos não-rastreados
+* Lista de arquivos rastreados
+* Sugestões de uso
+
+Executando:
+
+```
+$ git status
+```
+
+Como o repositório está vazio, a seguinte mensagem será exibida:
+
+```
+No ramo master
+No commits yet
+nada para enviar (crie/copie arquivos e use "git add" para registrar)
+```
+
+
+### 3.2.2. Rastreando arquivos
+
+Quando um novo arquivo é criado dentro do diretório de um repositório, ele não faz parte do repositório ainda.
+Digamos que criemos o arquivo /caminho/ate/meu/repositorio/ironman.txt em nosso novo repositorio e executemos um git status:
+
+```
+git status
+```
+
+
+Podemos ver a situação dos arquivos no repositório Git com o comando:
 
 
 
-
-# 1. Repositório Local
-
-Para submeter todas as alterações ao Repositório online:
 
 ## 1.1. Como usuário padrão:
 
