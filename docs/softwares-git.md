@@ -113,18 +113,19 @@ No commits yet
 nada para enviar (crie/copie arquivos e use "git add" para registrar)
 ```
 
-
 ### 3.2.2. Rastreando arquivos
 
 Quando um novo arquivo é criado dentro do diretório de um repositório, ele não faz parte do repositório ainda.
 Digamos que criemos o arquivo /caminho/ate/meu/repositorio/ironman.txt em nosso novo repositorio e executemos um git status:
 
 ```
-git status
+$ cd /home/ricardo/projeto
+$ touch ironman.txt
 ```
 
-
 Podemos ver a situação dos arquivos no repositório Git com o comando:
+
+
 
 
 
