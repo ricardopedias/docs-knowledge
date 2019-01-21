@@ -140,13 +140,10 @@ $ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados 
 Os arquivos de um repositório possuem quatro estados:
 
 Ordem | Estado        | Descrição
-------+---------------+-----------
+:----:|:-------------:|-----------
 1.    | **Unstaged**  | arquivo que foi salvo dentro do diretório, mas ainda não é rastreado pelo Git
-------+---------------+-----------
 2.    | **Stagged**   | arquivo novo que está sendo rastreado pelo Git localmente
-------+---------------+-----------
 3.    | **Committed** | arquivo que está dentro do repositório local
-------+---------------+-----------
 4.    | **Submitted** | arquivo que está dentro do repositório remoto
 
 
