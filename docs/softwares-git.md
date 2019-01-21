@@ -102,11 +102,8 @@ Para ver os envios efetuados (um por um) usa-se o comando *git log*.
 ```
 $ cd /home/ricardo/projeto
 $ git log // lista completa de logs (informações completas)
-
 $ git log -n 2 // últimos dois logs do branch
-
 $ git log --oneline // lista completa de logs (um em cada linha)
-
 $ git log --graph --oneline --all // lista de logs em forma de árvore
 ```
 
@@ -134,19 +131,25 @@ Para ver apenas os arquivos alterados pelo branch especificado:
 
 ```
 $ first_commit=$(diff -u <(git rev-list --first-parent meu-branch) <(git rev-list --first-parent master) | sed -ne 's/^ //p' | head -1); // encontra o primeiro commit feito no branch 'meu-branch'
-git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados pelo branch 'meu-branch'
+$ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados pelo branch 'meu-branch'
 
 ```
 
+## 3.3. Adicionando arquivos
 
-## 3.2. Adicionando arquivos
+Os arquivos de um repositório possuem quatro estados:
 
-Os arquivos de um repositório possui quatro estados:
+Ordem | Estado        | Descrição
+------+---------------+-----------
+1.    | **Unstaged**  | arquivo que foi salvo dentro do diretório, mas ainda não é rastreado pelo Git
+------+---------------+-----------
+2.    | **Stagged**   | arquivo novo que está sendo rastreado pelo Git localmente
+------+---------------+-----------
+3.    | **Committed** | arquivo que está dentro do repositório local
+------+---------------+-----------
+4.    | **Submitted** | arquivo que está dentro do repositório remoto
 
-1. Unstaged - arquivo que foi salvo dentro do diretório, mas ainda não é rastreado pelo Git
-2. Stagged - arquivo novo que está sendo rastreado pelo Git localmente
-3. Committed - arquivo que está dentro do repositório local
-4. Submitted - arquivo que está dentro do repositório remoto
+
 
 ## 3.2.1. Adicionando no stagged
 
