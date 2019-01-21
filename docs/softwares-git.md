@@ -31,16 +31,14 @@ Para as demais distribuições do Linux, veja o comando em: http://git-scm.com/d
 
 ## 2.1. Configurando o usuário 
 
-Para que seja possível enviar (commit) arquivos para um repositório, é preciso configurar o usuário no git.
-As informações deste usuário aparecerão no histórico de commits e servem para identificar que foi o autor de determinada funcionalidade ou correção submetida ao repositório.
+Para que seja possível enviar arquivos (commit) para um repositório, é preciso configurar o usuário no git.
+As informações deste usuário aparecerão no histórico de envios e servem para identificar quem foi o autor de determinada funcionalidade ou correção submetida ao repositório.
 
 Isso pode ser feito de duas maneiras:
 
 ### 2.1.1. Globalmente
 
-Configurar um usuário global significa que este estará disponível para todos os repositórios criados com git. Ou seja, sempre que qualquer envio for efetuado, este usuário será utilizado como padrão.
-
-Para configurar as informações de um usuário globalmente:
+Significa que este usuário será usado por padrão para todos os repositórios criados com git:
 
 ```
 $ git config --global user.name "Nome do Usuário Padrão"
@@ -49,11 +47,7 @@ $ git config --global user.email usuario.padrao@gmail.com
 
 ### 2.1.2. Localmente
 
-Configurar um usuário local significa que este estará disponível apenas para um repositório específico. Ao configurar um usuário local para um repositório, esta informação irá ser utilizada no lugar do usuário padrão.
-
-Para que seja possível configurar um usuário local, é preciso que o diretório '/home/ricardo/projeto' seja um repositório do git.
-
-Para configurar as informações de um usuário localmente:
+Significa que este usuário estará disponível apenas para um repositório específico, sobrescrevendo as informações de usuário padrão configuradas globalmente (ver item 2.1.1). É preciso que o diretório '/home/ricardo/projeto' seja um repositório do git:
 
 ```
 $ cd /home/ricardo/projeto
@@ -61,7 +55,7 @@ $ git config user.name "Nome do Usuário"
 $ git config user.email usuario@gmail.com
 ```
 
-Acessando o arquivo /caminho/ate/meu/repositorio/.git/config, perceba que as informações configuradas estarão presentes da seguinte forma: 
+Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/config:
 
 ```
 [user]
@@ -124,6 +118,20 @@ $ touch ironman.txt
 ```
 
 Podemos ver a situação dos arquivos no repositório Git com o comando:
+
+```
+$ cd /home/ricardo/projeto
+$ git status
+No ramo master
+No commits yet
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+
+	ironman.txt
+
+nada adicionado ao envio mas arquivos não registrados estão presentes (use "git add" to registrar)
+```
+
 
 
 
