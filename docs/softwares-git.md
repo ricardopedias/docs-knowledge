@@ -63,7 +63,7 @@ Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/c
 
 ## 3.1. Criando
 
-Para transformar um diretório qualquer em um repositório do Git, basta executar o comando `git init`:
+Para transformar um diretório qualquer em um repositório local do Git, basta executar o comando `git init`:
 
 ```
 $ cd /home/ricardo/projeto
@@ -71,7 +71,7 @@ $ git init
 Initialized empty Git repository in /home/ricardo/projeto/.git/
 ```
 
-Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome *.git*. Nela estão todos os arquivos necessários para o repositório funcionar. Apagando ela, /home/ricardo/projeto deixa de ser um repositório e torna-se um diretório comum.
+Pronto, o projeto já é um repositório local vazio. Observe que foi criada uma pasta oculta com o nome *.git*. Nela estão todos os arquivos necessários para o repositório local funcionar. Apagando ela, /home/ricardo/projeto deixa de ser um repositório e torna-se um diretório comum.
 
 ```
 $ cd /home/ricardo/projeto
@@ -84,31 +84,72 @@ drwxr-xr-x  7 ricardo ricardo 4096 jan 21 13:29 .git
 
 ## 3.2. Verificando mudanças
 
-### 3.2.1. Status
+### 3.2.1. Git Status (visão geral)
 
-Podemos ver a situação dos arquivos no repositório Git com o comando `git status`. Este comando vai exibir várias informações importantes como:
-
-* Lista de arquivos não-rastreados
-* Lista de arquivos rastreados
-* Sugestões de uso
-
-Executando:
+Podemos ver a situação geral dos arquivos no repositório local com o comando *git status*:
 
 ```
 $ git status
-```
-
-Como o repositório está vazio, a seguinte mensagem será exibida:
-
-```
 No ramo master
 No commits yet
 nada para enviar (crie/copie arquivos e use "git add" para registrar)
 ```
 
-### 3.2.2. Rastreando arquivos
+### 3.2.2. Git Log (ver os logs de envio)
 
-Quando um novo arquivo é criado dentro do diretório de um repositório, ele não faz parte do repositório ainda.
+Para ver os envios efetuados (um por um) usa-se o comando *git log*.
+
+```
+$ cd /home/ricardo/projeto
+$ git log // lista completa de logs (informações completas)
+
+$ git log -n 2 // últimos dois logs do branch
+
+$ git log --oneline // lista completa de logs (um em cada linha)
+
+$ git log --graph --oneline --all // lista de logs em forma de árvore
+```
+
+### 3.2.2. Git Diff (ver alterações no codigo)
+
+Para analisar as mudanças ocorridas usa-se o comando *git diff*.
+
+Para ver o código alterado até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
+$ git diff c32fdd0 // mudanças até o commit c32fdd0
+$ git diff branch-original...meu-branch // mudanças contidas em um branch em relação ao branch que o originou
+```
+
+Para ver o nome dos arquivos alterados até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
+$ git diff --name-only c32fdd0 // todos os arquivos até o commit c32fdd0
+$ git diff --name-only master...meu-branch // todos os arquivos até o branch 'meu-branch' em relação ao branch 'master'
+```
+
+Para ver apenas os arquivos alterados pelo branch especificado:
+
+```
+$ first_commit=$(diff -u <(git rev-list --first-parent meu-branch) <(git rev-list --first-parent master) | sed -ne 's/^ //p' | head -1); // encontra o primeiro commit feito no branch 'meu-branch'
+git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados pelo branch 'meu-branch'
+
+```
+
+
+## 3.2. Adicionando arquivos
+
+Os arquivos de um repositório possui quatro estados:
+
+1. Unstaged - arquivo que foi salvo dentro do diretório, mas ainda não é rastreado pelo Git
+2. Stagged - arquivo novo que está sendo rastreado pelo Git localmente
+3. Committed - arquivo que está dentro do repositório local
+4. Submitted - arquivo que está dentro do repositório remoto
+
+## 3.2.1. Adicionando no stagged
+
 Digamos que criemos o arquivo /caminho/ate/meu/repositorio/ironman.txt em nosso novo repositorio e executemos um git status:
 
 ```
@@ -116,20 +157,7 @@ $ cd /home/ricardo/projeto
 $ touch ironman.txt
 ```
 
-Podemos ver a situação dos arquivos no repositório Git com o comando:
 
-```
-$ cd /home/ricardo/projeto
-$ git status
-No ramo master
-No commits yet
-Arquivos não monitorados:
-  (utilize "git add <arquivo>..." para incluir o que será submetido)
-
-	ironman.txt
-
-nada adicionado ao envio mas arquivos não registrados estão presentes (use "git add" to registrar)
-```
 
 
 
