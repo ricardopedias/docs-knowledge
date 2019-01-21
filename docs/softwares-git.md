@@ -63,21 +63,24 @@ Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/c
 
 ## 3.1. Criando
 
-Para transformar um diretório qualquer em um repositório do Git, basta exe-
-cutar o comando git init :
+Para transformar um diretório qualquer em um repositório do Git, basta executar o comando `git init`:
 
 ```
 $ cd /home/ricardo/projeto
 $ git init
-```
-
-Deverá aparecer uma mensagem semelhante à seguinte:
-
-```
 Initialized empty Git repository in /home/ricardo/projeto/.git/
 ```
 
-Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome .git.
+Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome *.git*.
+
+```
+$ cd /home/ricardo/projeto
+$ ls -la
+total 11
+drwxr-xr-x  3 ricardo ricardo 4096 jan 21 13:29 .
+drwxr-xr-x 32 ricardo ricardo 4096 jan 21 13:50 ..
+drwxr-xr-x  7 ricardo ricardo 4096 jan 21 13:29 .git
+```
 
 ## 3.2. Verificando mudanças
 
