@@ -71,7 +71,7 @@ $ git init
 Initialized empty Git repository in /home/ricardo/projeto/.git/
 ```
 
-Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome *.git*.
+Pronto, o projeto já é um repositório Git vazio. Observe que foi criada uma pasta oculta com o nome *.git*. Nela estão todos os arquivos necessários para o repositório funcionar. Apagando ela, /home/ricardo/projeto deixa de ser um repositório e torna-se um diretório comum.
 
 ```
 $ cd /home/ricardo/projeto
