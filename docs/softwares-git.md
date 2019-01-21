@@ -7,25 +7,21 @@
 
 ## 1.1. Instalando no Windows
 
-Acesse a seguinte URL, faça o download e instale a última versão disponível: http://msysgit.github.io/
-
-Após a instalação, acesse o Git Bash e será aberto um terminal, com o prompt de comando:
+Faça o download e instale de http://msysgit.github.io/. Após a instalação, acesse o *Git Bash* e será aberto um terminal, com o prompt de comando.
 
 ## 1.2. Instalando no Mac
 
-Acesse a seguinte URL, faça o download e instale a última versão disponível: https://code.google.com/p/git-osx-installer/downloads
-
-Após a instalação, abra um terminal e o git estará disponível!
+Faça o download e instale de https://code.google.com/p/git-osx-installer/downloads. Após a instalação, abra um terminal e o git estará disponível.
 
 ## 1.3. Instalando no Linux
 
-Para instalar o Git no Ubuntu, ou em uma outra distribuição baseada em Debian, execute em um terminal:
+Para instalar o *Git* no Ubuntu, ou em uma outra distribuição baseada em Debian, execute no terminal:
 
 ```
 $ sudo apt-get install git
 ```
 
-Para as demais distribuições do Linux, veja o comando em: http://git-scm.com/download/linux
+Para as demais distribuições do Linux, veja o comando em http://git-scm.com/download/linux
 
 # 2. Configurando
 
