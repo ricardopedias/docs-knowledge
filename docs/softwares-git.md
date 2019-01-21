@@ -142,24 +142,44 @@ Os arquivos de um repositório possuem quatro estados:
 | Ordem | Estado        | Descrição                                                                         |
 |:-----:|:-------------:|-----------------------------------------------------------------------------------|
 | 1.    | **Unstaged**  | arquivo que foi salvo dentro do diretório, mas ainda não é rastreado pelo Git     |
-| 2.    | **Stagged**   | arquivo novo que está sendo rastreado pelo Git localmente                         |
-| 3.    | **Committed** | arquivo que está dentro do repositório local                                      |
-| 4.    | **Submitted** | arquivo que está dentro do repositório remoto                                     |
+| 2.    | **Staged**    | arquivo novo que está sendo rastreado pelo Git localmente                         |
+| 3.    | **Committed** | arquivo foi enviado para dentro do repositório local                                      |
+| 4.    | **Pushed**    | arquivo foi enviado para dentro do repositório remoto                                     |
 
+## 3.2.1. Rastreando (Stage)
 
-
-## 3.2.1. Adicionando no stagged
-
-Digamos que criemos o arquivo /caminho/ate/meu/repositorio/ironman.txt em nosso novo repositorio e executemos um git status:
+Para adicionar um arquivo não rastreado (Unstaged) ao rastreio (Staged) do repositório local:
 
 ```
-$ cd /home/ricardo/projeto
-$ touch ironman.txt
+$ git add heroes/ironman.txt // adiciona um único arquivo
+$ git add heroes // adiciona um diretório com seus arquivos
+$ git add . // adiciona todos os arquivos não rastreados
+$ git add -A // adiciona todos os arquivos não rastreados
 ```
 
+## 3.2.1. Removendo rastreio (Unstage)
+
+Para remover o rastreio (Staged) de um arquivo do repositório local:
+
+```
+$ git reset heroes/ironman.txt // remove o rastreio de um único arquivo
+$ git reset heroes // remove o rastreio de um diretório com seus arquivos
+$ git reset // remove o rastreio de todos os arquivos
+```
+
+## 3.2.3. Enviando (Commit)
 
 
 
+
+## 3.2.4. Submetendo (Push)
+
+
+
+
+
+
+|||||||||||||||||||||||||||||||||
 
 
 
