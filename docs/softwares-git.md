@@ -176,7 +176,7 @@ $ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
 $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
 ```
 
-### 3.3.3. Editando a mensagem do último envio (Commit)
+### 3.3.4. Editando a mensagem do último envio (Commit)
 
 Para editar a mensagem do último commit, basta usar o comando abaixo:
 
@@ -188,24 +188,36 @@ Um editor de textos se abrirá com a última mensagem. Edite-a e pressione 'Ctrl
 A seguinte mensagem será exibida:
 
 ```
-Salvar buffer modificado? (Responder "Não" vai DESCARTAR alterações.)                                                                             
+Salvar buffer modificado? (Responder "Não" vai DESCARTAR alterações.)
    S Sim
    N Não       ^C Cancelar
 ```
 
 Pressione 'S' e em seguinda pressione 'Enter' para aceitar o nome padrão do arquivo e gravar a nova mensagem.
 
+### 3.3.5. Desfazendo o envio (Commit)
 
-### 3.3.3. Desfazendo o envio (Commit)
-
-Para desfazer o envio efetuado ao repositório local, trazendo os arquivos de volta à área de rastreio:
+Para desfazer o envio efetuado ao repositório local::
 
 ```
-$ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
-$ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
+$ git reset --soft HEAD@{1} // desfaz o último commit do repositorio local, mantendo suas modificacoes
+$ git reset --hard HEAD@{1} // descarta o último commit do repositorio local
 ```
 
-### 3.3.4. Submetendo (Push)
+Se o repositório já tiver sido enviado remotamente, o branch HEAD existirá. Então será possivel:
+
+```
+$ git reset --soft HEAD~1 // desfaz o último commit do repositorio local, mantendo suas modificacoes
+$ git reset --hard HEAD~1 // descarta o último commit do repositorio local
+```
+
+Para verificar os níveis de desfazer:
+
+```
+$ git reflog
+```
+
+### 3.3.6. Submetendo (Push)
 
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
@@ -215,9 +227,27 @@ $ git push origin master // Envia todas as alterações locais efetuadas no bran
 $ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
 ```
 
-# 3. Repositório (Avançado)
+### 3.3.7. Desfazendo a submissão (Push)
 
-## 3.1. Criando Branchs
+Para desfazer o envio efetuado ao repositório local::
+
+```
+$ git reset --soft HEAD~1 // desfaz o último commit do repositorio local, mantendo suas modificacoes
+$ git reset --hard HEAD~1 // descarta o último commit do repositorio local
+$ git push origin -f // atualiza o repositório remoto
+```
+
+### 3.3.8. Listando os arquivos do repositório
+
+Para lista apenas os arquivos que se encontram no repositório:
+
+```
+$ git ls-files
+```
+
+# 4. Repositório (Avançado)
+
+## 4.1. Criando Branchs
 
 
 |||||||||||||||||||||||||||||||||
