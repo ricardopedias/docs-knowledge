@@ -245,6 +245,33 @@ Para lista apenas os arquivos que se encontram no repositório:
 $ git ls-files
 ```
 
+### 3.3.9. Sincronizando
+
+Para sincronizar o histórico recente do repositorio remoto:
+
+```
+$ git fetch // Baixa o historico inteiro
+$ git fetch origin master // Baixa o histórico remoto no branch "master"
+$ git fetch origin meu-branch // Baixa o histórico remoto no branch "meu-branch"
+```
+
+Para sincronizar as mudanças recentes do remoto:
+
+```
+$ git pull // Baixa todas as alterações remotas
+$ git pull origin master // Baixa todas as alterações remotas efetuadas no branch "master"
+$ git pull origin meu-branch // Baixa todas as alterações locais efetuadas no branch "meu-branch"
+```
+
+Se o repositório local estiver a frente do remoto e desejar descartar as alterações locais:
+
+```
+$ git reset --hard
+$ git reset --hard origin master
+$ git reset --hard origin meu-branch // Baixa todas as alterações locais efetuadas no branch "meu-branch"
+```
+
+
 # 4. Repositório (Avançado)
 
 ## 4.1. Criando Branchs
