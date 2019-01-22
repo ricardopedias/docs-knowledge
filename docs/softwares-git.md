@@ -59,7 +59,7 @@ Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/c
 	name = Nome do Usuário
 ```
 
-# 3. Repositório Local
+# 3. Repositório (Básico)
 
 ## 3.1. Criando
 
@@ -169,14 +169,26 @@ $ git reset // remove o rastreio de todos os arquivos
 
 ## 3.2.3. Enviando (Commit)
 
+Para enviar o conteúdo rastreado (Staged) no repositório local:
 
-
+```
+$ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
+$ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
+```
 
 ## 3.2.4. Submetendo (Push)
 
+Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
+```
+$ git push // Envia todas as alterações locais
+$ git push origin master // Envia todas as alterações locais efetuadas no branch "master"
+$ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
+```
 
+# 3. Repositório (Avançado)
 
+## 3.1. Criando Branchs
 
 
 |||||||||||||||||||||||||||||||||
