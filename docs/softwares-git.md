@@ -146,7 +146,7 @@ Os arquivos de um repositório possuem quatro estados:
 | 3.    | **Committed** | arquivo foi enviado para dentro do repositório local                                      |
 | 4.    | **Pushed**    | arquivo foi enviado para dentro do repositório remoto                                     |
 
-## 3.2.1. Rastreando (Stage)
+### 3.3.1. Rastreando (Stage)
 
 Para adicionar um arquivo não rastreado (Unstaged) ao rastreio (Staged) do repositório local:
 
@@ -157,7 +157,7 @@ $ git add . // adiciona todos os arquivos não rastreados
 $ git add -A // adiciona todos os arquivos não rastreados
 ```
 
-## 3.2.1. Removendo rastreio (Unstage)
+### 3.3.2. Removendo rastreio (Unstage)
 
 Para remover o rastreio (Staged) de um arquivo do repositório local:
 
@@ -167,7 +167,7 @@ $ git reset heroes // remove o rastreio de um diretório com seus arquivos
 $ git reset // remove o rastreio de todos os arquivos
 ```
 
-## 3.2.3. Enviando (Commit)
+## 3.3.3. Enviando (Commit)
 
 Para enviar o conteúdo rastreado (Staged) no repositório local:
 
@@ -176,7 +176,7 @@ $ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
 $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
 ```
 
-## 3.2.4. Submetendo (Push)
+## 3.3.4. Submetendo (Push)
 
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
