@@ -35,6 +35,7 @@ Em **Edit > Preferences > Install**, busque e instale os pacotes na seguinte seq
 * project-plus
 * docblockr
 * platformio-ide-terminal
+* atom-inline-blame
 
 Em notebooks, os atalhos para comentar o código (Ctrl + / e Ctrl + Shift + /) não funcionarão! Para comentar, será preciso adicionar atalhos alternativos. 
 
