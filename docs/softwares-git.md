@@ -266,9 +266,9 @@ $ git pull origin meu-branch // Baixa todas as alterações locais efetuadas no 
 Se o repositório local estiver a frente do remoto e desejar descartar as alterações locais:
 
 ```
-$ git reset --hard
-$ git reset --hard origin master
-$ git reset --hard origin meu-branch // Baixa todas as alterações locais efetuadas no branch "meu-branch"
+$ git reset --hard // Descarta todas as alterações locais
+$ git reset --hard origin master // Descarta as alterações locais do branch "master"
+$ git reset --hard origin meu-branch // Descarta as alterações locais do branch "meu-branch"
 ```
 
 
