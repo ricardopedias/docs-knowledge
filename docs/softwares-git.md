@@ -167,7 +167,7 @@ $ git reset heroes // remove o rastreio de um diretório com seus arquivos
 $ git reset // remove o rastreio de todos os arquivos
 ```
 
-## 3.3.3. Enviando (Commit)
+### 3.3.3. Enviando (Commit)
 
 Para enviar o conteúdo rastreado (Staged) no repositório local:
 
@@ -176,7 +176,36 @@ $ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
 $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
 ```
 
-## 3.3.4. Submetendo (Push)
+### 3.3.3. Editando a mensagem do último envio (Commit)
+
+Para editar a mensagem do último commit, basta usar o comando abaixo:
+
+```
+$ git commit --amend
+```
+
+Um editor de textos se abrirá com a última mensagem. Edite-a e pressione 'Ctrl + X' (^X) para sair do editor.
+A seguinte mensagem será exibida:
+
+```
+Salvar buffer modificado? (Responder "Não" vai DESCARTAR alterações.)                                                                             
+   S Sim
+   N Não       ^C Cancelar
+```
+
+Pressione 'S' e em seguinda pressione 'Enter' para aceitar o nome padrão do arquivo e gravar a nova mensagem.
+
+
+### 3.3.3. Desfazendo o envio (Commit)
+
+Para desfazer o envio efetuado ao repositório local, trazendo os arquivos de volta à área de rastreio:
+
+```
+$ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
+$ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
+```
+
+### 3.3.4. Submetendo (Push)
 
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
