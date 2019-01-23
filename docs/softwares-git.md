@@ -220,9 +220,9 @@ $ git reset --hard 96c6d893128f338f6a4b02b98f6ca47467f81dbb // descarta todos os
 $ git reset --hard v1.0 // descarta todos os commits a partir da tag
 ```
 
-## 5.3. Editando commits
+## 5.3. Editando mensagens
 
-### 5.3.1. Último commit
+### 5.3.1. Do último commit
 
 Para editar a mensagem do último commit efetuado:
 
@@ -230,21 +230,20 @@ Para editar a mensagem do último commit efetuado:
 $ git commit --amend -m 'Minha nova mensagem'
 ```
 
-### 5.3.2. Commit arbitrário
+### 5.3.2. De um commit arbitrário
 
-Para editar a mensagem de um commit qualquer:
+Para editar as mensagens de quaisquer commits:
 
-**Etapa 1: escolher o commit**
+**Etapa 1: escolher os commits**
 
 ```
 $ git rebase -i HEAD~2 // escolher a partir do penúltimo comit
 $ git rebase -i 96c6d893128f338f6a4b02b98f6ca47467f81dbb // escolher a partir do hash
 $ git rebase -i 96c6d89 // escolher a partir do hash diminuto
-
 $ git rebase -i v1.0 // escolher a partir da tag
 ```
 
-Qualquer um dos comandos acima irá abrir um editor de textos contendo a lista de commits efetuados a partir da marcação especificada (HEAD\~2, 96c6d89 ou v1.0):
+Qualquer um dos comandos acima irá abrir o arquivo *.git/rebase-merge/git-rebase-todo* em um editor de textos. Este arquivo irá conter a lista de commits efetuados a partir da marcação especificada (HEAD\~2, 96c6d89 ou v1.0). Abaixo, um exemplo desta lista:
 
 ```
 pick 96c6d89 add spidey
@@ -252,10 +251,7 @@ pick 756d95e add war
 pick fcb9cf0 add thor
 ```
 
-**Etapa 2: Editar os commits**
-
-No editor de textos, por padrão, os commits estão marcados como *pick*. 
-Nos commits que se deseja editar, no lugar de *pick*, escreva *reword* ou simplesmente *r* e salve o arquivo no mesmo local e com o mesmo nome (.git/rebase-merge/git-rebase-todo).
+Por padrão, os commits estarão todos marcados como *pick*. Nos commits que se deseja editar, no lugar de *pick*, escreva *reword* ou simplesmente *r* e salve o arquivo sem renomeá-lo.
 
 ```
 pick 96c6d89 add spidey
@@ -263,10 +259,14 @@ reword 756d95e add war
 reword fcb9cf0 add thor
 ```
 
-Após salvar o arquivo *git-rebase-todo*, o editor de textos novamente se abrirá, contendo a mensagem do primeiro commit selecionado. Basta editar esta mensagem e salvar para aplicar no repositório.
 
-Ao salvar a mensagem, caso se tenha marcado mais de um commit com *reword*, a mensagem do próximo commit se abrirá para edição.
-Após todos os commits marcados forem salvos, uma mensagem parecida com essa aparecerá:
+**Etapa 2: editar os commits**
+
+No ato de salvar o arquivo *git-rebase-todo*, o editor de textos se abrirá novamente, agora no arquivo *.git/COMMIT_EDITMSG*, contendo a mensagem do primeiro commit selecionado. Basta editar esta mensagem e salvar o arquivo sem renomeá-lo para aplicar no repositório.
+
+Ao salvar a primeira mensagem, se mais de um commit tiver sido marcado com *reword*, a mensagem do próximo commit se abrirá para edição no arquivo *.git/COMMIT_EDITMSG*. Basta repetir o mesmo processo até acabarem os commits.
+
+Após todos os commits serem editados, uma mensagem parecida com essa aparecerá:
 
 ```
 [detached HEAD 8bafbbe] add war hehe
