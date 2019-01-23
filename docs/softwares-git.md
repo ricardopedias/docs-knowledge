@@ -204,7 +204,7 @@ $ git reset --soft 96c6d893128f338f6a4b02b98f6ca47467f81dbb // desfaz todos os c
 $ git reset --soft v1.0 // desfaz todos os commits a partir da tag
 ```
 
-> Obs: caso repositório local não tenha sido sincronizado pelo menos uma vez com o repositório remoto (`git push, git pull ou git fetch`), HEAD~1, HEAD~2, etc, deverão ser substituidos por HEAD@{1}, HEAD@{2}, etc.
+> Obs: caso repositório local não tenha sido sincronizado pelo menos uma vez com o repositório remoto (`git push, git pull ou git fetch`), HEAD\~1, HEAD\~2, etc, deverão ser substituidos por HEAD@{1}, HEAD@{2}, etc.
 
 > Obs 2: para ver uma lista com os HEADs de desfazer, basta usar o comando caso `git reflog`.
 
