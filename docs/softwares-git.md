@@ -172,9 +172,9 @@ $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seg
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
 ```
-$ git push // Envia todas as alterações locais do branch atual
-$ git push origin master // Envia todas as alterações locais efetuadas no branch "master"
-$ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
+$ git push // envia todas as alterações locais do branch atual
+$ git push origin master // envia todas as alterações locais efetuadas no branch "master"
+$ git push origin meu-branch // envia todas as alterações locais efetuadas no branch "meu-branch"
 ```
 
 ## 4.5. Recebimento de atualizações (Pull)
@@ -189,6 +189,22 @@ $ git pull origin meu-branch // Baixa todas as alterações remotas efetuadas no
 
 > Obs: o comando `git-pull` na verdade é um atalho para `git fetch` seguido e um `git merge`.
 
+## 4.6. Renomeando/movendo arquivos
+
+Para renomear ou mover um arquivo de lugar no repositório local:
+
+```
+git mv estilos.css principal.css // renomeia o arquivo
+git mv principal.js js/principal.js // move o arquivo para outro diretório
+```
+
+## 4.7. Excluido arquivos
+
+Para remover um arquivo do repositório local:
+```
+$ git rm heroes/ironman.txt // remove um único arquivo
+$ git rm heroes // remove um diretório com seus arquivos
+```
 
 # 5. Gerindo Commits
 
@@ -231,6 +247,15 @@ $ git reset --hard HEAD~1 // descarta o último commit
 $ git reset --hard HEAD~2 // descarta os dois últimos commits
 $ git reset --hard 96c6d893128f338f6a4b02b98f6ca47467f81dbb // descarta todos os commits a partir do hash
 $ git reset --hard v1.0 // descarta todos os commits a partir da tag
+$ git reset --hard origin master // descarta as alterações locais do branch "master"
+```
+
+Caso as alterações tiverem sido efetuadas em um arquivo que exista no repositório remoto, ele deverá ser atualizado de maneira "forçada". Para efetivar as mudanças no repositório remoto:
+
+```
+$ git push --force // força a atualização do branch atual
+$ git push origin master --force // força a atualização do branch master
+$ git push origin meu-branch --force // força a atualização do branch meu-branch
 ```
 
 ## 5.3. Editando mensagens
@@ -293,8 +318,6 @@ Após todos os commits serem editados, uma mensagem parecida com essa aparecerá
 Successfully rebased and updated refs/heads/master.
 ```
 
-
-
 ### 3.4.9. Sincronizando
 
 Para sincronizar o histórico recente do repositorio remoto:
@@ -303,14 +326,6 @@ Para sincronizar o histórico recente do repositorio remoto:
 $ git fetch // Baixa o historico inteiro
 $ git fetch origin master // Baixa o histórico remoto no branch "master"
 $ git fetch origin meu-branch // Baixa o histórico remoto no branch "meu-branch"
-```
-
-Para sincronizar as mudanças recentes do remoto:
-
-```
-$ git pull // Baixa todas as alterações remotas
-$ git pull origin master // Baixa todas as alterações remotas efetuadas no branch "master"
-$ git pull origin meu-branch // Baixa todas as alterações locais efetuadas no branch "meu-branch"
 ```
 
 Se o repositório local estiver a frente do remoto e desejar descartar as alterações locais:
