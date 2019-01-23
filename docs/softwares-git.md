@@ -318,29 +318,13 @@ Após todos os commits serem editados, uma mensagem parecida com essa aparecerá
 Successfully rebased and updated refs/heads/master.
 ```
 
-### 3.4.9. Sincronizando
-
-Para sincronizar o histórico recente do repositorio remoto:
-
-```
-$ git fetch // Baixa o historico inteiro
-$ git fetch origin master // Baixa o histórico remoto no branch "master"
-$ git fetch origin meu-branch // Baixa o histórico remoto no branch "meu-branch"
-```
-
-Se o repositório local estiver a frente do remoto e desejar descartar as alterações locais:
-
-```
-$ git reset --hard // Descarta todas as alterações locais
-$ git reset --hard origin master // Descarta as alterações locais do branch "master"
-$ git reset --hard origin meu-branch // Descarta as alterações locais do branch "meu-branch"
-```
-
-# 4. Repositório (Avançado)
+# 5. Gerindo Branchs
 
 
-## 3.3. Verificando mudanças
-
+TODO 
+TODO 
+TODO 
+TODO 
 
 
 
