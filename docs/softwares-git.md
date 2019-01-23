@@ -71,7 +71,7 @@ $ git init
 Initialized empty Git repository in /home/ricardo/projeto/.git/
 ```
 
-Pronto, o projeto já é um repositório local vazio. Observe que foi criada uma pasta oculta com o nome *.git*. Nela estão todos os arquivos necessários para o repositório local funcionar. Apagando ela, /home/ricardo/projeto deixa de ser um repositório e torna-se um diretório comum.
+Pronto, o projeto já é um repositório local vazio. Observe que foi criada uma pasta oculta com o nome *.git*. Nela estão todos os arquivos necessários para o repositório local funcionar.
 
 ```
 $ cd /home/ricardo/projeto
@@ -82,9 +82,30 @@ drwxr-xr-x 32 ricardo ricardo 4096 jan 21 13:50 ..
 drwxr-xr-x  7 ricardo ricardo 4096 jan 21 13:29 .git
 ```
 
-## 3.2. Verificando mudanças
+Para sincronizar com o repositório remoto, após adicionar arquivos ao repositório local, usa-se o comando *git remote*:
 
-### 3.2.1. Git Status (visão geral)
+```
+$ touch README.md // cria um arquivo README.md vazio
+$ git add README.md // adiciona à área de rastreio
+$ git commit -m "first commit" // adiciona ao repositório local
+$ git remote add origin https://github.com/rpdesignerfly/git-test.git // seta a origem do repositório remoto
+$ git push -u origin master // sincroniza com o repositório remoto
+```
+
+## 3.2. Removendo
+
+Para remover um repositório local, basta apagar o diretório /home/ricardo/projeto/.git e o projeto deixará de ser um repositório para tornar-se um diretório comum.
+
+```
+$ cd /home/ricardo/projeto
+$ rm -Rf .git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+```
+
+## 3.3. Verificando mudanças
+
+### 3.3.1. Git Status (visão geral)
 
 Podemos ver a situação geral dos arquivos no repositório local com o comando *git status*:
 
@@ -95,7 +116,7 @@ No commits yet
 nada para enviar (crie/copie arquivos e use "git add" para registrar)
 ```
 
-### 3.2.2. Git Log (ver os logs de envio)
+### 3.3.2. Git Log (ver os logs de envio)
 
 Para ver os envios efetuados (um por um) usa-se o comando *git log*.
 
@@ -107,7 +128,7 @@ $ git log --oneline // lista completa de logs (um em cada linha)
 $ git log --graph --oneline --all // lista de logs em forma de árvore
 ```
 
-### 3.2.2. Git Diff (ver alterações no codigo)
+### 3.3.3. Git Diff (ver alterações no codigo)
 
 Para analisar as mudanças ocorridas usa-se o comando *git diff*.
 
@@ -135,7 +156,7 @@ $ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados 
 
 ```
 
-## 3.3. Adicionando arquivos
+## 3.4. Adicionando arquivos
 
 Os arquivos de um repositório possuem quatro estados:
 
@@ -146,7 +167,7 @@ Os arquivos de um repositório possuem quatro estados:
 | 3.    | **Committed** | arquivo foi enviado para dentro do repositório local                                      |
 | 4.    | **Pushed**    | arquivo foi enviado para dentro do repositório remoto                                     |
 
-### 3.3.1. Rastreando (Stage)
+### 3.4.1. Rastreando (Stage)
 
 Para adicionar um arquivo não rastreado (Unstaged) ao rastreio (Staged) do repositório local:
 
@@ -157,7 +178,7 @@ $ git add . // adiciona todos os arquivos não rastreados
 $ git add -A // adiciona todos os arquivos não rastreados
 ```
 
-### 3.3.2. Removendo rastreio (Unstage)
+### 3.4.2. Removendo rastreio (Unstage)
 
 Para remover o rastreio (Staged) de um arquivo do repositório local:
 
@@ -167,7 +188,7 @@ $ git reset heroes // remove o rastreio de um diretório com seus arquivos
 $ git reset // remove o rastreio de todos os arquivos
 ```
 
-### 3.3.3. Enviando (Commit)
+### 3.4.3. Enviando (Commit)
 
 Para enviar o conteúdo rastreado (Staged) no repositório local:
 
@@ -176,7 +197,7 @@ $ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
 $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
 ```
 
-### 3.3.4. Editando a mensagem do último envio (Commit)
+### 3.4.4. Editando a mensagem do último envio (Commit)
 
 Para editar a mensagem do último commit, basta usar o comando abaixo:
 
@@ -195,7 +216,7 @@ Salvar buffer modificado? (Responder "Não" vai DESCARTAR alterações.)
 
 Pressione 'S' e em seguinda pressione 'Enter' para aceitar o nome padrão do arquivo e gravar a nova mensagem.
 
-### 3.3.5. Desfazendo o envio (Commit)
+### 3.4.5. Desfazendo o envio (Commit)
 
 Para desfazer o envio efetuado ao repositório local::
 
@@ -217,7 +238,7 @@ Para verificar os níveis de desfazer:
 $ git reflog
 ```
 
-### 3.3.6. Submetendo (Push)
+### 3.4.6. Submetendo (Push)
 
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
@@ -227,7 +248,7 @@ $ git push origin master // Envia todas as alterações locais efetuadas no bran
 $ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
 ```
 
-### 3.3.7. Desfazendo a submissão (Push)
+### 3.4.7. Desfazendo a submissão (Push)
 
 Para desfazer o envio efetuado ao repositório local::
 
@@ -237,7 +258,7 @@ $ git reset --hard HEAD~1 // descarta o último commit do repositorio local
 $ git push origin -f // atualiza o repositório remoto
 ```
 
-### 3.3.8. Listando os arquivos do repositório
+### 3.4.8. Listando os arquivos do repositório
 
 Para lista apenas os arquivos que se encontram no repositório:
 
@@ -245,7 +266,7 @@ Para lista apenas os arquivos que se encontram no repositório:
 $ git ls-files
 ```
 
-### 3.3.9. Sincronizando
+### 3.4.9. Sincronizando
 
 Para sincronizar o histórico recente do repositorio remoto:
 
@@ -270,7 +291,6 @@ $ git reset --hard // Descarta todas as alterações locais
 $ git reset --hard origin master // Descarta as alterações locais do branch "master"
 $ git reset --hard origin meu-branch // Descarta as alterações locais do branch "meu-branch"
 ```
-
 
 # 4. Repositório (Avançado)
 
