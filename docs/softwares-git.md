@@ -43,7 +43,7 @@ $ git config --global user.email usuario.padrao@gmail.com
 
 ### 2.1.2. Localmente
 
-Significa que este usuário estará disponível apenas para um repositório específico, sobrescrevendo as informações de usuário padrão configuradas globalmente (ver item 2.1.1). É preciso que o diretório '/home/ricardo/projeto' seja um repositório do git:
+Significa que este usuário estará disponível apenas para um repositório específico, sobrescrevendo as informações de usuário padrão configuradas globalmente (ver item 2.1.1). É preciso que o diretório */home/ricardo/projeto* seja um repositório do git:
 
 ```
 $ cd /home/ricardo/projeto
@@ -51,7 +51,7 @@ $ git config user.name "Nome do Usuário"
 $ git config user.email usuario@gmail.com
 ```
 
-Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/config:
+Estas informações são graavdas no arquivo */caminho/ate/meu/repositorio/.git/config*:
 
 ```
 [user]
@@ -59,7 +59,7 @@ Estas informações são graavdas no arquivo /caminho/ate/meu/repositorio/.git/c
 	name = Nome do Usuário
 ```
 
-# 3. Repositório (Básico)
+# 3. Repositório
 
 ## 3.1. Criando
 
@@ -82,9 +82,12 @@ drwxr-xr-x 32 ricardo ricardo 4096 jan 21 13:50 ..
 drwxr-xr-x  7 ricardo ricardo 4096 jan 21 13:29 .git
 ```
 
-Para sincronizar com o repositório remoto, após adicionar arquivos ao repositório local, usa-se o comando *git remote*:
+Para sincronizar com o repositório remoto, após adicionar arquivos ao repositório local, usa-se o comando `git remote`:
 
 ```
+$ cd /home/ricardo/projeto
+$ git config user.name "Nome do Usuário" // Seta o nome usuário
+$ git config user.email usuario@gmail.com // seta o email do usuaŕio
 $ touch README.md // cria um arquivo README.md vazio
 $ git add README.md // adiciona à área de rastreio
 $ git commit -m "first commit" // adiciona ao repositório local
@@ -94,7 +97,7 @@ $ git push -u origin master // sincroniza com o repositório remoto
 
 ## 3.2. Removendo
 
-Para remover um repositório local, basta apagar o diretório /home/ricardo/projeto/.git e o projeto deixará de ser um repositório para tornar-se um diretório comum.
+Para remover um repositório local, basta apagar o diretório */home/ricardo/projeto/.git* e o projeto deixará de ser um repositório para tornar-se um diretório comum.
 
 ```
 $ cd /home/ricardo/projeto
@@ -103,9 +106,16 @@ $ git status
 fatal: not a git repository (or any of the parent directories): .git
 ```
 
-## 3.3. Verificando mudanças
+## 3.3. Listando conteúdo
 
-### 3.3.1. Git Status (visão geral)
+Para listar os arquivos que se encontram no repositório usa-se `git ls-files`
+Apenas os arquivos que estejam em Staged, Commited ou Pushed serão listados:
+
+```
+$ git ls-files
+```
+
+## 3.4. Vendo Status
 
 Podemos ver a situação geral dos arquivos no repositório local com o comando *git status*:
 
@@ -116,47 +126,7 @@ No commits yet
 nada para enviar (crie/copie arquivos e use "git add" para registrar)
 ```
 
-### 3.3.2. Git Log (ver os logs de envio)
-
-Para ver os envios efetuados (um por um) usa-se o comando *git log*.
-
-```
-$ cd /home/ricardo/projeto
-$ git log // lista completa de logs (informações completas)
-$ git log -n 2 // últimos dois logs do branch
-$ git log --oneline // lista completa de logs (um em cada linha)
-$ git log --graph --oneline --all // lista de logs em forma de árvore
-```
-
-### 3.3.3. Git Diff (ver alterações no codigo)
-
-Para analisar as mudanças ocorridas usa-se o comando *git diff*.
-
-Para ver o código alterado até um determinado commit ou branch:
-
-```
-$ cd /home/ricardo/projeto
-$ git diff c32fdd0 // mudanças até o commit c32fdd0
-$ git diff branch-original...meu-branch // mudanças contidas em um branch em relação ao branch que o originou
-```
-
-Para ver o nome dos arquivos alterados até um determinado commit ou branch:
-
-```
-$ cd /home/ricardo/projeto
-$ git diff --name-only c32fdd0 // todos os arquivos até o commit c32fdd0
-$ git diff --name-only master...meu-branch // todos os arquivos até o branch 'meu-branch' em relação ao branch 'master'
-```
-
-Para ver apenas os arquivos alterados pelo branch especificado:
-
-```
-$ first_commit=$(diff -u <(git rev-list --first-parent meu-branch) <(git rev-list --first-parent master) | sed -ne 's/^ //p' | head -1); // encontra o primeiro commit feito no branch 'meu-branch'
-$ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados pelo branch 'meu-branch'
-
-```
-
-## 3.4. Adicionando arquivos
+# 4. Gerindo Arquivos
 
 Os arquivos de um repositório possuem quatro estados:
 
@@ -167,7 +137,7 @@ Os arquivos de um repositório possuem quatro estados:
 | 3.    | **Committed** | arquivo foi enviado para dentro do repositório local                                      |
 | 4.    | **Pushed**    | arquivo foi enviado para dentro do repositório remoto                                     |
 
-### 3.4.1. Rastreando (Stage)
+## 4.1. Rastreando (Stage)
 
 Para adicionar um arquivo não rastreado (Unstaged) ao rastreio (Staged) do repositório local:
 
@@ -178,7 +148,7 @@ $ git add . // adiciona todos os arquivos não rastreados
 $ git add -A // adiciona todos os arquivos não rastreados
 ```
 
-### 3.4.2. Removendo rastreio (Unstage)
+## 4.2. Não-rastreando (Unstage)
 
 Para remover o rastreio (Staged) de um arquivo do repositório local:
 
@@ -188,7 +158,7 @@ $ git reset heroes // remove o rastreio de um diretório com seus arquivos
 $ git reset // remove o rastreio de todos os arquivos
 ```
 
-### 3.4.3. Enviando (Commit)
+## 4.3. Envio local (Commit)
 
 Para enviar o conteúdo rastreado (Staged) no repositório local:
 
@@ -197,7 +167,33 @@ $ git commit -m "Meu comentario bem legal" // Adicionando ao repo local
 $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seguida ao repo local
 ```
 
-### 3.4.4. Editando a mensagem do último envio (Commit)
+## 4.4. Envio remoto (Push)
+
+Para enviar o novo conteúdo do repositório local para o repositório remoto:
+
+```
+$ git push // Envia todas as alterações locais
+$ git push origin master // Envia todas as alterações locais efetuadas no branch "master"
+$ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
+```
+
+# 5. Gerindo Commits
+
+## 5.1. Logs de envio
+
+Para ver os envios efetuados (um por um) usa-se o comando `git log`.
+
+```
+$ cd /home/ricardo/projeto
+$ git log // lista completa de logs (informações completas)
+$ git log -n 2 // últimos dois logs do branch
+$ git log --oneline // lista completa de logs (um em cada linha)
+$ git log --graph --oneline --all // lista de logs em forma de árvore
+```
+
+
+
+### 4.3.1. Editando a mensagem do último envio (Commit)
 
 Para editar a mensagem do último commit, basta usar o comando abaixo:
 
@@ -238,15 +234,6 @@ Para verificar os níveis de desfazer:
 $ git reflog
 ```
 
-### 3.4.6. Submetendo (Push)
-
-Para enviar o novo conteúdo do repositório local para o repositório remoto:
-
-```
-$ git push // Envia todas as alterações locais
-$ git push origin master // Envia todas as alterações locais efetuadas no branch "master"
-$ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
-```
 
 ### 3.4.7. Desfazendo a submissão (Push)
 
@@ -258,13 +245,6 @@ $ git reset --hard HEAD~1 // descarta o último commit do repositorio local
 $ git push origin -f // atualiza o repositório remoto
 ```
 
-### 3.4.8. Listando os arquivos do repositório
-
-Para lista apenas os arquivos que se encontram no repositório:
-
-```
-$ git ls-files
-```
 
 ### 3.4.9. Sincronizando
 
@@ -293,6 +273,40 @@ $ git reset --hard origin meu-branch // Descarta as alterações locais do branc
 ```
 
 # 4. Repositório (Avançado)
+
+
+## 3.3. Verificando mudanças
+
+
+
+
+### 3.3.3. Git Diff (ver alterações no codigo)
+
+Para analisar as mudanças ocorridas usa-se o comando *git diff*.
+
+Para ver o código alterado até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
+$ git diff c32fdd0 // mudanças até o commit c32fdd0
+$ git diff branch-original...meu-branch // mudanças contidas em um branch em relação ao branch que o originou
+```
+
+Para ver o nome dos arquivos alterados até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
+$ git diff --name-only c32fdd0 // todos os arquivos até o commit c32fdd0
+$ git diff --name-only master...meu-branch // todos os arquivos até o branch 'meu-branch' em relação ao branch 'master'
+```
+
+Para ver apenas os arquivos alterados pelo branch especificado:
+
+```
+$ first_commit=$(diff -u <(git rev-list --first-parent meu-branch) <(git rev-list --first-parent master) | sed -ne 's/^ //p' | head -1); // encontra o primeiro commit feito no branch 'meu-branch'
+$ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados pelo branch 'meu-branch'
+```
+
 
 ## 4.1. Criando Branchs
 
