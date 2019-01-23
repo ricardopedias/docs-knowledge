@@ -318,7 +318,7 @@ Após todos os commits serem editados, uma mensagem parecida com essa aparecerá
 Successfully rebased and updated refs/heads/master.
 ```
 
-# 5. Gerindo Branchs
+# 6. Gerindo Branchs
 
 
 TODO 
