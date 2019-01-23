@@ -177,6 +177,19 @@ $ git push origin master // Envia todas as alterações locais efetuadas no bran
 $ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
 ```
 
+## 4.5. Recebimento de atualizações (Pull)
+
+Para baixar o novo conteúdo do repositório remoto para o repositório local:
+
+```
+$ git pull // Baixa todas as alterações remotas do branch atual
+$ git pull origin master // Baixa todas as alterações remotas efetuadas no branch "master"
+$ git pull origin meu-branch // Baixa todas as alterações remotas efetuadas no branch "meu-branch"
+```
+
+> Obs: o comando `git-pull` na verdade é um atalho para `git fetch` seguido e um `git merge`.
+
+
 # 5. Gerindo Commits
 
 ## 5.1. Logs de envio
