@@ -109,7 +109,7 @@ fatal: not a git repository (or any of the parent directories): .git
 ## 3.3. Listando conteúdo
 
 Para listar os arquivos que se encontram no repositório usa-se `git ls-files`
-Apenas os arquivos que estejam em Staged, Commited ou Pushed serão listados:
+Apenas os arquivos que estejam em *Staged*, *Committed* ou *Pushed* serão listados:
 
 ```
 $ git ls-files
@@ -190,8 +190,6 @@ $ git log -n 2 // últimos dois logs do branch
 $ git log --oneline // lista completa de logs (um em cada linha)
 $ git log --graph --oneline --all // lista de logs em forma de árvore
 ```
-
-
 
 ### 4.3.1. Editando a mensagem do último envio (Commit)
 
