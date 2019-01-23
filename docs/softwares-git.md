@@ -172,7 +172,7 @@ $ git commit -a -m "Meu comentario bem legal" // Adicionando no stagged e em seg
 Para enviar o novo conteúdo do repositório local para o repositório remoto:
 
 ```
-$ git push // Envia todas as alterações locais
+$ git push // Envia todas as alterações locais do branch atual
 $ git push origin master // Envia todas as alterações locais efetuadas no branch "master"
 $ git push origin meu-branch // Envia todas as alterações locais efetuadas no branch "meu-branch"
 ```
@@ -191,7 +191,35 @@ $ git log --oneline // lista completa de logs (um em cada linha)
 $ git log --graph --oneline --all // lista de logs em forma de árvore
 ```
 
-### 4.3.1. Editando a mensagem do último envio (Commit)
+## 5.2. Desfazendo commits
+
+### 5.2.1. Voltando os arquivos modificados para rastreio (Stage)
+
+Para desfazer envios e voltá-los para a área de rastreio, usa-se o `git reset --soft`:
+
+```
+$ git reset --soft HEAD~1 // desfaz o último commit
+$ git reset --soft HEAD~2 // desfaz os dois últimos commits
+$ git reset --soft 96c6d893128f338f6a4b02b98f6ca47467f81dbb // desfaz todos os commits a partir do hash
+$ git reset --soft v1.0 // desfaz todos os commits a partir da tag
+```
+
+> Obs: caso repositório local não tenha sido sincronizado pelo menos uma vez com o repositório remoto (`git push, git pull ou git fetch`), HEAD~1, HEAD~2, etc, deverão ser substituidos por HEAD@{1}, HEAD@{2}, etc.
+
+> Obs 2: para ver uma lista com os HEADs de desfazer, basta usar o comando caso `git reflog`.
+
+### 5.2.2. Descartando as modificações
+
+Para desfazer envios e descartar todas as modificações contidas neles, usa-se o `git reset --hard`:
+
+```
+$ git reset --hard HEAD~1 // descarta o último commit
+$ git reset --hard HEAD~2 // descarta os dois últimos commits
+$ git reset --hard 96c6d893128f338f6a4b02b98f6ca47467f81dbb // descarta todos os commits a partir do hash
+$ git reset --hard v1.0 // descarta todos os commits a partir da tag
+```
+
+## 5.3. Editando commits
 
 Para editar a mensagem do último commit, basta usar o comando abaixo:
 
@@ -209,28 +237,6 @@ Salvar buffer modificado? (Responder "Não" vai DESCARTAR alterações.)
 ```
 
 Pressione 'S' e em seguinda pressione 'Enter' para aceitar o nome padrão do arquivo e gravar a nova mensagem.
-
-### 3.4.5. Desfazendo o envio (Commit)
-
-Para desfazer o envio efetuado ao repositório local::
-
-```
-$ git reset --soft HEAD@{1} // desfaz o último commit do repositorio local, mantendo suas modificacoes
-$ git reset --hard HEAD@{1} // descarta o último commit do repositorio local
-```
-
-Se o repositório já tiver sido enviado remotamente, o branch HEAD existirá. Então será possivel:
-
-```
-$ git reset --soft HEAD~1 // desfaz o último commit do repositorio local, mantendo suas modificacoes
-$ git reset --hard HEAD~1 // descarta o último commit do repositorio local
-```
-
-Para verificar os níveis de desfazer:
-
-```
-$ git reflog
-```
 
 
 ### 3.4.7. Desfazendo a submissão (Push)
