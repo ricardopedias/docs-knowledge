@@ -19,6 +19,10 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Instalação do Ubuntu 17.04 - Pós Instalação](docs/ubuntu-17.04.md)
 * [Instalação do Ubuntu 17.04 - Desenvolvimento](docs/ubuntu-17.04-devel.md)
 
+# Linguagens
+
+* [Latex](docs/programming-latex.md)
+
 # Laravel
 
 ## Instalando em Hospedagens
@@ -37,18 +41,21 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Resolução de Problemas](docs/laravel-problems.md)
 
 
-# Softwares
+# Ferramentas e Softwares
 
-## Ferramentas para Desenvolvimento
+## Servidores/Configurações
 
-* [Git](docs/softwares-git.md)
 * [Apache](docs/softwares-apache.md)
 * [MySQL](docs/softwares-mysql.md)
 * [PHP](docs/softwares-php.md)
+
+## Modularizadores 
+
+* [Git](docs/softwares-git.md)
 * [Composer](docs/softwares-composer.md)
 * [Npm](docs/softwares-npm.md)
 
-## Editores e IDEs
+## IDEs e Editores
 
 * [Atom](docs/softwares-atom.md)
 * [SublimeText](docs/softwares-sublime-text.md)
