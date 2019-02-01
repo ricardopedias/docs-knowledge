@@ -32,7 +32,7 @@ $ sudo getnonfreefonts --sys arial-urw # para instalar globalmente no sistema
 
 ## Documento básico
 
-
+https://pt.overleaf.com/learn/latex/Bold,_italics_and_underlining
 
 ## Configurando fontes
 
