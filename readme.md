@@ -59,6 +59,7 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 * [Atom](docs/softwares-atom.md)
 * [SublimeText](docs/softwares-sublime-text.md)
+* [Netbeans](docs/softwares-netbeans.md)
 
 ## Outros
 
