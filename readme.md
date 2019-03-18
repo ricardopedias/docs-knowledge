@@ -48,7 +48,7 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Apache](docs/softwares-apache.md)
 * [MySQL](docs/softwares-mysql.md)
 * [PHP](docs/softwares-php.md)
-* [Registro.br])(docs/online-services-registrobr.md)
+* [Registro.br](docs/online-services-registrobr.md)
 
 ## Modularizadores 
 
