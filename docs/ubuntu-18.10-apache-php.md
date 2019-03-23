@@ -58,10 +58,11 @@ $ sudo apt install -y software-properties-common python-software-properties
 Para instalar as versões 5.6, 7.0, 7.1 e 7.2 do PHP:
 
 ```
-$ sudo apt-get install -y php5.6-fpm php5.6 php5.6-dev php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-gd php5.6-curl php5.6-xml php5.6-mysql php5.6-pdo php5.6-zip
-$ sudo apt-get install -y php7.0-fpm php7.0 php7.0-dev php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-gd php7.0-curl php7.0-xml php7.0-mysql php7.0-pdo php7.0-zip
-$ sudo apt-get install -y php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstring php7.1-mcrypt php7.1-gd php7.1-curl php7.1-xml php7.1-mysql php7.1-pdo php7.1-zip
-$ sudo apt-get install -y php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-pdo php7.2-zip php7.2-xdebug
+$ sudo apt-get install -y php5.6-fpm php5.6 php5.6-dev php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-gd php5.6-curl php5.6-xml php5.6-mysql php5.6-zip
+$ sudo apt-get install -y php7.0-fpm php7.0 php7.0-dev php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-gd php7.0-curl php7.0-xml php7.0-mysql php7.0-zip
+$ sudo apt-get install -y php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstring php7.1-mcrypt php7.1-gd php7.1-curl php7.1-xml php7.1-mysql php7.1-zip
+$ sudo apt-get install -y php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-zip php7.2-xdebug
+$ sudo apt-get install -y php7.3-fpm php7.3 php7.3-dev php7.3-cli php7.3-mbstring php7.3-gd php7.3-curl php7.3-xml php7.3-mysql php7.3-zip php7.3-xdebug
 ```
 Nota: A partir do php 7.2, a extensão mcrypt foi removida. 
 Para mais informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
