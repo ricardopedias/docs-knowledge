@@ -43,6 +43,8 @@ Para mudar isso e deixar o mysql com uma senha própria, acesse [MySQL - Canivet
 
 ### 2.1. Preparando o terreno
 
+### 2.2. Instalando múltiplas versões do PHP
+
 Crie um novo diretório chamado C:\PHP. Efetue o download das "últimas" versões desejadas do PHP em http://windows.php.net/download/. Escolha apenas versões "Non Thread Safe". 
 
 Por exemplo:
@@ -55,34 +57,29 @@ Por exemplo:
 
 Extraia todas as versões do PHP dentro do diretório C:\PHP, nomeando os subdiretórios de acordo com a versão, por exemplo, C:\PHP\5.6 para a última versão do PHP 5.6, C:\PHP\7.3 para a última versão do PHP 7.3, e assim por diante.
 
+Dentro do diretório de cada versão do PHP, copie php.ini-development para php.ini e edite para corresponder às suas preferências. Há uma mudança importante que é obrigatória, como mostra o exemplo a seguir.
 
-
-As versões distintas do php podem ser instaladas facilmente, usando um repositório especial criado por [Ondrej Sury](https://github.com/oerdnj).
-Para disponibilizá-lo para o sistema, basta executar o seguinte comando:
-
-```
-$ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php; sudo apt update
-```
-
-Caso o comando "add-apt-repository" não esteja disponível, será preciso instalá-lo:
+Supondo que o php.ini seja do PHP 5.6, encontre a linha:
 
 ```
-$ sudo apt install -y software-properties-common python-software-properties
+; extension_dir = "ext"
 ```
 
-### 2.2. Instalando múltiplas versões do PHP
-
-Para instalar as versões 5.6, 7.0, 7.1 e 7.2 do PHP:
+e mude para:
 
 ```
-$ sudo apt-get install -y php5.6-fpm php5.6 php5.6-dev php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-gd php5.6-curl php5.6-xml php5.6-mysql php5.6-zip
-$ sudo apt-get install -y php7.0-fpm php7.0 php7.0-dev php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-gd php7.0-curl php7.0-xml php7.0-mysql php7.0-zip
-$ sudo apt-get install -y php7.1-fpm php7.1 php7.1-dev php7.1-cli php7.1-mbstring php7.1-mcrypt php7.1-gd php7.1-curl php7.1-xml php7.1-mysql php7.1-zip
-$ sudo apt-get install -y php7.2-fpm php7.2 php7.2-dev php7.2-cli php7.2-mbstring php7.2-gd php7.2-curl php7.2-xml php7.2-mysql php7.2-zip php7.2-xdebug
-$ sudo apt-get install -y php7.3-fpm php7.3 php7.3-dev php7.3-cli php7.3-mbstring php7.3-gd php7.3-curl php7.3-xml php7.3-mysql php7.3-zip php7.3-xdebug
+extension_dir = "C:\PHP\5.6\ext"
 ```
-Nota: A partir do php 7.2, a extensão mcrypt foi removida. 
-Para mais informações veja a [Notificação Oficial do PHP](https://wiki.php.net/rfc/mcrypt-viking-funeral)
+
+Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
+
+
+
+Press WIN-BREAK on your keyboard. Click on Advanced System Settings. Click on the Environment Variables button. In the top section (“User variables for MyUserName”) double-click on the Path variable and append:
+
+;C:\PHP\5.4
+to add PHP 5.4 to your Windows path.
+
 
 
 ----------
