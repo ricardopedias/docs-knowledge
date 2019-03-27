@@ -1,9 +1,12 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# Ubuntu 18.10 - Apache + PHP + Banco de Dados
+# Windows - Apache + PHP + Banco de Dados
 
 ----------
 ## 1. Servidores HTTP e Banco de Dados
+
+
+
 
 ```
 $ sudo apt install -y apache2 mysql-client mysql-server
@@ -39,6 +42,20 @@ Para mudar isso e deixar o mysql com uma senha própria, acesse [MySQL - Canivet
 ## 2. As versões do PHP
 
 ### 2.1. Preparando o terreno
+
+Crie um novo diretório chamado C:\PHP. Efetue o download das "últimas" versões desejadas do PHP em http://windows.php.net/download/. Escolha apenas versões "Non Thread Safe". 
+
+Por exemplo:
+
+* php-5.6.40-nts-Win32-VC11-x64
+* php-7.0.33-nts-Win32-VC14-x64
+* php-7.1.27-nts-Win32-VC14-x64
+* php-7.2.16-nts-Win32-VC15-x64
+* php-7.3.3-nts-Win32-VC15-x64
+
+Extraia todas as versões do PHP dentro do diretório C:\PHP, nomeando os subdiretórios de acordo com a versão, por exemplo, C:\PHP\5.6 para a última versão do PHP 5.6, C:\PHP\7.3 para a última versão do PHP 7.3, e assim por diante.
+
+
 
 As versões distintas do php podem ser instaladas facilmente, usando um repositório especial criado por [Ondrej Sury](https://github.com/oerdnj).
 Para disponibilizá-lo para o sistema, basta executar o seguinte comando:
