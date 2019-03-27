@@ -166,12 +166,10 @@ para
 Include conf/extra/httpd-default.conf
 ```
 
-Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-default.conf e adicione as seguintes linhas no final:
-
-Você pode alterar c: /php/5.4 para c: /php/5.3 ou c: /php/5.5 dependendo da versão padrão do PHP que você quer em seu servidor.
+Em seguida, para adicionar o PHP 7.3 como PHP padrão do sistema, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-default.conf e adicione as seguintes linhas no final:
 
 ```
-FcgidInitialEnv PATH "c:/php/5.4.32;C:/WINDOWS/system32;C:/WINDOWS;C:/WINDOWS/System32/Wbem;"
+FcgidInitialEnv PATH "C:/PHP/7.3;C:/WINDOWS/system32;C:/WINDOWS;C:/WINDOWS/System32/Wbem;"
 FcgidInitialEnv SystemRoot "C:/Windows"
 FcgidInitialEnv SystemDrive "C:"
 FcgidInitialEnv TEMP "C:/WINDOWS/Temp"
@@ -183,17 +181,24 @@ FcgidMaxRequestsPerProcess 1000
 FcgidMaxProcesses 50
 FcgidMaxRequestLen 8131072
 # Location of php.ini
-FcgidInitialEnv PHPRC "c:/php/5.4.32"
+FcgidInitialEnv PHPRC "C:/PHP/7.3"
 FcgidInitialEnv PHP_FCGI_MAX_REQUESTS 1000
 <Files ~ "\.php$">
   AddHandler fcgid-script .php
-  FcgidWrapper "c:/php/5.4/php-cgi.exe" .php
+  FcgidWrapper "C:/PHP/7.3/php-cgi.exe" .php
   Options +ExecCGI
   order allow,deny
   allow from all
   deny from none
 </Files>
 ```
+
+Você pode colocar qualquer versão como padrão, bastando alterar as chamadas a "C:/PHP/7.3" para o caminho da versão desejada.
+
+### 4.4. Usando uma versão do PHP via virtualhost
+
+
+
 
 
 ----------
