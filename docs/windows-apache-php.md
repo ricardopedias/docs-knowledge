@@ -40,7 +40,7 @@ extension_dir = "C:\SERVER\PHP\5.6\ext"
 
 >> Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
 
-### 2.2. Adicionando as versões do PHP no escopo global do windows
+### 2.2. Adicionando a versão padrão do PHP no escopo global do windows
 
 Acesse o "Painel de Controle" do Windows e siga para "Sistema e Segurança" > "Sistema" (ou pressione o atalho WIN + BREAK no teclado). 
 Clique em "Configurações Avançadas do Sistema" e em seguida, no botão "Variáveis de Ambiente". 
@@ -48,13 +48,7 @@ No topo da seção (“Variáveis de usuário para "xxxxx"), dê um duplo clique
 
 >> Atenção: Dependendo da versão do windows, a forma de configurar será diferente. Em versões mais novas existirá um gerenciador de caminhos, em versões mais antigas existirá um campo texto, separando os caminhos por ";".
 
-Nesta tela, adicione o caminho completo para cada versão do PHP:
-
-Para adicionar o PHP 5.6:
-
-```
-C:\SERVER\PHP\5.6
-```
+Nesta tela, adicione o caminho completo para a versão desejada do PHP, para torná-la disponivel no prompt de comando do windows:
 
 Para adicionar o PHP 7.3:
 
@@ -63,14 +57,6 @@ C:\SERVER\PHP\7.3
 ```
 
 Caso esteja usando o modo texto, adicione cada versão no final do valor, prefixando o seperador ";":
-
-Para adicionar o PHP 5.6:
-
-```
-;C:\SERVER\PHP\5.6
-```
-
-Para adicionar o PHP 7.3:
 
 ```
 ;C:\SERVER\PHP\7.3
