@@ -108,20 +108,34 @@ C:\SERVER\MYSQL\bin
 
 ### 4.1. Instalando o Apache
 
-Crie um novo diretório chamado C:\SERVER\APACHE24. Efetue o download da última versão do Apache no site https://www.apachelounge.com/download.Certifique-se de baixar os binários VCXX.
+Crie um novo diretório chamado C:\SERVER\APACHE24. Efetue o download da última versão do Apache no site https://www.apachelounge.com/download. Certifique-se de baixar os binários VCXX.
 
 Por exemplo:
 
 * httpd-2.4.38-win64-VC15.zip   
 
->> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679.
+>> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679. Você será questionado sobre qual arquitetura baixar. Se o Windows for 64bits, baixe "VSU_4\vcredist_x64.exe", por exemplo.
 
-Extraia o pacote httpd e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
+Extraia o pacote httpd-x.x.xx e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
+
+### 4.2. Ativando as versões do PHP no Apache
+
+#### 4.2.1. Instalando o modulo FastCGI
+
+Para o PHP funcionar no servidor com multiplas versões simultâneas, é necessário instalar o módulo do Apache chamado FastCGI (conhecido no Linux como PHP FPM). Baixe o módulo do apache em  https://www.apachelounge.com/download:
+
+Por exemplo: 
+
+* mod_fcgid-2.3.9-win64-VC15.zip 
+
+Extraia o pacote ZIP e copie o arquivo "mod_fcgid.so" para o diretório C:\SERVER\APACHE24\modules.
+
+#### 4.2.2. Ativando o FastCGI
+
+Edite o arquivo C:\SERVER\APACHE24\conf\httpd.conf e altere as seguintes linhas, removendo o # na frente delas:
 
 
 
-----------
-## 3. Servidor de Banco de Dados
 
 
 ----------
