@@ -3,40 +3,24 @@
 # Windows - Apache + PHP + Banco de Dados
 
 ----------
-## 1. Servidores HTTP e Banco de Dados
+## 1. Servidor HTTP 
+
+Crie um novo diretório chamado C:\APACHE24. Efetue o download da última versão do Apache no site https://www.apachelounge.com/download.
+Certifique-se de baixar os binários VCXX.
+
+Por exemplo:
+
+* httpd-2.4.38-win64-VC15.zip   
+
+>> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679.
+
+Extraia o pacote Apache ZIP. Copie o diretório Apache24 para C: \ para que você agora tenha um diretório C: \ Apache24
 
 
 
 
-```
-$ sudo apt install -y apache2 mysql-client mysql-server
-```
 
-Nas versões anteriores, após a instalação do mysql, uma janela pedia para o usuaŕio digitar a senha de root do mysql.
-A partir desta nova versão, isso não acontece mais. Isso porque o mysql agora usa um plugin chamado 'auth_socket' para que o usuário do sistema possa se conectar. Para conectar ao mysql, basta usar o seguinte comando:
 
-```
-$ sudo mysql
-```
-O prompty do mysql se abrirá:
-
-```
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 6
-Server version: 5.7.24-0ubuntu0.18.10.1 (Ubuntu)
-
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql>
-```
-
-Para mudar isso e deixar o mysql com uma senha própria, acesse [MySQL - Canivete Suíço](softwares-mysql.md).
 
 ----------
 ## 2. As versões do PHP
