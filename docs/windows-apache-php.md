@@ -41,9 +41,7 @@ Para mudar isso e deixar o mysql com uma senha própria, acesse [MySQL - Canivet
 ----------
 ## 2. As versões do PHP
 
-### 2.1. Preparando o terreno
-
-### 2.2. Instalando múltiplas versões do PHP
+### 2.1. Instalando múltiplas versões do PHP
 
 Crie um novo diretório chamado C:\PHP. Efetue o download das "últimas" versões desejadas do PHP em http://windows.php.net/download/. Escolha apenas versões "Non Thread Safe". 
 
@@ -73,13 +71,41 @@ extension_dir = "C:\PHP\5.6\ext"
 
 Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
 
+### 2.2. Adicionando as versões do PHP no escopo global do windows
 
+Acesse o "Painel de Controle" do Windows e siga para "Sistema e Segurança" > "Sistema" (ou pressione o atalho WIN + BREAK no teclado). 
+Clique em "Configurações Avançadas do Sistema" e em seguida, no botão "Variáveis de Ambiente". 
+No topo da seção (“Variáveis de usuário para "xxxxx"), dê um duplo clique na variável "Path".
 
-Press WIN-BREAK on your keyboard. Click on Advanced System Settings. Click on the Environment Variables button. In the top section (“User variables for MyUserName”) double-click on the Path variable and append:
+>> Atenção: Dependendo da versão do windows, a forma de configurar será diferente. Em versões mais novas existirá um gerenciador de caminhos, em versões mais antigas existirá um campo texto, separando os caminhos por ";".
 
-;C:\PHP\5.4
-to add PHP 5.4 to your Windows path.
+Nesta tela, adicione o caminho completo para cada versão do PHP:
 
+Para adicionar o PHP 5.6:
+
+```
+C:\PHP\5.6
+```
+
+Para adicionar o PHP 7.3:
+
+```
+C:\PHP\7.3
+```
+
+Caso esteja usando o modo texto, adicione cada versão no final do valor, prefixando o seperador ";":
+
+Para adicionar o PHP 5.6:
+
+```
+;C:\PHP\5.6
+```
+
+Para adicionar o PHP 7.3:
+
+```
+;C:\PHP\7.3
+```
 
 
 ----------
