@@ -118,9 +118,7 @@ Por exemplo:
 
 Extraia o pacote httpd-x.x.xx e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
 
-### 4.2. Ativando as versões do PHP no Apache
-
-#### 4.2.1. Instalando o modulo FastCGI
+### 4.2. Instalando o modulo FastCGI
 
 Para o PHP funcionar no servidor com multiplas versões simultâneas, é necessário instalar o módulo do Apache chamado FastCGI (conhecido no Linux como PHP FPM). Baixe o módulo do apache em  https://www.apachelounge.com/download:
 
@@ -130,12 +128,72 @@ Por exemplo:
 
 Extraia o pacote ZIP e copie o arquivo "mod_fcgid.so" para o diretório C:\SERVER\APACHE24\modules.
 
-#### 4.2.2. Ativando o FastCGI
-
 Edite o arquivo C:\SERVER\APACHE24\conf\httpd.conf e altere as seguintes linhas, removendo o # na frente delas:
 
+de:
 
+```
+# LoadModule include_module modules/mod_include.so
+# LoadModule vhost_alias_module modules/mod_vhost_alias.so
+```
 
+para:
+
+```
+LoadModule include_module modules/mod_include.so
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+```
+
+Na seção de módulos, adicione no final da lista a invocação do módulo Fast CGI:
+
+```
+LoadModule fcgid_module modules/mod_fcgid.so
+```
+
+### 4.3. Definindo a versão padrão do PHP
+
+Ainda no arquivo C:\SERVER\APACHE24\conf\httpd.conf, remova o comentario da seguinte linha:
+
+de:
+
+```
+# Include conf/extra/httpd-default.conf
+```
+
+para
+
+```
+Include conf/extra/httpd-default.conf
+```
+
+Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-default.conf e adicione as seguintes linhas no final:
+
+Você pode alterar c: /php/5.4 para c: /php/5.3 ou c: /php/5.5 dependendo da versão padrão do PHP que você quer em seu servidor.
+
+```
+FcgidInitialEnv PATH "c:/php/5.4.32;C:/WINDOWS/system32;C:/WINDOWS;C:/WINDOWS/System32/Wbem;"
+FcgidInitialEnv SystemRoot "C:/Windows"
+FcgidInitialEnv SystemDrive "C:"
+FcgidInitialEnv TEMP "C:/WINDOWS/Temp"
+FcgidInitialEnv TMP "C:/WINDOWS/Temp"
+FcgidInitialEnv windir "C:/WINDOWS"
+FcgidIOTimeout 64
+FcgidConnectTimeout 16
+FcgidMaxRequestsPerProcess 1000
+FcgidMaxProcesses 50
+FcgidMaxRequestLen 8131072
+# Location of php.ini
+FcgidInitialEnv PHPRC "c:/php/5.4.32"
+FcgidInitialEnv PHP_FCGI_MAX_REQUESTS 1000
+<Files ~ "\.php$">
+  AddHandler fcgid-script .php
+  FcgidWrapper "c:/php/5.4/php-cgi.exe" .php
+  Options +ExecCGI
+  order allow,deny
+  allow from all
+  deny from none
+</Files>
+```
 
 
 ----------
