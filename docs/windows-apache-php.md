@@ -306,7 +306,7 @@ Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-vhosts.conf, adi
 
 
 ```
-# PHP 5.5 virtual host (local55.web)
+# PHP 5.5 virtual host (local56.web)
 <VirtualHost *:80>
 	ServerAdmin webmaster@local.web
 	DocumentRoot "c:/Apache24/htdocs"
