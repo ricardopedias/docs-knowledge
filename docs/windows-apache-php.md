@@ -259,254 +259,132 @@ Você pode colocar qualquer versão como padrão, bastando alterar as chamadas a
 
 ### 4.7. Usando uma versão do PHP via virtualhost
 
+Para criar um virtualhost que responda por uma determinada versão do PHP, é preciso fazer os seguintes passos:
 
+#### 4.7.1. Adicionar entrada no hosts do Windows
 
-
-
-----------
-## 3. Configurando o Apache
-
-
-### 3.1. Ativando módulos
-
-Alguns módulos do Apache precisam ser ativados:
+Primeiro é preciso alterar o arquivo "hosts" do widnows, que se encontra em "C:\Windows\System32\drivers\etc\hosts".
+Neste arquivo, adicione os dominios desejados, apontando para o IP local do computador.
 
 ```
-$ sudo a2enmod proxy_fcgi setenvif rewrite actions
+127.0.0.1 local.web www.local.web 
+127.0.0.1 local56.web www.loca56.web
+127.0.0.1 local70.web www.local70.web
 ```
 
-### 3.2. Recarregando configurações do Apache
+#### 4.7.2. Adicionar o diretório no Apache
 
-Sempre que alguma configuração do Apache for editada, será necessário recarregar as novas configurações no serviço em execução. Isso pode ser feito através do comando service :
+No diretório C:\SERVER\APACHE24\htdocs, crie os diretórios para os dominios acima, deixando a estrutura assim:
 
-```
-$ sudo service apache2 restart
-```
+* C:\SERVER\APACHE24\htdocs\local
+* C:\SERVER\APACHE24\htdocs\local56
+* C:\SERVER\APACHE24\htdocs\local70
 
-As opções disponiveis são start|stop|graceful-stop|restart|reload|force-reload
-
-----------
-## 4. Configurando o PHP
-
-
-### 4.1. Determinando o PHP padrão do servidor HTTP
-
-Para setar a versão padrão do PHP a ser usada pelo servidor, use os seguintes comandos:
+Dentro de cada diretório, cie um arquivo chamado index.php, contendo o seguinte conteúdo:
 
 ```
-$ sudo a2enconf php5.6-fpm
+<?php phpinfo();
 ```
 
-ou
+#### 4.7.3. Adicionar o virtualhost no Apache
+
+Por fim, é necessário configurar os virtualhosts no apache.
+
+Edite o arquivo C:\SERVER\APACHE24\conf\httpd.conf e altere a linha:
 
 ```
-$ sudo a2enconf php7.0-fpm
+# Include conf/extra/httpd-vhosts.conf
 ```
 
-ou 
+para:
 
 ```
-$ sudo a2enconf php7.1-fpm
+Include conf/extra/httpd-vhosts.conf
 ```
 
-ou 
+Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-vhosts.conf, adicionando os virtualhost desejados:
+
 
 ```
-$ sudo a2enconf php7.2-fpm
-```
-
-Para aplicar a nova versão padrão, é necessário recarregar as configurações o Apache:
-
-```
-$ sudo service apache2 reload
-```
-ou
-
-```
-$ systemctl reload apache2
-```
-
-Para conferir a versão padrão do PHP em execução, basta criar um arquivo "info.php" na raiz do servidor e acessá-lo pelo navegador.
-
-Nota: o comando abaixo deve ser executado como root, pois o ubuntu possui um sistema de segurança que impede a criação como usuário comum, mesmo sendo via sudo.
-
-```
-# echo '<?php phpinfo(); ?>' > /var/www/html/info.php
-```
-Agora basta entrar na url http://localhost/info.php.
-
-
-### 4.2. Determinando a versão do PHP de um virtualhost
-
-Dentro de um virtualhost, basta adicionar o handler do php. Lembrando de trocar
-a notação "php7.2" pela versão desejada (php5.6, php7.1, etc...):
-
-```
+# PHP 5.5 virtual host (local55.web)
 <VirtualHost *:80>
+	ServerAdmin webmaster@local.web
+	DocumentRoot "c:/Apache24/htdocs"
+	ServerName www.local55.web
+	#ErrorLog "logs/dummy-host.example.com-error.log"
+	#CustomLog "logs/dummy-host.example.com-access.log" common 
+	
+	<Directory "c:/Apache24/htdocs"> 
+		<Files ~ "\.php$"> 
+			AddHandler fcgid-script .php 
+			FcgidWrapper "c:/php/5.5/php-cgi.exe" .php 
+			Options +ExecCGI 
+			order allow,deny 
+			allow from all 
+			deny from none 
+		</Files> 
+	</Directory> 
+</VirtualHost>
 
-	...
+# Dynamic virtual hosts using vhost_alias, PHP 5.5 
+<VirtualHost *:80> 
+	ServerAlias *.local55.web 
+	UseCanonicalName Off 
+	VirtualDocumentRoot "c:/Apache24/htdocs/%1" 
+	
+	<Directory "c:/Apache24/htdocs"> 
+		<Files ~ "\.php$"> 
+			AddHandler fcgid-script .php 
+			FcgidWrapper "c:/php/5.5/php-cgi.exe" .php 
+			Options +ExecCGI 
+			order allow,deny 
+			allow from all 
+			deny from none 
+		</Files> 
+	</Directory> 
+</VirtualHost>
 
-	<FilesMatch ".+\.ph(ar|p|tml)$">
-        SetHandler "proxy:unix:/run/php/php7.2-fpm.sock|fcgi://localhost"
-	</FilesMatch>
+# PHP 5.3 virtual host (local53.web) 
+<VirtualHost *:80> 
+	ServerAdmin webmaster@local.web 
+	DocumentRoot "c:/Apache24/htdocs" 
+	ServerName www.local53.web 
+	#ErrorLog "logs/dummy-host.example.com-error.log" 
+	#CustomLog "logs/dummy-host.example.com-access.log" common 
+	
+	<Directory "c:/Apache24/htdocs"> 
+		<Files ~ "\.php$"> 
+			AddHandler fcgid-script .php 
+			FcgidWrapper "c:/php/5.3/php-cgi.exe" .php 
+			Options +ExecCGI 
+			order allow,deny 
+			allow from all 
+			deny from none 
+		</Files> 
+	</Directory> 
+</VirtualHost>
 
+# Dynamic virtual hosts using vhost_alias, PHP 5.3 
+<VirtualHost *:80> 
+	ServerAlias *.local53.web 
+	UseCanonicalName Off 
+	VirtualDocumentRoot "c:/Apache24/htdocs/%1" 
+	
+	<Directory "c:/Apache24/htdocs"> 
+		<Files ~ "\.php$"> 
+			AddHandler fcgid-script .php 
+			FcgidWrapper "c:/php/5.3/php-cgi.exe" .php 
+			Options +ExecCGI 
+			order allow,deny 
+			allow from all 
+			deny from none 
+		</Files> 
+	</Directory> 
 </VirtualHost>
 ```
 
-
-### 4.3. Determinando o PHP padrão do sistema (cli)
-
-Para setar a versão padrão do PHP a ser usada pelo sistema, ou seja, pelos scripts executados via terminal, use os seguintes comandos:
-
-```
-$ sudo update-alternatives --set php /usr/bin/php5.6
-```
-
-ou
-
-```
-$ sudo update-alternatives --set php /usr/bin/php7.0
-```
-
-ou 
-
-```
-$ sudo update-alternatives --set php /usr/bin/php7.1
-```
-
-ou 
-
-```
-$ sudo update-alternatives --set php /usr/bin/php7.2
-```
-
-### 4.4. Recarregando configurações do PHP
+Agora basta reiniciar o Apache e acessar os dominios:
 
 
-Assim como o servidor Apache, sempre que alguma configuração do PHP for editada, como por exemplo alguma diretiva no arquivo php.ini, será necessário recarregar as novas configurações no serviço em execução. Isso pode ser feito através do comando service:
-
-```
-$ sudo service php5.6-fpm restart
-```
-
-ou
-
-```
-$ sudo service php7.0-fpm restart
-```
-
-ou
-
-```
-$ sudo service php7.1-fpm restart
-```
-
-ou
-
-```
-$ sudo service php7.2-fpm restart
-```
-
-As opções disponiveis são start|stop|status|restart|reload|force-reload.
-
-
-----------
-## 5. Preparação do Ambiente para Desenvolver
-
-### 5.1. Configurando as permissões do servidor HTTP
-
-O diretório /var/www deve ser liberado para o usuário que vai desenvolver.
-Nos comandos abaixo, troque o "ricardo" pelo seu nome de usuário do ubuntu:
-
-```
-$ sudo adduser ricardo www-data
-$ sudo chown ricardo:www-data -R /var/www
-$ sudo chmod 755 -R /var/www
-```
-
-### 5.2. Criando um VirtualHost (Método Manual)
-
-Os VirtualHosts possibilitam desenvolver e servir um projeto como se estivesse na hospedagem, usando um domínio (como http://www.meuprojeto.dev.br). Para criar um VirtualHost, basta adicionar um arquivo com sua configuração no diretório "/etc/apache2/sites-available", onde o Apache verifica para disponibilizar.
-
-Levando em conta que o projeto seja colocado no diretório "/var/www/meuprojeto", a configuração do 
-VirtualHost deve ficar assim:
-
-```
-# /etc/apache2/sites-available/meuprojeto.conf
-
-<VirtualHost *:80>
-     ServerName www.meuprojeto.dev.br
-     DocumentRoot /var/www/meuprojeto/public
-     <Directory /var/www/meuprojeto/public>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride all
-         Order allow,deny
-         allow from all
-     </Directory>
-</VirtualHost>
-```
-
-Para ativar a configuração no servidor, é preciso carregar o "meuprojeto.conf". Isso pode ser feito de duas formas:
-
-```
-# fazendo um link manualmente para o diretório "/etc/apache2/sites-enabled/"
-$ sudo ln -s /etc/apache2/sites-available/meuprojeto.conf /etc/apache2/sites-enabled/
-```
-
-```
-# usando o ativador de sites do apache
-$ sudo a2ensite meuprojeto.conf
-```
- 
-Por fim, para que o host "www.meuprojeto.dev.br" seja acessível no navegador é preciso adicioná-lo no arquivo "/etc/hosts":
-
-```
-127.0.0.1	localhost
-
-127.0.0.1       meuprojeto.dev.br
-127.0.0.1       www.meuprojeto.dev.br
-```
-
-Basta reiniciar o servidor e o host estará acessível.
-
-```
-$ sudo service apache2 restart
-```
-
-### 5.3. Criando um VirtualHost (Método Automatizado)
-
-Para criar VirtualHosts de forma automática, é preciso instalar um script no sistema. Para isso basta rodar o comando abaixo:
-
-```
-$ wget https://raw.githubusercontent.com/rpdesignerfly/virtualhost/master/virtualhost.sh -O /tmp/virtualhost.sh; sudo chmod a+x /tmp/virtualhost.sh; sudo cp /tmp/virtualhost.sh /usr/local/bin/virtualhost; 
-```
-
-Para utilizar:
-
-```
-# Cria um novo VirtualHost
-$ sudo virtualhost create www.meuprojeto.dev.br
-```
-O comando acima criará o VirtualHost apontando para o diretório /var/www/wwwmeuprojetodevbr. Para personalizar o diretório, basta especificá-lo no final do comando:
-
-```
-# Cria um novo VirtualHost com diretório personalizado:
-$ sudo virtualhost create meuprojeto.dev.br meuprojeto
-```
-
-Usando o comando acima, o VirtualHost será criado e apontadoi para /var/www/meuprojeto.
-
-```
-# Deleta um VirtualHost
-$ sudo virtualhost delete meuprojeto.dev.br
-```
-
-O comando acima remove o VirtualHost mas deixa o diretório /var/www/meuprojeto intocado.
-Para remover também o diretório, especifique-o no final do comando:
-
-```
-# Deleta um VirtualHost e também o diretório
-$ sudo virtualhost delete meuprojeto.dev.br meuprojeto
-```
 
 [Voltar para Lista de Opções](../readme.md)
