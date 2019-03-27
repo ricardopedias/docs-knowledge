@@ -3,31 +3,16 @@
 # Windows - Apache + PHP + Banco de Dados
 
 ----------
-## 1. Servidor HTTP 
+## 1. Preparando o Terreno
 
-Crie um novo diretório chamado C:\APACHE24. Efetue o download da última versão do Apache no site https://www.apachelounge.com/download.
-Certifique-se de baixar os binários VCXX.
-
-Por exemplo:
-
-* httpd-2.4.38-win64-VC15.zip   
-
->> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679.
-
-Extraia o pacote Apache ZIP. Copie o diretório Apache24 para C: \ para que você agora tenha um diretório C: \ Apache24
-
-
-
-
-
-
+Para organizar o ambiente, cre o diretório chamado C:\SERVER, onde serão instalados os softwares necessários para o ambiente do servidor. 
 
 ----------
 ## 2. As versões do PHP
 
 ### 2.1. Instalando múltiplas versões do PHP
 
-Crie um novo diretório chamado C:\PHP. Efetue o download das "últimas" versões desejadas do PHP em http://windows.php.net/download/. Escolha apenas versões "Non Thread Safe". 
+Crie um novo diretório chamado C:\SERVER\PHP. Efetue o download das "últimas" versões desejadas do PHP em http://windows.php.net/download/. Escolha apenas versões "Non Thread Safe". 
 
 Por exemplo:
 
@@ -37,7 +22,7 @@ Por exemplo:
 * php-7.2.16-nts-Win32-VC15-x64
 * php-7.3.3-nts-Win32-VC15-x64
 
-Extraia todas as versões do PHP dentro do diretório C:\PHP, nomeando os subdiretórios de acordo com a versão, por exemplo, C:\PHP\5.6 para a última versão do PHP 5.6, C:\PHP\7.3 para a última versão do PHP 7.3, e assim por diante.
+Extraia todas as versões do PHP dentro do diretório C:\SERVER\PHP, nomeando os subdiretórios de acordo com a versão, por exemplo, C:\SERVER\PHP\5.6 para a última versão do PHP 5.6, C:\SERVER\PHP\7.3 para a última versão do PHP 7.3, e assim por diante.
 
 Dentro do diretório de cada versão do PHP, copie php.ini-development para php.ini e edite para corresponder às suas preferências. Há uma mudança importante que é obrigatória, como mostra o exemplo a seguir.
 
@@ -50,10 +35,10 @@ Supondo que o php.ini seja do PHP 5.6, encontre a linha:
 e mude para:
 
 ```
-extension_dir = "C:\PHP\5.6\ext"
+extension_dir = "C:\SERVER\PHP\5.6\ext"
 ```
 
-Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
+>> Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
 
 ### 2.2. Adicionando as versões do PHP no escopo global do windows
 
@@ -68,13 +53,13 @@ Nesta tela, adicione o caminho completo para cada versão do PHP:
 Para adicionar o PHP 5.6:
 
 ```
-C:\PHP\5.6
+C:\SERVER\PHP\5.6
 ```
 
 Para adicionar o PHP 7.3:
 
 ```
-C:\PHP\7.3
+C:\SERVER\PHP\7.3
 ```
 
 Caso esteja usando o modo texto, adicione cada versão no final do valor, prefixando o seperador ";":
@@ -82,14 +67,61 @@ Caso esteja usando o modo texto, adicione cada versão no final do valor, prefix
 Para adicionar o PHP 5.6:
 
 ```
-;C:\PHP\5.6
+;C:\SERVER\PHP\5.6
 ```
 
 Para adicionar o PHP 7.3:
 
 ```
-;C:\PHP\7.3
+;C:\SERVER\PHP\7.3
 ```
+
+----------
+## 3. Servidor de Banco de Dados
+
+### 3.1. Instalando o MySQL
+
+Crie um novo diretório chamado C:\SERVER\MYSQL. Efetue o download da versão "comunidade" do mysql em https://dev.mysql.com/downloads/mysql/. Baixe a versão ZIP.
+
+Po exemplo:
+
+* mysql-8.0.15-winx64.zip (Windows (x86, 64-bit), ZIP Archive)
+
+Extraia o conteudo dentro do diretório C:\SERVER\MYSQL.
+
+### 3.2. Adicionando o MySQL no escopo global do windows
+
+Acesse o "Painel de Controle" do Windows e siga para "Sistema e Segurança" > "Sistema" (ou pressione o atalho WIN + BREAK no teclado). 
+Clique em "Configurações Avançadas do Sistema" e em seguida, no botão "Variáveis de Ambiente". 
+No topo da seção (“Variáveis de usuário para "xxxxx"), dê um duplo clique na variável "Path".
+
+Nesta tela, adicione o caminho completo para o diretório "bin" do mysql:
+
+Por exemplo:
+
+```
+C:\SERVER\MYSQL\bin
+```
+
+----------
+## 4. Servidor HTTP 
+
+### 4.1. Instalando o Apache
+
+Crie um novo diretório chamado C:\SERVER\APACHE24. Efetue o download da última versão do Apache no site https://www.apachelounge.com/download.Certifique-se de baixar os binários VCXX.
+
+Por exemplo:
+
+* httpd-2.4.38-win64-VC15.zip   
+
+>> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679.
+
+Extraia o pacote httpd e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
+
+
+
+----------
+## 3. Servidor de Banco de Dados
 
 
 ----------
