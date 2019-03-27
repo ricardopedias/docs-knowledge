@@ -118,7 +118,83 @@ Por exemplo:
 
 Extraia o pacote httpd-x.x.xx e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
 
-### 4.2. Instalando o modulo FastCGI
+Edite o arquivo C:\SERVER\APACHE24\conf\httpd.conf e altere a linha:
+
+```
+Define SRVROOT "c:/Apache24"
+```
+
+para:
+
+```
+Define SRVROOT "C:\SERVER\APACHE24"
+```
+
+### 4.2. Adicionando o Apache no escopo global do windows
+
+Acesse o "Painel de Controle" do Windows e siga para "Sistema e Segurança" > "Sistema" (ou pressione o atalho WIN + BREAK no teclado). 
+Clique em "Configurações Avançadas do Sistema" e em seguida, no botão "Variáveis de Ambiente". 
+No topo da seção (“Variáveis de usuário para "xxxxx"), dê um duplo clique na variável "Path".
+
+Nesta tela, adicione o caminho completo para os binários do Apache:
+
+```
+C:\SERVER\APACHE24\bin
+```
+
+### 4.3. Adicionando o Apache como um serviço do Windows
+
+Pressione a tecla "Windows" e digite "cmd". Dê um clique direito sobre "Prompt de comando" e escolha "Executar como administrador". Isso abre um prompt de comando "root". 
+
+Digite o seguinte comando para adicionar o apache como serviço operável do sistema:
+
+```
+httpd -k install
+```
+
+Para remover o serviço do sistema:
+
+```
+httpd -k uninstall
+```
+
+### 4.4. Gerenciando o Apache em modo texto
+
+Uma vez que o apache é um serviço do sistema, basta usar um dos comandos para gerenciá-lo:
+
+Iniciar o Apache:
+
+```
+httpd -k start
+```
+
+Parar o Apache:
+
+```
+httpd -k stop
+```
+
+Reiniciar o Apache:
+
+```
+httpd -k restart
+```
+
+### 4.4. Gerenciando o Apache em modo visual
+
+Basta executar o programa C:\SERVER\APACHE24\bin\ApacheMonitor.exe. Após executá-lo, o monitor aparecerá na bandeja do windows, permitindo iniciar e parar o Apache facilmente.
+
+### 4.5. Autostart Apache Monitor na inicialização
+
+Abra uma janela do Windows Explorer no diretório C:\SERVER\APACHE24\bin e uma segunda janela no diretório C:\Users\SeuNomeDeUsuario\AppData\Roaming\Microsoft\Windows\Menu Iniciar\Programas\Startup.
+
+>> Obviamente, SeuNomeDeUsuario é o seu nome de usuário no Windows.
+
+Mantendo pressionada a tecla ALT, arraste o ApacheMonitor da primeira janela para a segunda.
+
+Isso iniciará automaticamente o ícone do Apache Monitor da bandeja do windows.
+
+### 4.6. Instalando o modulo FastCGI
 
 Para o PHP funcionar no servidor com multiplas versões simultâneas, é necessário instalar o módulo do Apache chamado FastCGI (conhecido no Linux como PHP FPM). Baixe o módulo do apache em  https://www.apachelounge.com/download:
 
@@ -150,7 +226,7 @@ Na seção de módulos, adicione no final da lista a invocação do módulo Fast
 LoadModule fcgid_module modules/mod_fcgid.so
 ```
 
-### 4.3. Definindo a versão padrão do PHP
+### 4.6. Definindo a versão padrão do PHP
 
 Ainda no arquivo C:\SERVER\APACHE24\conf\httpd.conf, remova o comentario da seguinte linha:
 
@@ -195,7 +271,7 @@ FcgidInitialEnv PHP_FCGI_MAX_REQUESTS 1000
 
 Você pode colocar qualquer versão como padrão, bastando alterar as chamadas a "C:/PHP/7.3" para o caminho da versão desejada.
 
-### 4.4. Usando uma versão do PHP via virtualhost
+### 4.7. Usando uma versão do PHP via virtualhost
 
 
 
