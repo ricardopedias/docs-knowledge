@@ -283,7 +283,7 @@ No diretório C:\SERVER\APACHE24\htdocs, crie os diretórios para os dominios ac
 * C:\SERVER\APACHE24\htdocs\local56
 * C:\SERVER\APACHE24\htdocs\local70
 
-Dentro de cada diretório, cie um arquivo chamado index.php, contendo o seguinte conteúdo:
+Dentro de cada diretório, crie um arquivo chamado index.php, contendo o seguinte conteúdo:
 
 ```
 <?php phpinfo();
