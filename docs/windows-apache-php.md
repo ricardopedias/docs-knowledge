@@ -46,7 +46,7 @@ Acesse o "Painel de Controle" do Windows e siga para "Sistema e Segurança" > "S
 Clique em "Configurações Avançadas do Sistema" e em seguida, no botão "Variáveis de Ambiente". 
 No topo da seção (“Variáveis de usuário para "xxxxx"), dê um duplo clique na variável "Path".
 
->> Atenção: Dependendo da versão do windows, a forma de configurar será diferente. Em versões mais novas existirá um gerenciador de caminhos, em versões mais antigas existirá um campo texto, separando os caminhos por ";".
+> Atenção: Dependendo da versão do windows, a forma de configurar será diferente. Em versões mais novas existirá um gerenciador de caminhos, em versões mais antigas existirá um campo texto, separando os caminhos por ";".
 
 Nesta tela, adicione o caminho completo para a versão desejada do PHP, para torná-la disponivel no prompt de comando do windows:
 
@@ -100,7 +100,7 @@ Por exemplo:
 
 * httpd-2.4.38-win64-VC15.zip   
 
->> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679. Você será questionado sobre qual arquitetura baixar. Se o Windows for 64bits, baixe "VSU_4\vcredist_x64.exe", por exemplo.
+> O sufixo VCXX (por exemplo VC15) corresponde à versão do Visual C++ da Microsoft que precisa estar previamente instalada para que o Apache possa funcionar. Caso precise instalar o VCXX, baixe-o em http://www.microsoft.com/en-us/download/details.aspx?id=30679. Você será questionado sobre qual arquitetura baixar. Se o Windows for 64bits, baixe "VSU_4\vcredist_x64.exe", por exemplo.
 
 Extraia o pacote httpd-x.x.xx e copie o seu conteudo do subdiretório Apache24 para C:\SERVER\APACHE24.
 
@@ -174,7 +174,7 @@ Basta executar o programa C:\SERVER\APACHE24\bin\ApacheMonitor.exe. Após execut
 
 Abra uma janela do Windows Explorer no diretório C:\SERVER\APACHE24\bin e uma segunda janela no diretório C:\Users\SeuNomeDeUsuario\AppData\Roaming\Microsoft\Windows\Menu Iniciar\Programas\Startup.
 
->> Obviamente, SeuNomeDeUsuario é o seu nome de usuário no Windows.
+> Obviamente, SeuNomeDeUsuario é o seu nome de usuário no Windows.
 
 Mantendo pressionada a tecla ALT, arraste o ApacheMonitor da primeira janela para a segunda.
 
