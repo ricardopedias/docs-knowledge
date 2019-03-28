@@ -1,6 +1,6 @@
 [Voltar para Lista de Opções](../readme.md)
 
-# Windows - Apache + PHP + Banco de Dados
+# Windows 10 - Apache + PHP + Banco de Dados
 
 ----------
 ## 1. Preparando o Terreno
