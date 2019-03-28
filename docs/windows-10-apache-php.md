@@ -5,7 +5,7 @@
 ----------
 ## 1. Preparando o Terreno
 
-Para organizar o ambiente, cre o diretório chamado C:\SERVER, onde serão instalados os softwares necessários para o ambiente do servidor. 
+Para organizar o ambiente, crie um diretório chamado C:\SERVER, onde serão instalados os softwares necessários para o ambiente do servidor. 
 
 ----------
 ## 2. As versões do PHP
