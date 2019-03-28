@@ -69,11 +69,11 @@ Caso esteja usando o modo texto, adicione cada versão no final do valor, prefix
 
 Crie um novo diretório chamado C:\SERVER\MYSQL. Efetue o download da versão "comunidade" do mysql em https://dev.mysql.com/downloads/mysql/. Baixe a versão ZIP.
 
-Po exemplo:
+Por exemplo:
 
 * mysql-8.0.15-winx64.zip (Windows (x86, 64-bit), ZIP Archive)
 
-Extraia o conteudo dentro do diretório C:\SERVER\MYSQL.
+Extraia o conteúdo dentro do diretório C:\SERVER\MYSQL.
 
 ### 3.2. Adicionando o MySQL no escopo global do windows
 
