@@ -9,6 +9,11 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Instalação do Ubuntu 18.10 - Apache + PHP + MySQL](docs/ubuntu-18.10-apache-php.md)
 * [Instalação do Ubuntu 18.10 - Tomcat + Java + MySQL](docs/ubuntu-18.10-tomcat-java.md)
 
+# Windows
+
+* [Instalação do Windows 10 - Apache + PHP + MySQL](docs/windows-10-apache-php.md)
+
+
 # Ubuntu Outras versões
 * [Instalação do Ubuntu 18.04 - Pós Instalação](docs/ubuntu-18.04.md)
 * [Instalação do Ubuntu 18.04 - Desenvolvimento](docs/ubuntu-18.04-devel.md)
