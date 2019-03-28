@@ -305,84 +305,102 @@ para:
 Include conf/extra/httpd-vhosts.conf
 ```
 
-Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-vhosts.conf, adicionando os virtualhost desejados:
+Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-vhosts.conf, adaptando-o e adicionando os virtualhost desejados:
 
 
 ```
-# PHP 5.5 virtual host (local56.web)
+# PHP padrão (local.web) - 7.3
 <VirtualHost *:80>
-	ServerAdmin webmaster@local.web
-	DocumentRoot "c:/Apache24/htdocs"
-	ServerName www.local55.web
-	#ErrorLog "logs/dummy-host.example.com-error.log"
-	#CustomLog "logs/dummy-host.example.com-access.log" common 
+
+    ServerAdmin webmaster@local.web
+    ServerName local.web
+    ServerAlias www.local.web
+    DocumentRoot "C:/SERVER/APACHE24/htdocs/local"
+    
+    <Directory />
+	AllowOverride All
+    </Directory>
+    
+    <Directory C:/SERVER/APACHE24/htdocs/local>
+	Options Indexes FollowSymLinks MultiViews
+	AllowOverride all
+	Require all granted
 	
-	<Directory "c:/Apache24/htdocs"> 
-		<Files ~ "\.php$"> 
-			AddHandler fcgid-script .php 
-			FcgidWrapper "c:/php/5.5/php-cgi.exe" .php 
-			Options +ExecCGI 
-			order allow,deny 
-			allow from all 
-			deny from none 
-		</Files> 
-	</Directory> 
+    </Directory>
+    
+    ErrorLog C:/SERVER/APACHE24/log/local.web-error.log
+    LogLevel error
+    CustomLog C:/SERVER/APACHE24/log/local.web-access.log combined
+
 </VirtualHost>
 
-# Dynamic virtual hosts using vhost_alias, PHP 5.5 
-<VirtualHost *:80> 
-	ServerAlias *.local55.web 
-	UseCanonicalName Off 
-	VirtualDocumentRoot "c:/Apache24/htdocs/%1" 
+# PHP 5.6 (local56.web)
+<VirtualHost *:80>
+
+    ServerAdmin webmaster@local56.web
+    ServerName local56.web
+    ServerAlias www.local56.web
+    DocumentRoot "C:/SERVER/APACHE24/htdocs/local56"
+    
+    <Directory />
+	AllowOverride All
+    </Directory>
+    
+    <Directory C:/SERVER/APACHE24/htdocs/local56>
+	Options Indexes FollowSymLinks MultiViews
+	AllowOverride all
+	Require all granted
 	
-	<Directory "c:/Apache24/htdocs"> 
-		<Files ~ "\.php$"> 
-			AddHandler fcgid-script .php 
-			FcgidWrapper "c:/php/5.5/php-cgi.exe" .php 
-			Options +ExecCGI 
-			order allow,deny 
-			allow from all 
-			deny from none 
-		</Files> 
-	</Directory> 
+	<Files ~ "\.php$"> 
+	    AddHandler fcgid-script .php 
+	    FcgidWrapper "C:/SERVER/PHP/5.6/php-cgi.exe" .php 
+	    Options +ExecCGI 
+	    order allow,deny 
+	    allow from all 
+	    deny from none 
+	</Files> 
+	
+    </Directory>
+    
+    ErrorLog C:/SERVER/APACHE24/log/local56.web-error.log
+    LogLevel error
+    CustomLog C:/SERVER/APACHE24/log/local56.web-access.log combined
+
 </VirtualHost>
 
-# PHP 5.3 virtual host (local53.web) 
-<VirtualHost *:80> 
-	ServerAdmin webmaster@local.web 
-	DocumentRoot "c:/Apache24/htdocs" 
-	ServerName www.local53.web 
-	#ErrorLog "logs/dummy-host.example.com-error.log" 
-	#CustomLog "logs/dummy-host.example.com-access.log" common 
-	
-	<Directory "c:/Apache24/htdocs"> 
-		<Files ~ "\.php$"> 
-			AddHandler fcgid-script .php 
-			FcgidWrapper "c:/php/5.3/php-cgi.exe" .php 
-			Options +ExecCGI 
-			order allow,deny 
-			allow from all 
-			deny from none 
-		</Files> 
-	</Directory> 
-</VirtualHost>
 
-# Dynamic virtual hosts using vhost_alias, PHP 5.3 
-<VirtualHost *:80> 
-	ServerAlias *.local53.web 
-	UseCanonicalName Off 
-	VirtualDocumentRoot "c:/Apache24/htdocs/%1" 
+# PHP 7.0 (local70.web)
+<VirtualHost *:80>
+
+    ServerAdmin webmaster@local70.web
+    ServerName local70.web
+    ServerAlias www.local70.web
+    DocumentRoot "C:/SERVER/APACHE24/htdocs/local70"
+    
+    <Directory />
+	AllowOverride All
+    </Directory>
+    
+    <Directory C:/SERVER/APACHE24/htdocs/local70>
+	Options Indexes FollowSymLinks MultiViews
+	AllowOverride all
+	Require all granted
 	
-	<Directory "c:/Apache24/htdocs"> 
-		<Files ~ "\.php$"> 
-			AddHandler fcgid-script .php 
-			FcgidWrapper "c:/php/5.3/php-cgi.exe" .php 
-			Options +ExecCGI 
-			order allow,deny 
-			allow from all 
-			deny from none 
-		</Files> 
-	</Directory> 
+	<Files ~ "\.php$"> 
+	    AddHandler fcgid-script .php 
+	    FcgidWrapper "C:/SERVER/PHP/7.0/php-cgi.exe" .php 
+	    Options +ExecCGI 
+	    order allow,deny 
+	    allow from all 
+	    deny from none 
+	</Files> 
+	
+    </Directory>
+    
+    ErrorLog C:/SERVER/APACHE24/log/local70.web-error.log
+    LogLevel error
+    CustomLog C:/SERVER/APACHE24/log/local70.web-access.log combined
+
 </VirtualHost>
 ```
 
