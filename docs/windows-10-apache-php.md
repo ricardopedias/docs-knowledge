@@ -172,13 +172,16 @@ Basta executar o programa C:\SERVER\APACHE24\bin\ApacheMonitor.exe. Após execut
 
 ### 4.5. Autostart Apache Monitor na inicialização
 
-Abra uma janela do Windows Explorer no diretório C:\SERVER\APACHE24\bin e uma segunda janela no diretório C:\Users\SeuNomeDeUsuario\AppData\Roaming\Microsoft\Windows\Menu Iniciar\Programas\Startup.
 
-> Obviamente, SeuNomeDeUsuario é o seu nome de usuário no Windows.
+Na Barra de Tarefas, digite a palavra "executar" no campo de buscas e abra o aplicativo "Executar", que será exibido no topo da lista. Esse caminho pode ser encurtado pressionando as teclas "Windows + R" no seu teclado.
 
-Mantendo pressionada a tecla ALT, arraste o ApacheMonitor da primeira janela para a segunda.
+No campo "Abrir", insira %AppData%\Microsoft\Windows\Start Menu\Programs\Startup e clique em "OK". Uma nova janela será aberta, no diretório "Start".
+
+Clique com o botão direito do mouse sobre o plano de fundo do Windows Explorer e então descanse a seta sobre “Novo”. Em seguida, selecione a opção “Atalho”. Na caixa de diálogo que vai aparecer, selecione o local do programa (C:\SERVER\APACHE24\bin\ApacheMonitor.exe) e clique em “Avançar”.
 
 Isso iniciará automaticamente o ícone do Apache Monitor da bandeja do windows.
+
+> Para verificar se o Apache Monitor realmente vai ser iniciado junto com o sistema. Clique com botão direito do mouse sobre a Barra de Tarefas e vá em "Gerenciador de Tarefas". Selecione a aba "Inicializar". É aqui que você visualiza uma relação de todos os programas e aplicações que iniciam assim que você liga o seu Windows 10. Se quiser remover alguma ferramenta da lista, é só clicar em cima dela e depois em "Desabilitar".
 
 ### 4.6. Instalando o modulo FastCGI
 
