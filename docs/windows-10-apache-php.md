@@ -406,6 +406,10 @@ Em seguida, edite o arquivo C:\SERVER\APACHE24\conf\extra\httpd-vhosts.conf, ada
 
 Agora basta reiniciar o Apache e acessar os dominios:
 
+* www.local.web (para usar o PHP 7.3 - padrão do sistema)
+* www.loca56.web (para usar o PHP 5.6)
+* www.local70.web (para usar o PHP 7.0)
+
 
 
 [Voltar para Lista de Opções](../readme.md)
