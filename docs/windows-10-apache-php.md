@@ -38,7 +38,7 @@ e mude para:
 extension_dir = "C:\SERVER\PHP\5.6\ext"
 ```
 
->> Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
+> Atenção: certifique-se de usar o caminho correto por número de versão. Caso contrário, o PHP não será iniciado.
 
 ### 2.2. Adicionando a versão padrão do PHP no escopo global do windows
 
