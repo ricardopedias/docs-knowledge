@@ -266,7 +266,7 @@ Para criar um virtualhost que responda por uma determinada versão do PHP, é pr
 
 #### 4.7.1. Adicionar entrada no hosts do Windows
 
-Primeiro é preciso alterar o arquivo "hosts" do widnows, que se encontra em "C:\Windows\System32\drivers\etc\hosts".
+Primeiro é preciso alterar o arquivo "hosts" do windows, que se encontra em "C:\Windows\System32\drivers\etc\hosts".
 Neste arquivo, adicione os dominios desejados, apontando para o IP local do computador.
 
 ```
