@@ -26,16 +26,20 @@ $ sudo apt-get update && sudo apt-get install -y code;
 
 Em View > Extensions, busque e instale os pacotes na seguinte sequência:
 
-Git Lens
-PHP Namespace Resolver
-PHP Getters & Setters
-PHP DocBlock Generator
-Laravel Extra Intellisense
-IntelliSense for CSS, SCSS class and ID names in HTML
+* Git Lens
+* PHP Namespace Resolver
+* PHP Getters & Setters
+* PHP DocBlock Generator
+* Laravel Extra Intellisense
+* IntelliSense for CSS, SCSS class and ID names in HTML
 
-...
+### 2.2. Aparência
 
-### 2.2. Aparência da Sintaxe
+Em File > Preferences > Color Theme, busque, instale e aplique o tema:
+
+```
+Oceanic Next
+```
 
 Configurando a aparência da sintaxe.
 
@@ -48,39 +52,9 @@ Line Height: 30
 Tab Size: 4
 ```
 
-Em File > Preferences > Color Theme, busque, instale e aplique o tema:
 
-```
-Oceanic Next
-```
+Se preferir, basta setar todas as configurações de uma só vez, acesse File > Preferences > Settings > Associations > Edit in settings.json. O arquivo de configuração se abrirá. Nele cole os parâmetros abaixo:
 
-Adicionando estilos especiais ao tema:
-
-```
-"vscode_custom_css.imports": ["/home/ricardo/.vscode/style.css"],
-"vscode_custom_css.policy": true
-```
-
-```
-/* Ligatures */
-.mtk26,
-.mtk16,
-.mtk36,
-.mtk39 {  
-   font-family: "Fira Code";
-} 
-
-/* Keywords, decorators, comments */
-.mtk5,
-.mtk6,
-.mtk8,
-.mtk34,
-.mtki {  
-    font-family: "Operator Mono";  
-    font-style: italic;  
-    font-size: 1em;
-}
-```
 
 ```
 {
@@ -91,8 +65,6 @@ Adicionando estilos especiais ao tema:
     "editor.lineHeight": 30,
     "editor.suggestLineHeight": 3,
     "editor.fontSize": 13,
-    "vscode_custom_css.imports": ["file:///home/ricardo/.vscode/style.css"],
-    "vscode_custom_css.policy": true,
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
@@ -100,8 +72,5 @@ Adicionando estilos especiais ao tema:
     }
 }
 ```
-
-Por fim, vá para em Edit > Stylesheet e o arquivo interno chamado "styles.less" será aberto. Nele adicione os estilos para personalizar ainda mais a aparência dos textos no Editor do Atom. No caso abaixo, estamos ativando a fonte "Operator Mono Book" e a fonte especial "Fira Code" para "ligaduras", um recurso muito interessante que vai aumentar a experiência visual do código fonte.
-
 
 [Voltar para Lista de Opções](../readme.md)
