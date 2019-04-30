@@ -26,7 +26,12 @@ $ sudo apt-get update && sudo apt-get install -y code;
 
 Em View > Extensions, busque e instale os pacotes na seguinte sequência:
 
-Custom CSS and JS Loader
+Git Lens
+PHP Namespace Resolver
+PHP Getters & Setters
+PHP DocBlock Generator
+Laravel Extra Intellisense
+IntelliSense for CSS, SCSS class and ID names in HTML
 
 ...
 
@@ -38,7 +43,7 @@ Em File > Preferences > Settings, mude os parâmetros para:
 
 ```
 Font Family: 'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'
-Font Size: 13px;
+Font Size: 13
 Line Height: 30
 Tab Size: 4
 ```
