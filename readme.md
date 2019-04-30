@@ -53,6 +53,7 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 * [Apache](docs/softwares-apache.md)
 * [MySQL](docs/softwares-mysql.md)
 * [PHP](docs/softwares-php.md)
+* [SSH](docs/softwares-ssh.md)
 
 ## Serviços Online
 
