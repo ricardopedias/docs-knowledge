@@ -3,7 +3,7 @@
 # Visual Studio Code
 
 Criado pela Microsoft, o Visual Studio Code é uma mistura de tecnologias de código aberto baseadas na web, como o Chromium, 
-o Electron app framework do GitHub, e próprio editor Monaco, da Microsoft. Esta ferramenta tem crescido cada vez na comunidade 
+o Electron app framework do GitHub, e próprio editor Monaco, da Microsoft. Esta ferramenta tem crescido cada vez mais na comunidade 
 e hoje é uma ótima opção para desenvolvimento:
 
 ## 1. Instalando
