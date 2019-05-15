@@ -19,7 +19,7 @@ $ sudo apt update && sudo apt upgrade
 Drivers e fontes do Windows:
 
 ```
-$ sudo apt-get install -y ubuntu-restricted-extras
+$ sudo apt install -y ubuntu-restricted-extras
 ```
 
 Players de video:
@@ -34,6 +34,12 @@ Conversor de formatos:
 $ sudo apt-add-repository ppa:teejee2008/ppa -y
 $ sudo apt-get update 
 $ sudo apt install -y selene
+```
+
+Previsualização no nautilus:
+
+```
+$ sudo apt install -y gnome-sushi
 ```
 
 ----------
