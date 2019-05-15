@@ -120,6 +120,12 @@ ou
 $ sudo a2enconf php7.2-fpm
 ```
 
+ou 
+
+```
+$ sudo a2enconf php7.3-fpm
+```
+
 Para aplicar a nova versão padrão, é necessário recarregar as configurações o Apache:
 
 ```
@@ -283,7 +289,7 @@ $ sudo service apache2 restart
 Para criar VirtualHosts de forma automática, é preciso instalar um script no sistema. Para isso basta rodar o comando abaixo:
 
 ```
-$ wget https://raw.githubusercontent.com/rpdesignerfly/virtualhost/master/virtualhost.sh -O /tmp/virtualhost.sh; sudo chmod a+x /tmp/virtualhost.sh; sudo cp /tmp/virtualhost.sh /usr/local/bin/virtualhost; 
+$ wget https://raw.githubusercontent.com/ricardopedias/virtualhost/master/virtualhost.sh -O /tmp/virtualhost.sh; sudo chmod a+x /tmp/virtualhost.sh; sudo cp /tmp/virtualhost.sh /usr/local/bin/virtualhost; 
 ```
 
 Para utilizar:
