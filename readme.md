@@ -4,10 +4,10 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 # Ubuntu
 
-* [Instalação do Ubuntu 18.10 - Pós Instalação](docs/ubuntu-18.10.md)
-* [Instalação do Ubuntu 18.10 - Desenvolvimento](docs/ubuntu-18.10-devel.md)
-* [Instalação do Ubuntu 18.10 - Apache + PHP + MySQL](docs/ubuntu-18.10-apache-php.md)
-* [Instalação do Ubuntu 18.10 - Tomcat + Java + MySQL](docs/ubuntu-18.10-tomcat-java.md)
+* [Instalação do Ubuntu 19.04 - Pós Instalação](docs/ubuntu-19.04.md)
+* [Instalação do Ubuntu 19.04 - Desenvolvimento](docs/ubuntu-19.04-devel.md)
+* [Instalação do Ubuntu 19.04 - Apache + PHP + MySQL](docs/ubuntu-19.04-apache-php.md)
+* [Instalação do Ubuntu 19.04 - Tomcat + Java + MySQL](docs/ubuntu-19.04-tomcat-java.md)
 
 # Windows
 
@@ -15,6 +15,10 @@ Este repositório é uma base de conhecimento sobre desenvolvimento, configuraç
 
 
 # Ubuntu Outras versões
+* [Instalação do Ubuntu 18.10 - Pós Instalação](docs/ubuntu-18.10.md)
+* [Instalação do Ubuntu 18.10 - Desenvolvimento](docs/ubuntu-18.10-devel.md)
+* [Instalação do Ubuntu 18.10 - Apache + PHP + MySQL](docs/ubuntu-18.10-apache-php.md)
+* [Instalação do Ubuntu 18.10 - Tomcat + Java + MySQL](docs/ubuntu-18.10-tomcat-java.md)
 * [Instalação do Ubuntu 18.04 - Pós Instalação](docs/ubuntu-18.04.md)
 * [Instalação do Ubuntu 18.04 - Desenvolvimento](docs/ubuntu-18.04-devel.md)
 * [Instalação do Ubuntu 18.04 - Apache + PHP + MySQL](docs/ubuntu-18.04-apache-php.md)
