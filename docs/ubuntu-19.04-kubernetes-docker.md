@@ -3,9 +3,7 @@
 # Ubuntu 19.04 - Kubernetes + Docker
 
 ----------
-## 1. Kubernetes
-
-### 1.1. Verificando suporte
+## 1. Verificando suporte
 
 Para verificar se existe suporte para virtualização, execute o comando abaixo:
 
@@ -23,7 +21,21 @@ pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx
 f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ...
 ```
 
+----------
+## 2. Dependencias
 
+```
+$ sudo apt update && apt install -y apt-transport-https curl
+```
+
+----------
+## 3. Docker
+
+O ubuntu disponibiliza um pacote do docker que pode ser instalado diretamente da distribuição. 
+
+```
+$ sudo apt install -y docker.io
+```
 
 
 [Voltar para Lista de Opções](../readme.md)
