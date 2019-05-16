@@ -25,7 +25,7 @@ f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ...
 ## 2. Dependencias
 
 ```
-$ sudo apt update && apt install -y apt-transport-https software-properties-common curl
+$ sudo apt update && apt install -y apt-transport-https software-properties-common curl zfsutils-linux
 ```
 
 ----------
@@ -104,24 +104,26 @@ sudo snap install lxd --classic
 
 Em seguida, será necessário iniciar o serviço de clusterização. 
 O comando abaixo precisa ser executado com `sudo` e as perguntas deverão ser respondidas de acordo com suas necessidades.
-Na dúvida, basta pressionar Enter para aceitar o valor padrão de cada uma:
+Responda "yes" para a pergunta "Would you like to use LXD clustering". Para as outras, caso tenha dúvida, basta pressionar "Enter" para aceitar o valor padrão de cada uma:
 
 ```
 sudo /snap/bin/lxd init
 
-Would you like to use LXD clustering? (yes/no) [default=no]: 
-Do you want to configure a new storage pool? (yes/no) [default=yes]: 
-Name of the new storage pool [default=default]: 
-Name of the storage backend to use (btrfs, ceph, dir, lvm, zfs) [default=zfs]: 
+Would you like to use LXD clustering? (yes/no) [default=no]: yes
+What name should be used to identify this node in the cluster? [default=ricardo-asus]: 
+What IP address or DNS name should be used to reach this node? [default=192.168.15.13]: 
+Are you joining an existing cluster? (yes/no) [default=no]: 
+Setup password authentication on the cluster? (yes/no) [default=yes]: no
+Do you want to configure a new local storage pool? (yes/no) [default=yes]: 
+Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]: 
 Create a new ZFS pool? (yes/no) [default=yes]: 
 Would you like to use an existing block device? (yes/no) [default=no]: 
 Size in GB of the new loop device (1GB minimum) [default=43GB]: 
+Do you want to configure a new remote storage pool? (yes/no) [default=no]: 
 Would you like to connect to a MAAS server? (yes/no) [default=no]: 
-Would you like to create a new local network bridge? (yes/no) [default=yes]: 
-What should the new bridge be called? [default=lxdbr0]: 
-What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
-What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
-Would you like LXD to be available over the network? (yes/no) [default=no]: 
+Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]: 
+Would you like to create a new Fan overlay network? (yes/no) [default=yes]: 
+What subnet should be used as the Fan underlay? [default=auto]: 
 Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
 ```
@@ -224,6 +226,7 @@ Na próxima tela, é possível seleciar componentes adicionais. Para selecionar,
 
 Por fim, será perguntado sobre a nuvem desejada para implantar o kubernetes. Neste ponto escolha "localhost", pois usaremos o LXD local. 
 
+LXD CONFIGURATION
 
 
 
