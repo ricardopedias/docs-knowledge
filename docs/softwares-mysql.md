@@ -2,10 +2,87 @@
 
 # MySQL - Canivete Suíço
 
+
+## 1. Entrando no servidor
+
+```
+$ mysql -u username -h 192.168.0.1 --port=3306 -p 
+
+ou
+
+$ mysql --user=username --host=192.168.0.1 --port=3306 --password
+```
+
+## 2. Trabalhando com usuários
+
+### 2.1. Listando os usuários do sistema
+
+```
+mysql> SELECT User, Host, Password FROM mysql.user;
+
+ou
+
+mysql> SELECT CONCAT(User,'@',Host) as user, Password FROM mysql.user;
+```
+
+### 2.2. Criando um novo usuário:
+
+```
+mysql> CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'minha senha bem dificil';
+```
+
+
+dealers_prd
+dealers_hml
+
+CREATE USER 'aig_dealers'@'69.164.206.24' IDENTIFIED BY 'M!xrjCh;F@;Bker~<Ub6wq7zg6XCw/NY';
+CREATE USER 'aig_dealers'@'69.164.206.24' IDENTIFIED BY 'M!xrjCh;F@;Bker~<Ub6wq7zg6XCw/NY';
+
+
+
+
+
+## 1. Trabalhando com bancos
+
+### 1.1. Criando
+
+``
+mysql> CREATE DATABASE IF NOT EXISTS meu_banco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+``
+
+### 1.2. Dando permissão de acesso
+
+
+
+## 2. Trabalhando com permissões
+
+Os tipos de permissões são:
+
+* ALL – Allow complete access to a specific database. If a database is not specified, then allow complete access to the entirety of MySQL.
+* CREATE – Allow a user to create databases and tables.
+* DELETE – Allow a user to delete rows from a table.
+* DROP – Allow a user to drop databases and tables.
+* EXECUTE – Allow a user to execute stored routines.
+* GRANT OPTION – Allow a user to grant or remove another user’s privileges.
+* INSERT – Allow a user to insert rows from a table.
+* SELECT – Allow a user to select data from a database.
+* SHOW DATABASES- Allow a user to view a list of all databases.
+* UPDATE – Allow a user to update rows in a table.
+
+Para ver as permissões de um usuário:
+
+```
+mysql> SHOW GRANTS FOR ricardo;
+mysql> SHOW GRANTS FOR 'ricardo'@'localhost';
+```
+
+
+
 ## 1. Abrir o prompt do MySQL
 
 ```
 $ mysql -u username -p 
+$ mysql --user=username --host=192.168.0.1 --port=1234 --password=ricardo
 ```
 
 ### Acesso root no Ubuntu <= 18.04
