@@ -84,7 +84,7 @@ mysql> SET PASSWORD FOR 'usuario_escolhido'@'localhost' = PASSWORD('novasenha');
 
 Para versões **inferiores a 5.7.6**, apenas a sintaxe *SET PASSWORD* está presente.
 
-> Prefira, se possível, a sintaxe ALTER USER. Pois de acordo com a documentação oficial: *"Em algumas circunstâncias, SET PASSWORD pode ser registrado nos logs do servidor ou no lado do cliente em um arquivo de histórico, como ~ / .mysql_history, o que significa que as senhas de texto puro podem ser lidas por qualquer pessoa que tenha acesso de leitura a essas informações"* Para mais informações (https://dev.mysql.com/doc/refman/8.0/en/set-password.html)[clique aqui].
+> Prefira, se possível, a sintaxe ALTER USER. Pois de acordo com a documentação oficial: *"Em algumas circunstâncias, SET PASSWORD pode ser registrado nos logs do servidor ou no lado do cliente em um arquivo de histórico, como ~ / .mysql_history, o que significa que as senhas de texto puro podem ser lidas por qualquer pessoa que tenha acesso de leitura a essas informações"* Para mais informações [clique aqui](https://dev.mysql.com/doc/refman/8.0/en/set-password.html).
 
 
 ### 4.3. Permissão total
