@@ -93,7 +93,13 @@ mysql> FLUSH PRIVILEGES
 > **Dica:** Prefira, se possível, a sintaxe ALTER USER. Pois de acordo com a documentação oficial: *"Em algumas circunstâncias, SET PASSWORD pode ser registrado nos logs do servidor ou no lado do cliente em um arquivo de histórico, como ~ / .mysql_history, o que significa que as senhas de texto puro podem ser lidas por qualquer pessoa que tenha acesso de leitura a essas informações"* Para mais informações [clique aqui](https://dev.mysql.com/doc/refman/8.0/en/set-password.html).
 
 
-### 4.3. Permissão total
+### 4.3. Vendo as permissões de um usuário
+
+```
+mysql> SHOW GRANTS FOR banco_escolhido@localhost;
+```
+
+### 4.4. Permissão total
 
 Para conceder permissão, usa-se o comando *GRANT*. O usuário pode ser especificado usando a sintaxe:
 
@@ -109,7 +115,7 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'usuario_escolhido'@'localhost';
 Permissão total a um banco específico:
 
 ```
-mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.* TO 'usuario_escolhido'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON 'banco_escolhido'.* TO 'usuario_escolhido'@'localhost';
 ```
 
 Permissão a uma tabela específica:
@@ -130,7 +136,7 @@ Para aplicar as permissões, use *FLUSH PRIVILEGES*:
 mysql> FLUSH PRIVILEGES;
 ```
 
-### 4.4. Concedendo/revogando permissões específicas
+### 4.5. Concedendo/revogando permissões específicas
 
 Para conceder permissão, usa-se o comando GRANT e para revogar, o comando REVOKE.
 
