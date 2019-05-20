@@ -25,16 +25,72 @@ ou
 mysql> SELECT CONCAT(User,'@',Host) as user, Password FROM mysql.user;
 ```
 
-### 2.2. Criando um novo usuário:
+### 2.2. Criando/removendo um usuário:
+
+Para criar:
 
 ```
-mysql> CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'minha senha bem dificil';
+mysql> CREATE USER 'usuario_escolhido'@'localhost' IDENTIFIED BY 'minha senha bem dificil';
 ```
 
+Para excluir:
+
+```
+mysql> DROP USER 'usuario_escolhido'@'localhost';
+```
+
+### 2.3. Permissão total
+
+Permissão total a todos os bancos:
+
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'usuario_escolhido'@'localhost';
+```
+
+Permissão total a um banco específico:
+
+```
+mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.* TO 'usuario_escolhido'@'localhost';
+```
+
+Permissão a uma tabela específica:
+
+```
+mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.'tabela_escolhida' TO 'usuario_escolhido'@'localhost';
+```
+
+### 2.4. Concedendo/revogando permissões específicas
+
+Para conceder permissão, usa-se o comando GRANT e para revogar, o comando REVOKE.
+
+```
+GRANT [tipo de permissão] ON [banco_excolhido].[tabela_escolhida] TO '[usuario_escolhido]'@'localhost';
+REVOKE [tipo de permissão] ON [banco_excolhido].[tabela_escolhida] FROM '[usuario_escolhido]'@'localhost';
+```
+
+Os tipos de permissões são:
 
 
+- **ALL PRIVILEGES** - como vimos anteriormente, isso daria a um usuário do MySQL todo o acesso a uma determinada base de dados (ou se nenhuma base de dados for selecionada, todo o sistema)
+- **CREATE** - permite criar novas tabelas ou bases de dados
+- **DROP** - permite deletar tableas ou bases de dados
+- **DELETE** - permite deletar linhas das tabelas
+- **INSERT** - permite inserir linhas nas tabelas
+- **SELECT** - permite utilizar o comando Select para ler bases de dados
+- **UPDATE** - permite atualizar linhas das tabelas
+- **GRANT OPTION** - permite conceder ou revogar privilégios de outros usuários 
 
+Por exemplo, para conceder permissão apenas para SELECTs:
 
+```
+mysql> GRANT SELECT ON 'banco_excolhido'.* TO 'novousuario'@'localhost';
+```
+
+Para revogar:
+
+```
+mysql> REVOKE SELECT ON 'banco_excolhido'.* TO 'novousuario'@'localhost';
+```
 
 
 ## 1. Trabalhando com bancos
