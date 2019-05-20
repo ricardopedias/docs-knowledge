@@ -32,11 +32,6 @@ mysql> CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'minha senha bem difi
 ```
 
 
-dealers_prd
-dealers_hml
-
-CREATE USER 'aig_dealers'@'69.164.206.24' IDENTIFIED BY 'M!xrjCh;F@;Bker~<Ub6wq7zg6XCw/NY';
-CREATE USER 'aig_dealers'@'69.164.206.24' IDENTIFIED BY 'M!xrjCh;F@;Bker~<Ub6wq7zg6XCw/NY';
 
 
 
