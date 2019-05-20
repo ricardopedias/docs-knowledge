@@ -187,16 +187,82 @@ mysql> FLUSH PRIVILEGES;
 
 ## 5. Trabalhando com bancos
 
-### 1.1. Criando
+### 5.1. Criando
 
 ```
 mysql> CREATE DATABASE IF NOT EXISTS meu_banco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
-### 1.2. Dando permissão de acesso
+### 5.2. Backup do banco
+
+Através do terminal, para fazer um backup usa-se o *mysqldump*:
+
+```
+$ mysqldump [arguments] > file_name
+```
+
+Para salvar todos os bancos de dados:
+
+```
+$ mysqldump --all-databases > dump.sql
+```
+
+Para salvar bancos específicos:
+
+```
+$ mysqldump --databases db1 db2 db3 > dump.sql
+```
+
+Para salvar um único banco:
+
+```
+$ mysqldump --databases test > dump.sql
+
+ou
+
+$ mysqldump test > dump.sql
+```
+
+### 5.3. Restaurando vários bancos de dados
+
+Pela linha de comando do MySQL, basta usar o comando *source*:
+
+```
+mysql> source dump.sql
+```
+
+Através do terminal, para fazer a restauração de um backup usa-se o próprio executável do *mysql*:
+
+```
+$ mysql < dump.sql
+```
+
+### 5.4. Restaurando um único bancos de dados
+
+Se o backup tover sido feito de um único banco de dados, então o arquivo *dump.sql* não conterá as instruções *CREATE DATABASE* e *USE*. Sendo assim, será necessário especificar o banco para o qual o backup será restaurado.
+
+Pela linha de comando do MySQL:
+
+```
+mysql> CREATE DATABASE IF NOT EXISTS novo_banco;
+mysql> USE novo_banco;
+mysql> source dump.sql
+```
+
+Através do terminal:
+
+```
+$ mysql novo_banco < dump.sql
+```
 
 
-##
+
+
+
+
+
+
+# Problemas do Ubuntu
 
 
 ## 1. Abrir o prompt do MySQL
