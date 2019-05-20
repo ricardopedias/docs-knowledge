@@ -13,9 +13,25 @@ ou
 $ mysql --user=username --host=192.168.0.1 --port=3306 --password
 ```
 
-## 2. Trabalhando com usuários
+## 2. Descobrindo informações
 
-### 2.1. Listando os usuários do sistema
+### 2.1. Versão do servidor
+
+Via terminal, digite:
+
+```
+$ mysql -V
+```
+
+Na linha de comando do mysql, digite:
+
+```
+mysql> SHOW VARIABLES LIKE "%version%";
+```
+
+## 3. Trabalhando com usuários
+
+### 3.1. Listando os usuários do sistema
 
 ```
 mysql> SELECT User, Host, Password FROM mysql.user;
@@ -25,12 +41,24 @@ ou
 mysql> SELECT CONCAT(User,'@',Host) as user, Password FROM mysql.user;
 ```
 
-### 2.2. Criando/removendo um usuário:
+### 3.2. Criando/removendo um usuário:
 
-Para criar:
+Para criar um usuário que acessa apenas de 'localhost':
 
 ```
 mysql> CREATE USER 'usuario_escolhido'@'localhost' IDENTIFIED BY 'minha senha bem dificil';
+```
+
+Apenas de um IP específico:
+
+```
+mysql> CREATE USER 'usuario_escolhido'@'192.168.0.112' IDENTIFIED BY 'minha senha bem dificil';
+```
+
+Em uma faixa de IP específica:
+
+```
+mysql> CREATE USER 'usuario_escolhido'@'192.168.0.%' IDENTIFIED BY 'minha senha bem dificil';
 ```
 
 Para excluir:
@@ -39,7 +67,12 @@ Para excluir:
 mysql> DROP USER 'usuario_escolhido'@'localhost';
 ```
 
-### 2.3. Permissão total
+### 4.3. Permissão total
+
+Para conceder permissão, usa-se o comando GRANT. O usuário pode ser especificado usando a sintaxe:
+
+* 'usuario_escolhido'@'localhost': para permitir apenas para o usuário 'usuario_escolhido' via 'localhost';
+* 'usuario_escolhido': para permitir acesso a todos os hosts do usuaprio 'usuario_escolhido';
 
 Permissão total a todos os bancos:
 
@@ -59,7 +92,19 @@ Permissão a uma tabela específica:
 mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.'tabela_escolhida' TO 'usuario_escolhido'@'localhost';
 ```
 
-### 2.4. Concedendo/revogando permissões específicas
+Permissão para vários usuários:
+
+```
+mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.'tabela_escolhida' TO usuario_1, 'usuario_2'@'localhost', usuario_3;
+```
+
+Para aplicar as permissões, use FLUSH PRIVILEGES:
+
+```
+mysql> FLUSH PRIVILEGES;
+```
+
+### 4.4. Concedendo/revogando permissões específicas
 
 Para conceder permissão, usa-se o comando GRANT e para revogar, o comando REVOKE.
 
@@ -92,8 +137,13 @@ Para revogar:
 mysql> REVOKE SELECT ON 'banco_excolhido'.* TO 'novousuario'@'localhost';
 ```
 
+Para aplicar as permissões, use FLUSH PRIVILEGES:
 
-## 1. Trabalhando com bancos
+```
+mysql> FLUSH PRIVILEGES;
+```
+
+## 5. Trabalhando com bancos
 
 ### 1.1. Criando
 
@@ -102,7 +152,6 @@ mysql> CREATE DATABASE IF NOT EXISTS meu_banco CHARACTER SET utf8mb4 COLLATE utf
 ``
 
 ### 1.2. Dando permissão de acesso
-
 
 
 ## 2. Trabalhando com permissões
