@@ -67,6 +67,26 @@ Para excluir:
 mysql> DROP USER 'usuario_escolhido'@'localhost';
 ```
 
+### 3.3. Mudando a senha do usuario:
+
+
+Para mudar a senha do usuário em versões **iguais ou maiores que 5.7.6**:
+
+```
+mysql> ALTER USER user IDENTIFIED BY 'novasenha';
+```
+
+ou
+
+```
+mysql> SET PASSWORD FOR 'usuario_escolhido'@'localhost' = PASSWORD('novasenha');
+```
+
+Para versões **inferiores a 5.7.6**, apenas a sintaxe SET PASSWORD está presente.
+
+> Prefira, se possível, a sintaxe ALTER USER. Pois de acordo com a documentação oficial: *"Em algumas circunstâncias, SET PASSWORD pode ser registrado nos logs do servidor ou no lado do cliente em um arquivo de histórico, como ~ / .mysql_history, o que significa que as senhas de texto puro podem ser lidas por qualquer pessoa que tenha acesso de leitura a essas informações"*.
+
+
 ### 4.3. Permissão total
 
 Para conceder permissão, usa-se o comando GRANT. O usuário pode ser especificado usando a sintaxe:
@@ -98,7 +118,7 @@ Permissão para vários usuários:
 mysql> GRANT ALL PRIVILEGES ON 'banco_excolhido'.'tabela_escolhida' TO usuario_1, 'usuario_2'@'localhost', usuario_3;
 ```
 
-Para aplicar as permissões, use FLUSH PRIVILEGES:
+Para aplicar as permissões, use *FLUSH PRIVILEGES*:
 
 ```
 mysql> FLUSH PRIVILEGES;
@@ -125,6 +145,33 @@ Os tipos de permissões são:
 - **UPDATE** - permite atualizar linhas das tabelas
 - **GRANT OPTION** - permite conceder ou revogar privilégios de outros usuários 
 
+Todos os tipos:
+
+ALL [PRIVILEGES]	Sets all simple privileges except GRANT OPTION
+ALTER	Enables use of ALTER TABLE
+CREATE	Enables use of CREATE TABLE
+CREATE TEMPORARY TABLES	Enables use of CREATE TEMPORARY TABLE
+DELETE	Enables use of DELETE
+DROP	Enables use of DROP TABLE
+EXECUTE	Not implemented
+FILE	Enables use of SELECT ... INTO OUTFILE and LOAD DATA INFILE
+INDEX	Enables use of CREATE INDEX and DROP INDEX
+INSERT	Enables use of INSERT
+LOCK TABLES	Enables use of LOCK TABLES on tables for which you have the SELECT privilege
+PROCESS	Enables the user to see all processes with SHOW PROCESSLIST
+REFERENCES	Not implemented
+RELOAD	Enables use of FLUSH
+REPLICATION CLIENT	Enables the user to ask where slave or master servers are
+REPLICATION SLAVE	Needed for replication slaves (to read binary log events from the master)
+SELECT	Enables use of SELECT
+SHOW DATABASES	SHOW DATABASES shows all databases
+SHUTDOWN	Enables use of MySQLadmin shutdown
+SUPER	Enables use of CHANGE MASTER, KILL, PURGE MASTER LOGS, and SET GLOBAL statements, the MySQLadmin debug command; allows you to connect (once) even if max_connections is reached
+UPDATE	Enables use of UPDATE
+USAGE	Synonym for privileges
+GRANT OPTION	Enables privileges to be granted
+
+
 Por exemplo, para conceder permissão apenas para SELECTs:
 
 ```
@@ -137,7 +184,7 @@ Para revogar:
 mysql> REVOKE SELECT ON 'banco_excolhido'.* TO 'novousuario'@'localhost';
 ```
 
-Para aplicar as permissões, use FLUSH PRIVILEGES:
+Para aplicar as permissões, use *FLUSH PRIVILEGES*:
 
 ```
 mysql> FLUSH PRIVILEGES;
@@ -147,35 +194,14 @@ mysql> FLUSH PRIVILEGES;
 
 ### 1.1. Criando
 
-``
+```
 mysql> CREATE DATABASE IF NOT EXISTS meu_banco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-``
+```
 
 ### 1.2. Dando permissão de acesso
 
 
-## 2. Trabalhando com permissões
-
-Os tipos de permissões são:
-
-* ALL – Allow complete access to a specific database. If a database is not specified, then allow complete access to the entirety of MySQL.
-* CREATE – Allow a user to create databases and tables.
-* DELETE – Allow a user to delete rows from a table.
-* DROP – Allow a user to drop databases and tables.
-* EXECUTE – Allow a user to execute stored routines.
-* GRANT OPTION – Allow a user to grant or remove another user’s privileges.
-* INSERT – Allow a user to insert rows from a table.
-* SELECT – Allow a user to select data from a database.
-* SHOW DATABASES- Allow a user to view a list of all databases.
-* UPDATE – Allow a user to update rows in a table.
-
-Para ver as permissões de um usuário:
-
-```
-mysql> SHOW GRANTS FOR ricardo;
-mysql> SHOW GRANTS FOR 'ricardo'@'localhost';
-```
-
+##
 
 
 ## 1. Abrir o prompt do MySQL
