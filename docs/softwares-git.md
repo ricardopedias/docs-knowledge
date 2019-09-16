@@ -61,7 +61,7 @@ Estas informações são graavdas no arquivo */caminho/ate/meu/repositorio/.git/
 
 # 3. Repositório
 
-## 3.1. Criando
+## 3.1. Criando repositório
 
 Para transformar um diretório qualquer em um repositório local do Git, basta executar o comando `git init`:
 
@@ -95,7 +95,7 @@ $ git remote add origin https://github.com/rpdesignerfly/git-test.git // seta a 
 $ git push -u origin master // sincroniza com o repositório remoto
 ```
 
-## 3.2. Removendo
+## 3.2. Removendo repositório
 
 Para remover um repositório local, basta apagar o diretório */home/ricardo/projeto/.git* e o projeto deixará de ser um repositório para tornar-se um diretório comum.
 
@@ -106,7 +106,7 @@ $ git status
 fatal: not a git repository (or any of the parent directories): .git
 ```
 
-## 3.3. Listando conteúdo
+## 3.3. Listando conteúdo do repositório
 
 Para listar os arquivos que se encontram no repositório usa-se `git ls-files`
 Apenas os arquivos que estejam em *Staged*, *Committed* ou *Pushed* serão listados:
@@ -115,7 +115,7 @@ Apenas os arquivos que estejam em *Staged*, *Committed* ou *Pushed* serão lista
 $ git ls-files
 ```
 
-## 3.4. Vendo Status
+## 3.4. Vendo status do repositório
 
 Podemos ver a situação geral dos arquivos no repositório local com o comando *git status*:
 
@@ -126,7 +126,7 @@ No commits yet
 nada para enviar (crie/copie arquivos e use "git add" para registrar)
 ```
 
-# 4. Gerindo Arquivos
+# 4. Gerindo arquivos
 
 Os arquivos de um repositório possuem quatro estados:
 
@@ -148,7 +148,7 @@ $ git add . // adiciona todos os arquivos não rastreados
 $ git add -A // adiciona todos os arquivos não rastreados
 ```
 
-## 4.2. Não-rastreando (Unstage)
+## 4.2. Não-rastrear (Unstage)
 
 Para remover o rastreio (Staged) de um arquivo do repositório local:
 
@@ -198,12 +198,27 @@ git mv estilos.css principal.css // renomeia o arquivo
 git mv principal.js js/principal.js // move o arquivo para outro diretório
 ```
 
-## 4.7. Excluido arquivos
+## 4.7. Excluido arquivos/diretórios versionados
 
 Para remover um arquivo do repositório local:
+
 ```
 $ git rm heroes/ironman.txt // remove um único arquivo
-$ git rm heroes // remove um diretório com seus arquivos
+$ git rm -r heroes // remove um diretório com seus arquivos
+```
+
+## 4.8. Excluido arquivos não rastreados
+
+Para remover os arquivos locais
+
+```
+git clean -f
+```
+
+Para ver os arquivos a serem removidos, sem removê-los:
+
+```
+git clean -n -f
 ```
 
 # 5. Gerindo Commits
@@ -214,16 +229,28 @@ Para ver os envios efetuados (um por um) usa-se o comando `git log`.
 
 ```
 $ cd /home/ricardo/projeto
-$ git log // lista completa 
-$ git log -n 2 // últimos dois logs do branch
-$ git log --oneline // lista completa, um em cada linha
-$ git log --graph --oneline --all // lista em forma de árvore
-$ git log --pretty=format:"%h %s" // lista bem compacta
+$ git log                            // lista completa 
+$ git log -n 2                       // últimos dois logs do branch
+$ git log --stat                     // resumo
+$ git log --oneline                  // lista completa, um em cada linha
+$ git log --graph --oneline --all    // lista em forma de árvore
+$ git log --pretty=format:"%h %s"    // lista bem compacta
+$ git blame -L 12,22 meu_arquivo.txt // revisão e autor da última modificação
 ```
+
+Variáveis para --pretty:
+
+* %h: Abreviação do hash;
+* %an: Nome do autor;
+* %ar: Data;
+* %s: Comentário.
+
+Verifique as demais opções de formatação no [Git Book](http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History)
+
 
 ## 5.2. Desfazendo commits
 
-### 5.2.1. Voltando os arquivos modificados para rastreio (Stage)
+### 5.2.1. Desfazendo e movendo arquivos desfeitos para rastreio (Stage)
 
 Para desfazer envios e voltá-los para a área de rastreio, usa-se o `git reset --soft`:
 
@@ -238,7 +265,7 @@ $ git reset --soft v1.0 // desfaz todos os commits a partir da tag
 
 > Obs 2: para ver uma lista com os HEADs de desfazer, basta usar o comando caso `git reflog`.
 
-### 5.2.2. Descartando as modificações
+### 5.2.2. Desfazendo e descartando as modificações
 
 Para desfazer envios e descartar todas as modificações contidas neles, usa-se o `git reset --hard`:
 
@@ -318,17 +345,7 @@ Após todos os commits serem editados, uma mensagem parecida com essa aparecerá
 Successfully rebased and updated refs/heads/master.
 ```
 
-# 6. Gerindo Branchs
-
-
-TODO 
-TODO 
-TODO 
-TODO 
-
-
-
-### 3.3.3. Git Diff (ver alterações no codigo)
+## 5.4. Vendo alterações no codigo (baseando em commits)
 
 Para analisar as mudanças ocorridas usa-se o comando *git diff*.
 
@@ -337,7 +354,6 @@ Para ver o código alterado até um determinado commit ou branch:
 ```
 $ cd /home/ricardo/projeto
 $ git diff c32fdd0 // mudanças até o commit c32fdd0
-$ git diff branch-original...meu-branch // mudanças contidas em um branch em relação ao branch que o originou
 ```
 
 Para ver o nome dos arquivos alterados até um determinado commit ou branch:
@@ -345,6 +361,82 @@ Para ver o nome dos arquivos alterados até um determinado commit ou branch:
 ```
 $ cd /home/ricardo/projeto
 $ git diff --name-only c32fdd0 // todos os arquivos até o commit c32fdd0
+```
+
+# 6. Gerindo Branchs
+
+## 6.1. Listando branchs existentes
+
+```
+$ git branch
+```
+
+## 6.2. Usando um branch
+
+```
+$ git checkout 7777
+```
+
+## 6.3. Criando um novo branch
+
+Para criar um branch, é preciso usar o comendo abaixo.
+O branch atual será copiado para o novo branch.
+
+```
+$ git checkout 7777 <- seta o branch atual como 7777
+$ git branch 9999   <- faz uma cópia do branch 7777 e chama-o de 9999
+$ git checkout 9999 <- seta o branch atual como 999
+```
+
+ou 
+
+```
+$ git checkout 7777    <- seta o branch atual como 7777
+$ git checkout -b 9999 <- faz uma cópia do branch 7777, chama-o de 9999 e seta-o como branch atual
+```
+
+## 6.4. Enviando um branch para o repositório remoto
+
+```
+$ git push --set-upstream origin 9999
+```
+
+## 6.5. Enviando um branch para o repositório remoto
+
+```
+$ git push --set-upstream origin 9999
+```
+
+
+## 6.6. Unindo dois branchs (merge)
+
+```
+$ git checkout 7777 <- seta o branch atual como 7777
+$ git merge 9999    <- pega o branch 9999 e juna-o dentro de 7777
+```
+
+## 6.7	. Excluindo um branch remoto
+
+```
+$ git push origin 9999 --delete 
+
+```
+
+## 6.8. Vendo alterações no codigo (baseando em branchs)
+
+Para analisar as mudanças ocorridas usa-se o comando *git diff*.
+
+Para ver o código alterado até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
+$ git diff branch-original...meu-branch // mudanças contidas em um branch em relação ao branch que o originou
+```
+
+Para ver o nome dos arquivos alterados até um determinado commit ou branch:
+
+```
+$ cd /home/ricardo/projeto
 $ git diff --name-only master...meu-branch // todos os arquivos até o branch 'meu-branch' em relação ao branch 'master'
 ```
 
@@ -356,253 +448,49 @@ $ git diff --name-only $first_commit...meu-branch // apenas os arquivos mudados 
 ```
 
 
-## 4.1. Criando Branchs
+# 7. Gerindo Tags
 
-
-|||||||||||||||||||||||||||||||||
-
-
-
-
-
-## 1.1. Como usuário padrão:
+## 7.1. Criando uma tag leve
 
 ```
-git add -A
-git commit -m "Meu comentário para as alterações"
-git push origin master
-```
-## 1.2. Como outro usuário:
-
-```
-git add -A
-git commit -m "Meu comentário para as alterações"
-git push https://ricardopereira@meudominio.com.br/projeto/repositorio.git master
+$ git tag v1.1
 ```
 
-# 2. Baixando Atualizações
-
-Para baixar as atualizações do repositório online:
-
-## 2.1. Como usuário padrão:
+## 7.2. Criando uma tag anotada
 
 ```
-git pull origin master
+$ git tag -a v1.1 -m "Minha versão 1.1"
 ```
 
-## 2.2. Como outro usuário:
+## 7.3 Criando uma tag assinada
+
+Para criar uma tag assinada é necessário uma chave privada (GNU Privacy Guard - GPG).
 
 ```
-git pull https://ricardopereira@meudominio.com.br/projeto/repositorio.git master
+$ git tag -s v1.1 -m "Minha tag assinada 1.1"
 ```
 
-# 3. Sincronizando
-
-Deixando o repositório local idêntico ao repositório online:
+## 7.4 Criando tag a partir de um commit (hash)
 
 ```
-git fetch origin
-git reset --hard origin/master
+git tag -a v1.2 9fceb02
 ```
-
-Para remover os arquivos locais
-
-```
-git clean -f
-```
-
-Para ver os arquivos a serem removidos, sem removê-los:
+	
+## 7.5 Criando tag no repositório remoto
 
 ```
-git clean -n -f
+$ git push origin v1.2
 ```
-
-# 4. Revertendo
-
-Para voltar o repositório para um commit especifico:
+	
+## 7.6. Criando todas as tags locais no repositório remoto
 
 ```
-git checkout 0e583fd
-git push origin 0e583fd:master --force
+$ git push origin --tags
 ```
 
 
-#GIT
 
-## Estados
 
-* Modificado (modified);
-* Preparado (staged/index)
-* Consolidado (comitted);
-
-## Ajuda
-
-##### Geral
-	git help
-	
-##### Comando específico
-	git help add
-	git help commit
-	git help <qualquer_comando_git>
-	
-
-## Configuração
-
-### Geral
-
-As configurações do GIT são armazenadas no arquivo **.gitconfig** localizado dentro do diretório do usuário do Sistema Operacional (Ex.: Windows: C:\Users\Documents and Settings\Leonardo ou *nix /home/leonardo).
-
-As configurações realizadas através dos comandos abaixo serão incluídas no arquivo citado acima.
-
-##### Setar usuário
-	git config --global user.name "Leonardo Comelli"
-
-##### Setar email
-	git config --global user.email leonardo@software-ltda.com.br
-	
-##### Setar editor
-	git config --global core.editor vim
-	
-##### Setar ferramenta de merge
-	git config --global merge.tool vimdiff
-
-##### Setar arquivos a serem ignorados
-	git config --global core.excludesfile ~/.gitignore
-
-##### Listar configurações
-	git config --list
-
-### Ignorar Arquivos
-
-Os nomes de arquivos/diretórios ou extensões de arquivos listados no arquivo **.gitignore** não serão adicionados em um repositório. Existem dois arquivos .gitignore, são eles:
-
-* Geral: Normalmente armazenado no diretório do usuário do Sistema Operacional. O arquivo que possui a lista dos arquivos/diretórios a serem ignorados por **todos os repositórios** deverá ser declarado conforme citado acima. O arquivo não precisa ter o nome de **.gitignore**.
-
-* Por repositório: Deve ser armazenado no diretório do repositório e deve conter a lista dos arquivos/diretórios que devem ser ignorados apenas para o repositório específico.
-
-## Repositório Local
-
-### Criar novo repositório
-
-	git init
-
-### Verificar estado dos arquivos/diretórios
-
-	git status
-
-### Adicionar arquivo/diretório (staged area)
-
-##### Adicionar um arquivo em específico
-
-	git add meu_arquivo.txt
-
-##### Adicionar um diretório em específico
-
-	git add meu_diretorio
-
-##### Adicionar todos os arquivos/diretórios
-	
-	git add .	
-	
-##### Adicionar um arquivo que esta listado no .gitignore (geral ou do repositório)
-	
-	git add -f arquivo_no_gitignore.txt
-	
-### Comitar arquivo/diretório
-
-##### Comitar um arquivo
-	
-	git commit meu_arquivo.txt
-
-##### Comitar vários arquivos
-
-	git commit meu_arquivo.txt meu_outro_arquivo.txt
-	
-##### Comitar informando mensagem
-
-	git commit meuarquivo.txt -m "minha mensagem de commit"
-
-### Remover arquivo/diretório
-
-##### Remover arquivo
-
-	git rm meu_arquivo.txt
-
-##### Remover diretório
-
-	git rm -r diretorio
-
-### Visualizar hitórico
-
-##### Exibir histórico
-	
-	git log
-	
-##### Exibir histórico com diff das duas últimas alterações
-
-	git log -p -2
-	
-##### Exibir resumo do histórico (hash completa, autor, data, comentário e qtde de alterações (+/-))
-
-	git log --stat
-	
-##### Exibir informações resumidas em uma linha (hash completa e comentário)
-
-	git log --pretty=oneline
-	
-##### Exibir histórico com formatação específica (hash abreviada, autor, data e comentário)
-
-	git log --pretty=format:"%h - %an, %ar : %s"
-	
-* %h: Abreviação do hash;
-* %an: Nome do autor;
-* %ar: Data;
-* %s: Comentário.
-
-Verifique as demais opções de formatação no [Git Book](http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History)
-
-##### Exibir histório de um arquivo específico
-
-	git log -- <caminho_do_arquivo>
-
-##### Exibir histórico de um arquivo específico que contêm uma determinada palavra
-
-	git log --summary -S<palavra> [<caminho_do_arquivo>]
-
-##### Exibir histórico modificação de um arquivo
-
-	git log --diff-filter=M -- <caminho_do_arquivo>
-
-* O <D> pode ser substituido por: Adicionado (A), Copiado (C), Apagado (D), Modificado (M), Renomeado (R), entre outros.
-
-##### Exibir histório de um determinado autor
-
-	git log --author=usuario
-
-##### Exibir revisão e autor da última modificação de uma bloco de linhas
-
-	git blame -L 12,22 meu_arquivo.txt 
-
-### Desfazendo operações
-
-##### Desfazendo alteração local (working directory)
-Este comando deve ser utilizando enquanto o arquivo não foi adicionado na **staged area**. 
-
-	git checkout -- meu_arquivo.txt
-
-##### Desfazendo alteração local (staging area)
-Este comando deve ser utilizando quando o arquivo já foi adicionado na **staged area**.
-
-	git reset HEAD meu_arquivo.txt
-
-Se o resultado abaixo for exibido, o comando reset *não* alterou o diretório de trabalho. 
-
-	Unstaged changes after reset:
-	M	meu_arquivo.txt
-
-A alteração do diretório pode ser realizada através do comando abaixo:
-	
-	git checkout meu_arquivo.txt
 
 ## Repositório Remoto
 
@@ -655,30 +543,7 @@ Os demais **pushes** não precisam dessa informação
 	
 ### Tags
 
-##### Criando uma tag leve
 
-	git tag vs-1.1
-
-##### Criando uma tag anotada
-
-	git tag -a vs-1.1 -m "Minha versão 1.1"
-
-##### Criando uma tag assinada
-Para criar uma tag assinada é necessário uma chave privada (GNU Privacy Guard - GPG).
-
-	git tag -s vs-1.1 -m "Minha tag assinada 1.1"
-
-##### Criando tag a partir de um commit (hash)
-
-	git tag -a vs-1.2 9fceb02
-	
-##### Criando tags no repositório remoto
-
-	git push origin vs-1.2
-	
-##### Criando todas as tags locais no repositório remoto
-
-	git push origin --tags
 	
 ### Branches
 
