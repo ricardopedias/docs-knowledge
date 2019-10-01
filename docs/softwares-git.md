@@ -462,14 +462,19 @@ A mensagem indicando um *merge* manual será:
 	CONFLICT (content): Merge conflict in meu_arquivo.txt
 	Automatic merge failed; fix conflicts and then commit the result.
 
-## 6.7	. Excluindo um branch remoto
+## 6.7. Excluindo um branch local
 
 ```
-$ git push origin 9999 --delete 
-
+$ git branch -D modulo_9999
 ```
 
-## 6.8. Vendo alterações no codigo (baseando em branchs)
+## 6.8. Excluindo um branch remoto
+
+```
+$ git push origin modulo_9999 --delete 
+```
+
+## 6.9. Vendo alterações no codigo (baseando em branchs)
 
 Para analisar as mudanças ocorridas usa-se o comando *git diff*.
 
@@ -534,6 +539,23 @@ $ git push origin v1.2
 ```
 $ git push origin --tags
 ```
+
+## 7.7. Removendo tag local
+
+```
+$ git tag -d v4.3.4
+ou
+$ git tag --delete v4.3.4
+```
+
+## 7.8. Removendo tag remota
+
+```
+$ git push --delete origin v4.3.4
+ou
+$ git push origin :tagname
+```
+
 
 # 8. Bisect
 
