@@ -51,7 +51,7 @@ $ git config user.name "Nome do Usuário"
 $ git config user.email usuario@gmail.com
 ```
 
-Estas informações são graavdas no arquivo */caminho/ate/meu/repositorio/.git/config*:
+Estas informações são gravadas no arquivo */caminho/ate/meu/repositorio/.git/config*:
 
 ```
 [user]
@@ -410,15 +410,26 @@ $ git diff --name-only c32fdd0 // todos os arquivos até o commit c32fdd0
 $ git branch
 ```
 
-## 6.2. Usando um branch
+## 6.2. Usando um branch local
 
 ```
 $ git checkout 7777
 ```
 
-## 6.3. Criando um novo branch
+## 6.3. Usando um branch remoto
 
-Para criar um branch, é preciso usar o comendo abaixo.
+```
+$ git checkout -t origin/7777
+```
+ou
+
+```
+git checkout -b 7777 origin/7777
+```
+
+## 6.4. Criando um novo branch
+
+Para criar um branch, é preciso usar o comando abaixo.
 O branch atual será copiado para o novo branch.
 
 ```
@@ -434,18 +445,11 @@ $ git checkout 7777    <- seta o branch atual como 7777
 $ git checkout -b 9999 <- faz uma cópia do branch 7777, chama-o de 9999 e seta-o como branch atual
 ```
 
-## 6.4. Enviando um branch para o repositório remoto
-
-```
-$ git push --set-upstream origin 9999
-```
-
 ## 6.5. Enviando um branch para o repositório remoto
 
 ```
 $ git push --set-upstream origin 9999
 ```
-
 
 ## 6.6. Unindo dois branchs (merge)
 
