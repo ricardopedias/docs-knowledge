@@ -13,6 +13,20 @@ ou
 $ mysql --user=username --host=192.168.0.1 --port=3306 --password
 ```
 
+Quando for preciso especificar o host para concetar localmente, se o "localhost" for fornecido,
+o MySQL tentará usar sockets e poderá disparar um erro do tipo ERROR 2002 (HY000):
+
+```
+$ mysql -u username -h localhost --port=3306 -p
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+```
+
+Para não receber essa mensagem e conectar normalmente, use "127.0.0.1" no lugar de "localhost":
+
+```
+$ mysql -u username -h 127.0.0.1 --port=3306 -p
+```
+
 ## 2. Descobrindo informações
 
 ### 2.1. Versão do servidor
