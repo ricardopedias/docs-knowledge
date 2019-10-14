@@ -441,9 +441,25 @@ $ git checkout 9999 <- seta o branch atual como 999
 ou 
 
 ```
+$ git checkout 7777 <- seta o branch atual como 7777
+$ git branch 9999 07aeec983bfc17c25f0b0a7c1d47da8e35df7af8  <- faz uma cópia do branch 7777 no commit 07aeec...
+$ git checkout 9999 <- seta o branch atual como 999
+```
+
+ou
+
+```
 $ git checkout 7777    <- seta o branch atual como 7777
 $ git checkout -b 9999 <- faz uma cópia do branch 7777, chama-o de 9999 e seta-o como branch atual
 ```
+
+ou
+
+```
+$ git checkout 7777    <- seta o branch atual como 7777
+$ git checkout -b 9999 07aeec983bfc17c25f0b0a7c1d47da8e35df7af8 <- faz uma cópia do branch 7777 no commit 07aeec...
+```
+
 
 ## 6.5. Enviando um branch para o repositório remoto
 
