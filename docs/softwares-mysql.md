@@ -249,6 +249,25 @@ ou
 $ mysqldump test > dump.sql
 ```
 
+Importante:
+
+Se o mysqldump for do MySQL 8, poderá apresentar problemas caso tente fazer dump de um banco de versões anteriores do MySQL, resultando no seguinte erro:
+
+```
+Error: Backup failed because The dump process failed with exitcode 2 : Misuse of shell builtins : mysqldump: Couldn't execute 'SELECT COLUMN_NAME, JSON_EXTRACT(HISTOGRAM, '$."number-of-buckets-specified"')
+```
+
+Para solucionar, é preciso editar o arquivo `/etc/mysql/conf.d/mysqldump.cnf` e adicionar o parâmetro `column-statistics=0`.
+
+```
+[mysqldump]
+quick
+quote-names
+max_allowed_packet	= 16M
+column-statistics=0 <-------------
+```
+
+
 ### 5.3. Restaurando vários bancos de dados
 
 Pela linha de comando do MySQL, basta usar o comando *source*:
