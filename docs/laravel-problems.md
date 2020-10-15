@@ -110,4 +110,24 @@ Após esta configuração, as queries passarão a ser adicionadas no arquivo de 
 [2018-01-10 18:57:33] local.INFO: select count(*) as aggregate from `categories`  
 ```
 
+## 4. PHP Unit Tests Error CSRF
+
+Algumas vezes, a execução dos testes de funcionalidade usando requisições post poderão apresentar o seguinte erro:
+
+```
+"message": "CSRF token mismatch.",
+"exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+"file": "/application/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php",
+"line": 226,
+```
+
+Para corrigir e os testes executarem normalmente, é preciso limpar as configurações:
+
+```
+php artisan config:clear
+```
+
+
+
+
 [Voltar para Lista de Opções](../readme.md)
